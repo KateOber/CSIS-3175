@@ -60,7 +60,7 @@ public class EMDatabase {
     }
 
     //INSERT INTO EXPENSE
-    public long insertEXPENSEData(String eName, double amount, int date, String cat, int recurring)
+    public long insertEXPENSEData(String eName, double amount, String date, String cat, int recurring, int repeat)
     {
         SQLiteDatabase dbb = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -70,6 +70,7 @@ public class EMDatabase {
         contentValues.put(myDbHelper.DATE, date);
         contentValues.put(myDbHelper.CATEGORY, cat);
         contentValues.put(myDbHelper.RECURRING, recurring);
+        contentValues.put(myDbHelper.REPEAT, repeat);
         long id = dbb.insert(myDbHelper.TABLE_EXPENSE, null , contentValues);
         return id;
     }
@@ -78,10 +79,12 @@ public class EMDatabase {
     //GET DATA FROM TABLES
 
     //GET USER DATA
-    public String getUSERData(int choice)
+    public Cursor getUSERData()
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
-        String[] columns = {myDbHelper.UID,myDbHelper.USERNAME,myDbHelper.EMAIL,myDbHelper.MyPASSWORD,myDbHelper.ADMINACCESS};
+        String query = "SELECT * FROM "+myhelper.TABLE_USER;
+        Cursor USER = db.rawQuery(query, null);
+        /*
         Cursor cursor =db.query(myDbHelper.TABLE_USER,columns,null,null,null,null,null);
         StringBuffer buffer= new StringBuffer();
         while (cursor.moveToNext())
@@ -104,16 +107,60 @@ public class EMDatabase {
                 }
             }
 
+        }*/
+        return USER;
+    }
+
+    //get Email
+    public String getEmail(){
+        String EMAIL = "email not found";
+        Cursor c = getUSERData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    EMAIL = c.getString(2);
+            }
         }
-        return buffer.toString();
+        c.close();
+        return EMAIL;
+    }
+
+    //get password -- used for login
+    public String getPassword(){
+        String PASSWORD = "password not found";
+        Cursor c = getUSERData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    PASSWORD = c.getString(3);
+            }
+        }
+        c.close();
+        return PASSWORD;
+    }
+
+    //get Admin -- Admin == 1 - admin created account / Admin == 0 - user generated/admin has no access
+    public int getAdmin(){
+        int ADMIN = 0;
+        Cursor c = getUSERData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    ADMIN = c.getInt(4);
+            }
+        }
+        c.close();
+        return ADMIN;
     }
 
 
     //GET INCOME DATA
-    public String getINCOMEData(int choice)
+    public Cursor getINCOMEData()
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
-        String[] columns = {myDbHelper.UID,myDbHelper.USERNAME,myDbHelper.AMOUNT,myDbHelper.CATEGORY};
+        String query = "SELECT * FROM "+myhelper.TABLE_INCOME;
+        Cursor INCOME = db.rawQuery(query, null);
+        /*String[] columns = {myDbHelper.UID,myDbHelper.USERNAME,myDbHelper.AMOUNT,myDbHelper.CATEGORY};
         Cursor cursor =db.query(myDbHelper.TABLE_INCOME,columns,null,null,null,null,null);
         StringBuffer buffer= new StringBuffer();
         while (cursor.moveToNext())
@@ -134,17 +181,67 @@ public class EMDatabase {
                 else if(choice == 3){
                     return category;
                 }
-            }
+            }*/
 
-        }
-        return buffer.toString();
+        return INCOME;
     }
 
+    // Get Income Name -- gets all income names in StringBuilder // seperated by ","
+    public StringBuilder getIName(){
+        StringBuilder INAME = new StringBuilder();
+        Cursor c = getINCOMEData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1))){
+                    INAME.append(c.getString(2));
+                    INAME.append(",");
+                }
+            }
+        }
+        c.close();
+        return INAME;
+    }
+
+    //get income ammount (needs the name of specific income)
+    public double getIAmmount(String name){
+        double AMMOUNT = 0;
+        Cursor c = getINCOMEData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    if(name.equals(c.getString(2))){
+                        AMMOUNT = c.getDouble(3);
+                    }
+            }
+        }
+        c.close();
+        return AMMOUNT;
+    }
+
+    //get income Category (needs the name of specific income)
+    public String getICategory(String name){
+        String CATEGORY = "no Category selected";
+        Cursor c = getINCOMEData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    if(name.equals(c.getString(2))){
+                        CATEGORY = c.getString(4);
+                    }
+            }
+        }
+        c.close();
+        return CATEGORY;
+    }
+
+
     //GET MISC DATA
-    public String getMISCData(int choice)
+    public Cursor getMISCData()
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
-        String[] columns = {myDbHelper.UID,myDbHelper.USERNAME,myDbHelper.DAILYA,myDbHelper.SAVINGS};
+        String query = "SELECT * FROM "+myhelper.TABLE_MISC;
+        Cursor MISC = db.rawQuery(query, null);
+        /*String[] columns = {myDbHelper.UID,myDbHelper.USERNAME,myDbHelper.DAILYA,myDbHelper.SAVINGS};
         Cursor cursor =db.query(myDbHelper.TABLE_MISC,columns,null,null,null,null,null);
         StringBuffer buffer= new StringBuffer();
         while (cursor.moveToNext())
@@ -163,15 +260,45 @@ public class EMDatabase {
                 }
             }
 
-        }
-        return buffer.toString();
+        }*/
+        return MISC;
     }
 
-    //GET MISC EXPENSE
-    public String getEXPENSEData(int choice)
+    //Get Daily Allowance
+    public double getDAllowance(){
+        double DALLOWANCE = 0;
+        Cursor c = getMISCData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    DALLOWANCE = c.getDouble(2);
+            }
+        }
+        c.close();
+        return DALLOWANCE;
+    }
+
+    //Get Savings
+    public double getSavings(){
+        double DALLOWANCE = 0;
+        Cursor c = getMISCData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    DALLOWANCE = c.getDouble(3);
+            }
+        }
+        c.close();
+        return DALLOWANCE;
+    }
+
+    //GET EXPENSE DATA
+    public Cursor getEXPENSEData()
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
-        String[] columns = {myDbHelper.UID,myDbHelper.USERNAME,myDbHelper.ENAME,myDbHelper.AMOUNT,myDbHelper.DATE,myDbHelper.CATEGORY,myDbHelper.RECURRING};
+        String query = "SELECT * FROM "+myhelper.TABLE_EXPENSE;
+        Cursor EXPENSE = db.rawQuery(query, null);
+        /*String[] columns = {myDbHelper.UID,myDbHelper.USERNAME,myDbHelper.ENAME,myDbHelper.AMOUNT,myDbHelper.DATE,myDbHelper.CATEGORY,myDbHelper.RECURRING};
         Cursor cursor =db.query(myDbHelper.TABLE_EXPENSE,columns,null,null,null,null,null);
         StringBuffer buffer= new StringBuffer();
         while (cursor.moveToNext())
@@ -181,7 +308,7 @@ public class EMDatabase {
                 int cid =cursor.getInt(cursor.getColumnIndex(myDbHelper.UID));
                 String ename =cursor.getString(cursor.getColumnIndex(myDbHelper.ENAME));
                 double  amount =cursor.getDouble(cursor.getColumnIndex(myDbHelper.AMOUNT));
-                int  date =cursor.getInt(cursor.getColumnIndex(myDbHelper.DATE));
+                String  date =cursor.getString(cursor.getColumnIndex(myDbHelper.DATE));
                 String category =cursor.getString(cursor.getColumnIndex(myDbHelper.CATEGORY));
                 int  recurring =cursor.getInt(cursor.getColumnIndex(myDbHelper.RECURRING));
                 buffer.append(cid+ "   " + username + "   " + ename +"   " + amount +"   " + date +"   " + category +"   " + recurring +" \n");
@@ -192,7 +319,7 @@ public class EMDatabase {
                     return String.valueOf(amount);
                 }
                 else if(choice == 3){
-                    return String.valueOf(date);
+                    return date;
                 }
                 else if(choice == 4){
                     return category;
@@ -202,9 +329,106 @@ public class EMDatabase {
                 }
             }
 
-        }
-        return buffer.toString();
+        }*/
+        return EXPENSE;
     }
+
+    // Get Expense Name -- gets all Expense names in StringBuilder // seperated by ","
+    public StringBuilder getEName(){
+        StringBuilder ENAME = new StringBuilder();
+        Cursor c = getEXPENSEData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1))){
+                    ENAME.append(c.getString(2));
+                     ENAME.append(",");
+                }
+            }
+        }
+        c.close();
+        return ENAME;
+    }
+
+    //get Expense ammount (needs the name of specific income)
+    public double getEAmmount(String name){
+        double AMMOUNT = 0;
+        Cursor c = getEXPENSEData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    if(name.equals(c.getString(2))){
+                        AMMOUNT = c.getDouble(3);
+                    }
+            }
+        }
+        c.close();
+        return AMMOUNT;
+    }
+
+    //get Expense Monthly Date (needs the name of specific income)
+    public String getEDate(String name){
+        String DATE = "no DATE selected";
+        Cursor c = getEXPENSEData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    if(name.equals(c.getString(2))){
+                        DATE = c.getString(4);
+                    }
+            }
+        }
+        c.close();
+        return DATE;
+    }
+
+    //get Expense Category (needs the name of specific income)
+    public String getECategory(String name){
+        String CATEGORY = "no Category selected";
+        Cursor c = getEXPENSEData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    if(name.equals(c.getString(2))){
+                        CATEGORY = c.getString(5);
+                    }
+            }
+        }
+        c.close();
+        return CATEGORY;
+    }
+
+    //get Expense if recurring (needs the name of specific income) -- recurring == 1 - repeats / recurring == 0 - does not repeat
+    public int getERecurring(String name){
+        int RECURRING = 0;
+        Cursor c = getEXPENSEData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    if(name.equals(c.getString(2))){
+                        RECURRING = c.getInt(6);
+                    }
+            }
+        }
+        c.close();
+        return RECURRING;
+    }
+
+    //get Expense repetition (needs the name of specific income) -- recurring == 0 - does not repeat / else, 1 = 1 month
+    public int getERepeat(String name){
+        int REPEAT = 0;
+        Cursor c = getEXPENSEData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(givenUsername.equals(c.getString(1)))
+                    if(name.equals(c.getString(2))){
+                        REPEAT = c.getInt(6);
+                    }
+            }
+        }
+        c.close();
+        return REPEAT;
+    }
+
 
 
     //DELETE USER FROM DATABASE
@@ -242,6 +466,16 @@ public class EMDatabase {
         return count;
     }
 
+    //CHANGE ADMIN ACCESS
+    public Boolean updateEACCESS(String ename, int access)
+    {
+        SQLiteDatabase db = myhelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(myDbHelper.ADMINACCESS,access);
+        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.ADMINACCESS+"='"+access+"' WHERE "+myDbHelper.USERNAME+"='"+givenUsername+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
+        return true;
+    }
+
     //CHANGE DAILY ALLOWANCE
     public int updateDAllowance(double dAllowance)
     {
@@ -275,7 +509,7 @@ public class EMDatabase {
     }
 
     //CHANGE DATE
-    public boolean updateEDate(String ename, int date)
+    public boolean updateEDate(String ename, String date)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -294,13 +528,13 @@ public class EMDatabase {
         return true;
     }
 
-    //CHANGE ADMIN ACCESS
-    public Boolean updateEACCESS(String ename, int access)
+    //CHANGE RECURRING
+    public Boolean updateERepeat(String ename, int repeat)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(myDbHelper.ADMINACCESS,access);
-        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.ADMINACCESS+"='"+access+"' WHERE "+myDbHelper.USERNAME+"='"+givenUsername+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
+        contentValues.put(myDbHelper.RECURRING,repeat);
+        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.REPEAT+"='"+repeat+"' WHERE "+myDbHelper.USERNAME+"='"+givenUsername+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
         return true;
     }
 
@@ -343,9 +577,10 @@ public class EMDatabase {
         private static final String ENAME= "ExpenseName";    // Column III
         private static final String DATE= "ExpenseName";    // Column V
         private static final String RECURRING= "Recurring";    // Column VII
+        private static final String REPEAT= "Repeat";    // Column VIII
         private static final String CREATE_EXPENSE_TABLE = "CREATE TABLE "+TABLE_EXPENSE+
                 " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+USERNAME+" VARCHAR(255) ,"+ ENAME +" VARCHAR(255) ,"+ AMOUNT +" REAL ,"+ DATE +" TEXT ,"+
-                CATEGORY +" VARCHAR(255) ,"+ RECURRING +" INTEGER);";
+                CATEGORY +" VARCHAR(255) ,"+ RECURRING +" INTEGER ,"+ REPEAT +" INTEGER);";
         private static final String DROP_EXPENSE_TABLE ="DROP TABLE IF EXISTS "+TABLE_MISC;
 
         private Context context;
