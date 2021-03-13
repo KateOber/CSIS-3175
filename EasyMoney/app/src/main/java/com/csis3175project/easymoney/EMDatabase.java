@@ -6,15 +6,22 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.preference.PreferenceManager;
 
 import static android.content.Context.MODE_PRIVATE;
 
 public class EMDatabase {
     myDbHelper myhelper;
-    String givenUsername;
     public EMDatabase(Context context)
     {
         myhelper = new myDbHelper(context);
+
+    }
+
+    public String username(Context context){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        String givenUsername = preferences.getString("key1","");
+        return givenUsername;
     }
 
 
@@ -60,11 +67,11 @@ public class EMDatabase {
     }
 
     //INSERT INTO EXPENSE
-    public long insertEXPENSEData(String eName, double amount, String date, String cat, int recurring, int repeat)
+    public long insertEXPENSEData(String username, String eName, double amount, String date, String cat, int recurring, int repeat)
     {
         SQLiteDatabase dbb = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(myDbHelper.USERNAME, givenUsername);
+        contentValues.put(myDbHelper.USERNAME, username);
         contentValues.put(myDbHelper.ENAME, eName);
         contentValues.put(myDbHelper.AMOUNT, amount);
         contentValues.put(myDbHelper.DATE, date);
@@ -111,13 +118,13 @@ public class EMDatabase {
         return USER;
     }
 
-    //get Email
-    public String getEmail(){
+    //get Email -- needs username
+    public String getEmail(String username){
         String EMAIL = "email not found";
         Cursor c = getUSERData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     EMAIL = c.getString(2);
             }
         }
@@ -125,13 +132,13 @@ public class EMDatabase {
         return EMAIL;
     }
 
-    //get password -- used for login
-    public String getPassword(){
+    //get password -- used for login -- needs username
+    public String getPassword(String username){
         String PASSWORD = "password not found";
         Cursor c = getUSERData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     PASSWORD = c.getString(3);
             }
         }
@@ -139,13 +146,13 @@ public class EMDatabase {
         return PASSWORD;
     }
 
-    //get Admin -- Admin == 1 - admin created account / Admin == 0 - user generated/admin has no access
-    public int getAdmin(){
+    //get Admin -- Admin == 1 - admin created account / Admin == 0 - user generated/admin has no access -- needs username
+    public int getAdmin(String username){
         int ADMIN = 0;
         Cursor c = getUSERData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     ADMIN = c.getInt(4);
             }
         }
@@ -186,13 +193,13 @@ public class EMDatabase {
         return INCOME;
     }
 
-    // Get Income Name -- gets all income names in StringBuilder // seperated by ","
-    public StringBuilder getIName(){
+    // Get Income Name -- gets all income names in StringBuilder // seperated by "," -- needs username
+    public StringBuilder getIName(String username){
         StringBuilder INAME = new StringBuilder();
         Cursor c = getINCOMEData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1))){
+                if(username.equals(c.getString(1))){
                     INAME.append(c.getString(2));
                     INAME.append(",");
                 }
@@ -202,13 +209,13 @@ public class EMDatabase {
         return INAME;
     }
 
-    //get income ammount (needs the name of specific income)
-    public double getIAmmount(String name){
+    //get income ammount (needs the name of specific income and username)
+    public double getIAmmount(String name, String username){
         double AMMOUNT = 0;
         Cursor c = getINCOMEData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     if(name.equals(c.getString(2))){
                         AMMOUNT = c.getDouble(3);
                     }
@@ -218,13 +225,13 @@ public class EMDatabase {
         return AMMOUNT;
     }
 
-    //get income Category (needs the name of specific income)
-    public String getICategory(String name){
+    //get income Category (needs the name of specific income and username)
+    public String getICategory(String name, String username){
         String CATEGORY = "no Category selected";
         Cursor c = getINCOMEData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     if(name.equals(c.getString(2))){
                         CATEGORY = c.getString(4);
                     }
@@ -264,13 +271,13 @@ public class EMDatabase {
         return MISC;
     }
 
-    //Get Daily Allowance
-    public double getDAllowance(){
+    //Get Daily Allowance -- needs username
+    public double getDAllowance(String username){
         double DALLOWANCE = 0;
         Cursor c = getMISCData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     DALLOWANCE = c.getDouble(2);
             }
         }
@@ -278,13 +285,13 @@ public class EMDatabase {
         return DALLOWANCE;
     }
 
-    //Get Savings
-    public double getSavings(){
+    //Get Savings -- needs username
+    public double getSavings(String username){
         double DALLOWANCE = 0;
         Cursor c = getMISCData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     DALLOWANCE = c.getDouble(3);
             }
         }
@@ -333,13 +340,13 @@ public class EMDatabase {
         return EXPENSE;
     }
 
-    // Get Expense Name -- gets all Expense names in StringBuilder // seperated by ","
-    public StringBuilder getEName(){
+    // Get Expense Name -- gets all Expense names in StringBuilder // seperated by "," -- needs username
+    public StringBuilder getEName(String username){
         StringBuilder ENAME = new StringBuilder();
         Cursor c = getEXPENSEData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1))){
+                if(username.equals(c.getString(1))){
                     ENAME.append(c.getString(2));
                      ENAME.append(",");
                 }
@@ -349,13 +356,13 @@ public class EMDatabase {
         return ENAME;
     }
 
-    //get Expense ammount (needs the name of specific income)
-    public double getEAmmount(String name){
+    //get Expense ammount (needs the name of specific income and username)
+    public double getEAmmount(String name, String username){
         double AMMOUNT = 0;
         Cursor c = getEXPENSEData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     if(name.equals(c.getString(2))){
                         AMMOUNT = c.getDouble(3);
                     }
@@ -365,13 +372,13 @@ public class EMDatabase {
         return AMMOUNT;
     }
 
-    //get Expense Monthly Date (needs the name of specific income)
-    public String getEDate(String name){
+    //get Expense Monthly Date (needs the name of specific income and username)
+    public String getEDate(String name,String username){
         String DATE = "no DATE selected";
         Cursor c = getEXPENSEData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     if(name.equals(c.getString(2))){
                         DATE = c.getString(4);
                     }
@@ -381,13 +388,13 @@ public class EMDatabase {
         return DATE;
     }
 
-    //get Expense Category (needs the name of specific income)
-    public String getECategory(String name){
+    //get Expense Category (needs the name of specific income and username)
+    public String getECategory(String name, String username){
         String CATEGORY = "no Category selected";
         Cursor c = getEXPENSEData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     if(name.equals(c.getString(2))){
                         CATEGORY = c.getString(5);
                     }
@@ -397,13 +404,13 @@ public class EMDatabase {
         return CATEGORY;
     }
 
-    //get Expense if recurring (needs the name of specific income) -- recurring == 1 - repeats / recurring == 0 - does not repeat
-    public int getERecurring(String name){
+    //get Expense if recurring (needs the name of specific income and username) -- recurring == 1 - repeats / recurring == 0 - does not repeat
+    public int getERecurring(String name, String username){
         int RECURRING = 0;
         Cursor c = getEXPENSEData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     if(name.equals(c.getString(2))){
                         RECURRING = c.getInt(6);
                     }
@@ -413,13 +420,13 @@ public class EMDatabase {
         return RECURRING;
     }
 
-    //get Expense repetition (needs the name of specific income) -- recurring == 0 - does not repeat / else, 1 = 1 month
-    public int getERepeat(String name){
+    //get Expense repetition (needs the name of specific income and username) -- recurring == 0 - does not repeat / else, 1 = 1 month
+    public int getERepeat(String name, String username){
         int REPEAT = 0;
         Cursor c = getEXPENSEData();
         if(c.getCount()>0){
             while(c.moveToNext()){
-                if(givenUsername.equals(c.getString(1)))
+                if(username.equals(c.getString(1)))
                     if(name.equals(c.getString(2))){
                         REPEAT = c.getInt(6);
                     }
@@ -456,85 +463,85 @@ public class EMDatabase {
     }
 
     // CHANGE PASSWORD
-    public int updatePassword(String oldPassword , String newPassword)
+    public int updatePassword(String oldPassword , String newPassword, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.MyPASSWORD,newPassword);
-        String[] whereArgs= {givenUsername};
+        String[] whereArgs= {username};
         int count =db.update(myDbHelper.TABLE_USER,contentValues, myDbHelper.USERNAME+" = ?",whereArgs );
         return count;
     }
 
     //CHANGE ADMIN ACCESS
-    public Boolean updateEACCESS(String ename, int access)
+    public Boolean updateEACCESS(String ename, int access, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.ADMINACCESS,access);
-        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.ADMINACCESS+"='"+access+"' WHERE "+myDbHelper.USERNAME+"='"+givenUsername+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
+        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.ADMINACCESS+"='"+access+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
         return true;
     }
 
     //CHANGE DAILY ALLOWANCE
-    public int updateDAllowance(double dAllowance)
+    public int updateDAllowance(double dAllowance, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.DAILYA,dAllowance);
-        String[] whereArgs= {givenUsername};
+        String[] whereArgs= {username};
         int count =db.update(myDbHelper.TABLE_MISC,contentValues, myDbHelper.USERNAME+" = ?",whereArgs );
         return count;
     }
 
     //CHANGE SAVINGS
-    public int updateSavings(double savings)
+    public int updateSavings(double savings, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.DAILYA,savings);
-        String[] whereArgs= {givenUsername};
+        String[] whereArgs= {username};
         int count =db.update(myDbHelper.TABLE_MISC,contentValues, myDbHelper.USERNAME+" = ?",whereArgs );
         return count;
     }
 
     //CHANGE AMOUNT
-    public boolean updateEDate(String ename, double amount)
+    public boolean updateEDate(String ename, double amount, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.AMOUNT,amount);
-        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.AMOUNT+"='"+amount+"' WHERE "+myDbHelper.USERNAME+"='"+givenUsername+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
+        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.AMOUNT+"='"+amount+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
         return true;
     }
 
     //CHANGE DATE
-    public boolean updateEDate(String ename, String date)
+    public boolean updateEDate(String ename, String date, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.DATE,date);
-        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.DATE+"='"+date+"' WHERE "+myDbHelper.USERNAME+"='"+givenUsername+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
+        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.DATE+"='"+date+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
         return true;
     }
 
     //CHANGE RECURRING
-    public Boolean updateERecurring(String ename, int recurring)
+    public Boolean updateERecurring(String ename, int recurring, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.RECURRING,recurring);
-        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.RECURRING+"='"+recurring+"' WHERE "+myDbHelper.USERNAME+"='"+givenUsername+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
+        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.RECURRING+"='"+recurring+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
         return true;
     }
 
     //CHANGE RECURRING
-    public Boolean updateERepeat(String ename, int repeat)
+    public Boolean updateERepeat(String ename, int repeat, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.RECURRING,repeat);
-        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.REPEAT+"='"+repeat+"' WHERE "+myDbHelper.USERNAME+"='"+givenUsername+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
+        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.REPEAT+"='"+repeat+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
         return true;
     }
 
