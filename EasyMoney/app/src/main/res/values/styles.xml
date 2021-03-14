@@ -1,0 +1,32 @@
+<resources>
+
+    <style name="Widget.Theme.EasyMoney.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.Theme.EasyMoney.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+    <style name="appTheme" parent="Theme.AppCompat.Light">
+    </style>
+    
+    <style name="btnTextStyle1">
+        <item name="android:textSize"> 20sp</item>
+        <item name="android:fontFamily"> @font/lato_light</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="btnTextStyle2">
+        <item name="android:textSize"> 20sp</item>
+        <item name="android:fontFamily"> @font/lato_light</item>
+        <item name="android:textColor">@color/primaryBlue</item>
+    </style>
+
+    <style name="txtTitle">
+        <item name="android:textSize"> 30sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>
