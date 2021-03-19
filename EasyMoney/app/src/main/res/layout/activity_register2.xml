@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register2">
+    tools:context=".Register2Activity">
 
     <ImageView
         android:id="@+id/btnBack"
@@ -39,14 +39,13 @@
         android:text="@string/txt_register_subInfo"
         app:layout_constraintBottom_toTopOf="@+id/userEmaill"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLoginTitle"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.007" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/montSalary"
-        app:prefixText="@string/prefix"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -55,10 +54,14 @@
         android:hint="@string/hint_monthly_salary"
         android:inputType="numberDecimal"
         android:selectAllOnFocus="true"
+        app:boxBackgroundColor="@color/gray6"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
         app:layout_constraintBottom_toTopOf="@+id/userEmaill"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:prefixText="@string/prefix">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -68,7 +71,6 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/userEmaill"
-        app:prefixText="@string/prefix"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -78,11 +80,14 @@
         android:hint="@string/hint_monthly_saving"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
+        app:boxBackgroundColor="@color/gray6"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
         app:layout_constraintBottom_toTopOf="@+id/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/montSalary"
-        >
+        app:prefixText="@string/prefix">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -101,7 +106,7 @@
         android:layout_marginEnd="20dp"
         android:background="@drawable/style_btn_blue"
         android:enabled="true"
-        android:text="@string/txt_btn_next"
+        android:text="@string/txt_btn_signUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
