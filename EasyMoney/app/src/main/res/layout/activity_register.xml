@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/txtLoginTitle"
-        style="@style/txtTitle"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -28,14 +28,14 @@
         android:text="@string/txt_register_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnBack" />
-
+    <!--        style="@style/txtTitle"-->
 
     <TextView
         android:id="@+id/txtLoginSubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:style="@style/txtSub"
+
         android:text="@string/txt_register_subInfo"
         app:layout_constraintBottom_toTopOf="@+id/userEmaill"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,6 +43,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLoginTitle"
         app:layout_constraintVertical_bias="0.015" />
+
+    <!--        android:style="@style/txtSub"-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/montSalary"
@@ -71,9 +73,11 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="20dp"
         android:hint="@string/prompt_user_name"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/montSalary">>
@@ -110,7 +114,7 @@
 
     <Button
         android:id="@+id/login"
-        style="@style/btnTextStyle1"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -126,23 +130,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.305" />
-
+    <!--        style="@style/btnTextStyle1"-->
     <TextView
         android:id="@+id/txtSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
         android:layout_marginTop="76dp"
-        android:style="@style/txtRegister"
+
         android:text="@string/txt_login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login" />
-
+<!--    android:style="@style/txtRegister"-->
     <TextView
         android:id="@+id/btnSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:style="@style/btnRegister"
         android:text="@string/btn_login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -150,6 +153,8 @@
         app:layout_constraintStart_toEndOf="@+id/txtSignIn"
         app:layout_constraintTop_toBottomOf="@+id/login"
         app:layout_constraintVertical_bias="0.694" />
+
+<!--    android:style="@style/btnRegister"-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

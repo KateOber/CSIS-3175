@@ -29,6 +29,7 @@
     <string name="hint_monthly_salary">Monthly Salary</string>
     <string name="hint_monthly_saving">Monthly Saving</string>
     <string name="prefix">$</string>
-    <string name="btn_sign_up">Sign UP</string>
+    <string name="btn_sign_up">Sign up</string>
     <string name="group_name"> Group 6 - CSIS3175 Team project</string>
+    <string name="app_icon_description">App icon image</string>
 </resources>
