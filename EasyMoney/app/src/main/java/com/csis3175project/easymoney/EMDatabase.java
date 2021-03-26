@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
@@ -144,6 +145,23 @@ public class EMDatabase {
         }
         c.close();
         return PASSWORD;
+    }
+
+    //get password is correct -- used for login -- needs username and password input
+    public boolean checkLogin(String username, String password){
+        boolean login = false;
+        String PASSWORD = "NA";
+        Cursor c = getUSERData();
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                if(username.equals(c.getString(1)))
+                    PASSWORD = c.getString(3);
+                if(password.equals(PASSWORD))
+                    login = true;
+            }
+        }
+        c.close();
+        return login;
     }
 
     //get Admin -- Admin == 1 - admin created account / Admin == 0 - user generated/admin has no access -- needs username
@@ -439,70 +457,83 @@ public class EMDatabase {
 
 
     //DELETE USER FROM DATABASE
-    public  int deleteUSER(String username)
+    public  boolean deleteUSER(String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         String[] whereArgs ={username};
 
-        int count =db.delete(myDbHelper.TABLE_USER ,myDbHelper.USERNAME+" = ?",whereArgs);
+        int count = db.delete(myDbHelper.TABLE_USER ,myDbHelper.USERNAME+" = ?",whereArgs);
         db.delete(myDbHelper.TABLE_INCOME ,myDbHelper.USERNAME+" = ?",whereArgs);
         db.delete(myDbHelper.TABLE_MISC ,myDbHelper.USERNAME+" = ?",whereArgs);
         db.delete(myDbHelper.TABLE_EXPENSE ,myDbHelper.USERNAME+" = ?",whereArgs);
-        return  count;
+        if(count>0)
+            return true;
+        else return false;
     }
 
     // CHANGE USERNAME
-    public int updateUsername(String oldName , String newName)
+    public boolean updateUsername(String oldName , String newName)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.USERNAME,newName);
         String[] whereArgs= {oldName};
         int count =db.update(myDbHelper.TABLE_USER,contentValues, myDbHelper.USERNAME+" = ?",whereArgs );
-        return count;
+        if(count>0)
+            return true;
+        else return false;
     }
 
     // CHANGE PASSWORD
-    public int updatePassword(String oldPassword , String newPassword, String username)
+    public boolean updatePassword(String oldPassword , String newPassword, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.MyPASSWORD,newPassword);
         String[] whereArgs= {username};
         int count =db.update(myDbHelper.TABLE_USER,contentValues, myDbHelper.USERNAME+" = ?",whereArgs );
-        return count;
+        if(count>0)
+            return true;
+        else return false;
     }
 
     //CHANGE ADMIN ACCESS
-    public Boolean updateEACCESS(String ename, int access, String username)
+    public Boolean updateAACCESS(int access, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.ADMINACCESS,access);
-        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.ADMINACCESS+"='"+access+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
-        return true;
+        String[] whereArgs = {username};
+        int count =db.update(myDbHelper.TABLE_USER,contentValues, myDbHelper.USERNAME+" = ?",whereArgs );
+        if(count>0)
+            return true;
+        else return false;
     }
 
     //CHANGE DAILY ALLOWANCE
-    public int updateDAllowance(double dAllowance, String username)
+    public boolean updateDAllowance(double dAllowance, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.DAILYA,dAllowance);
         String[] whereArgs= {username};
         int count =db.update(myDbHelper.TABLE_MISC,contentValues, myDbHelper.USERNAME+" = ?",whereArgs );
-        return count;
+        if(count>0)
+            return true;
+        else return false;
     }
 
     //CHANGE SAVINGS
-    public int updateSavings(double savings, String username)
+    public boolean updateSavings(double savings, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.DAILYA,savings);
         String[] whereArgs= {username};
         int count =db.update(myDbHelper.TABLE_MISC,contentValues, myDbHelper.USERNAME+" = ?",whereArgs );
-        return count;
+        if(count>0)
+            return true;
+        else return false;
     }
 
     //CHANGE AMOUNT
@@ -511,8 +542,12 @@ public class EMDatabase {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.AMOUNT,amount);
-        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.AMOUNT+"='"+amount+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
-        return true;
+        try {
+            db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.AMOUNT+"='"+amount+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
     //CHANGE DATE
@@ -521,28 +556,40 @@ public class EMDatabase {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.DATE,date);
-        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.DATE+"='"+date+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
-        return true;
+        try {
+            db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.DATE+"='"+date+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
     //CHANGE RECURRING
-    public Boolean updateERecurring(String ename, int recurring, String username)
+    public boolean updateERecurring(String ename, int recurring, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.RECURRING,recurring);
-        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.RECURRING+"='"+recurring+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
-        return true;
+        try {
+            db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.RECURRING+"='"+recurring+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
     //CHANGE RECURRING
-    public Boolean updateERepeat(String ename, int repeat, String username)
+    public boolean updateERepeat(String ename, int repeat, String username)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(myDbHelper.RECURRING,repeat);
-        db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.REPEAT+"='"+repeat+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
-        return true;
+        try {
+            db.execSQL("UPDATE "+myDbHelper.TABLE_EXPENSE+" SET "+myDbHelper.REPEAT+"='"+repeat+"' WHERE "+myDbHelper.USERNAME+"='"+username+"' AND "+myDbHelper.ENAME+"='"+ename+"'");
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
 
