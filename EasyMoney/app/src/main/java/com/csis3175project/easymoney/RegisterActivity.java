@@ -5,11 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class RegisterActivity extends AppCompatActivity {
     EMDatabase myhelper;
@@ -25,12 +24,12 @@ public class RegisterActivity extends AppCompatActivity {
 
         myhelper = new EMDatabase(this);
 
-        EditText userName = findViewById(R.id.userName);
-        EditText userEmail = findViewById(R.id.userEmail);
-        EditText userPassword = findViewById(R.id.userPassword);
+        TextInputEditText userName = findViewById(R.id.userName);
+        TextInputEditText userEmail = findViewById(R.id.userEmail);
+        TextInputEditText userPassword = findViewById(R.id.userPassword);
 
         Button btnSignUp = findViewById(R.id.btnSignUp);
-        TextView btnGoSignIn = findViewById(R.id.btnGoSignUp);
+        TextView btnGoSignIn = findViewById(R.id.btnGoSignUpWelcome);
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
