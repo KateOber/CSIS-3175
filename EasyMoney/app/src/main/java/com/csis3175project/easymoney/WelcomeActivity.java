@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.csis3175project.easymoney.ui.login.LoginActivity;
-
 public class WelcomeActivity extends AppCompatActivity {
 
     @Override
