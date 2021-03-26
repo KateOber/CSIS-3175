@@ -21,14 +21,14 @@
         android:text="@string/txt_welcome"
         android:textColor="@color/white"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        app:layout_constraintBottom_toTopOf="@+id/btnGoLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnGoLogin"
         style="@style/btnTextStyle2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtWelcome" />
 
     <Button
-        android:id="@+id/btnSignUp"
+        android:id="@+id/btnGoSignUp"
         style="@style/btnTextStyle1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@+id/btnGoLogin"
         app:layout_constraintVertical_bias="0.046" />
 
     <ImageView

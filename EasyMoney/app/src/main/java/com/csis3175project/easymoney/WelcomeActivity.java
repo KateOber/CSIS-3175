@@ -16,13 +16,13 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Button btnLogin = findViewById(R.id.btnLogin);
-        Button btnRegister = findViewById(R.id.btnSignUp);
+        Button btnLogin = findViewById(R.id.btnGoLogin);
+        Button btnRegister = findViewById(R.id.btnGoSignUp);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WelcomeActivity.this, Login_test.class));
+                startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
 
             }
         });
