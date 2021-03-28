@@ -65,7 +65,7 @@
         tools:boxCornerRadiusTopStart="5dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/testUserName"
+            android:id="@+id/inputUserName"
             style="@style/txtSub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -91,7 +91,7 @@
         tools:boxCornerRadiusTopStart="5dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/testPassword"
+            android:id="@+id/inputPassword"
             style="@style/txtSub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -124,7 +124,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
         android:layout_marginTop="92dp"
+        android:layout_marginBottom="72dp"
         android:text="@string/txt_register"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
@@ -137,7 +139,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="92dp"
         android:layout_marginEnd="86dp"
+        android:layout_marginBottom="71dp"
         android:text="@string/btn_sign_up"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtSignIn"
         app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
