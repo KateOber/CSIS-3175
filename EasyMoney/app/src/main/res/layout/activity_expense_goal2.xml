@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9E9E9E"
+    tools:context=".expenseGoal2">
+
+    <Button
+        android:id="@+id/goal2BackBtn"
+        android:layout_width="53dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        app:icon="@drawable/btn_backbutton"
+        app:iconGravity="top"
+        app:iconTint="#676767"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/goal2Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="23dp"
+        android:text="@string/goalHeader"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/goal2BackBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/goal2PercentageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="#00FFFFFF"
+        android:text="@string/goalPercentage"
+        android:textColor="#676767"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goal2BackBtn" />
+
+    <Button
+        android:id="@+id/goal2ListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:background="#00FFFFFF"
+        android:text="@string/goalList"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/goal2PercentageBtn"
+        app:layout_constraintTop_toBottomOf="@+id/goal2Header" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

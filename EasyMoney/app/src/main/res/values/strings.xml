@@ -33,4 +33,9 @@
     <string name="group_name"> Group 6 - CSIS3175 Team project</string>
     <string name="app_icon_description">App icon image</string>
     <string name="trackerHeader">Expense Tracker</string>
+    <string name="goalHeader">Expense Goal</string>
+    <string name="goalPercentage">Percentage</string>
+    <string name="goalList">List</string>
+    <string name="profileHeader">Profile</string>
+    <string name="editProfileBtn">Edit Profile</string>
 </resources>
