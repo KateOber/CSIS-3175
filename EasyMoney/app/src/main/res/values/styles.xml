@@ -2,7 +2,6 @@
 <resources>
 
 
-
     <style name="btnTextStyle1">
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
@@ -24,7 +23,7 @@
     <style name="txtSub">
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
-        <item name="android:textColor">@color/gray3</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="txtSub.bold">

@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.007" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/montSalary"
+        android:id="@+id/userEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -83,10 +83,10 @@
         app:boxBackgroundColor="@color/gray6"
         app:boxCornerRadiusTopEnd="5dp"
         app:boxCornerRadiusTopStart="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/montSalary"
+        app:layout_constraintTop_toBottomOf="@+id/userEmail"
         app:prefixText="@string/prefix">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -96,7 +96,7 @@
 
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnSignUp"
 
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -121,16 +121,16 @@
 
         android:text="@string/txt_login"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
     <TextView
-        android:id="@+id/btnSignIn"
+        android:id="@+id/btnGoSignIn"
         android:layout_width="wrap_content"
         android:layout_height="17dp"
         android:layout_marginTop="92dp"
         android:layout_marginEnd="110dp"
         android:text="@string/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
