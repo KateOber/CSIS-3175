@@ -3,7 +3,9 @@ package com.csis3175project.easymoney;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -27,6 +29,11 @@ public class LoginActivity extends AppCompatActivity {
         TextInputEditText password = findViewById(R.id.inputPassword);
         TextInputEditText userName = findViewById(R.id.inputUserName);
 
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("key1", inputUserName);
+        editor.commit();
+
         ImageView btnBack = findViewById(R.id.btnBack);
         Button btnLogin = findViewById(R.id.btnSignUp);
 
@@ -39,14 +46,13 @@ public class LoginActivity extends AppCompatActivity {
                 inputUserName = userName.getText().toString();
                 inputUserPassword = password.getText().toString();
 
-                System.out.println(inputUserName + " : " + inputUserPassword);
-
+                System.out.println(inputUserName + " : " + inputUserPassword);//test
 
                 boolean ischecked =
                         myhelper.checkLogin(inputUserName, inputUserPassword);
 
                 if(ischecked) {
-                    Toast.makeText(LoginActivity.this, "Welcome," + inputUserName, Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Welcome, " + inputUserName, Toast.LENGTH_LONG).show();
 //                    startActivity(new Intent(LoginActivity,this. --put the name of screen--.class)
 
                 } else {
