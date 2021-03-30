@@ -1,32 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Widget.Theme.EasyMoney.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">@color/black_overlay</item>
-    </style>
 
-    <style name="Widget.Theme.EasyMoney.ButtonBar.Fullscreen" parent="">
-        <item name="android:background">@color/black_overlay</item>
-        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
-    </style>
-
-    <style name="appTheme" parent="Theme.AppCompat.Light">
-    </style>
-    
     <style name="btnTextStyle1">
-        <item name="android:textSize"> 20sp</item>
-        <item name="android:fontFamily"> @font/lato_light</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="btnTextStyle2">
-        <item name="android:textSize"> 20sp</item>
-        <item name="android:fontFamily"> @font/lato_light</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
         <item name="android:textColor">@color/primaryBlue</item>
     </style>
 
     <style name="txtTitle">
-        <item name="android:textSize"> 30sp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:fontFamily">@font/lato_light</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="txtSub">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="txtSub.bold">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+        <item name="android:textColor">@color/gray3</item>
+    </style>
+
+    <style name="txtRegister">
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/lato_light</item>
+        <item name="android:textColor">@color/gray4</item>
+    </style>
+
+    <style name="btnRegister">
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+        <item name="android:textColor">@color/gray4</item>
+    </style>
+
+    <style name="CircularDeterminateProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/circle</item>
+    </style>
+
 </resources>

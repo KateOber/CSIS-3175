@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9E9E9E"
+    tools:context=".expenseGoal2">
+
+    <Button
+        android:id="@+id/goal2BackBtn"
+        android:layout_width="53dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        app:icon="@drawable/btn_backbutton"
+        app:iconGravity="top"
+        app:iconTint="#676767"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/goal2Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="23dp"
+        android:text="@string/goalHeader"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/goal2BackBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/goal2PercentageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="#00FFFFFF"
+        android:text="@string/goalPercentage"
+        android:textColor="#676767"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goal2BackBtn" />
+
+    <Button
+        android:id="@+id/goal2ListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:background="#00FFFFFF"
+        android:text="@string/goalList"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/goal2PercentageBtn"
+        app:layout_constraintTop_toBottomOf="@+id/goal2Header" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/goal2ListCard"
+        android:layout_width="382dp"
+        android:layout_height="304dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="199dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goal2PercentageBtn"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/goal2Transportimg"
+            android:layout_width="63dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/goalTransport"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goal2Groceriesimg"
+            app:srcCompat="@drawable/ic_transport"
+            app:tint="@color/transportCat" />
+
+        <TextView
+            android:id="@+id/goal2Transporttxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/goalTransport"
+            android:textColor="#000000"
+            app:layout_constraintStart_toEndOf="@+id/goal2Transportimg"
+            app:layout_constraintTop_toBottomOf="@+id/goal2Groceriestxt" />
+
+        <TextView
+            android:id="@+id/goal2TotalTransport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:text="$0.00"
+            android:textColor="#070202"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goal2TotalGroceries" />
+
+        <ImageView
+            android:id="@+id/goal2Otherimg"
+            android:layout_width="63dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
+            android:contentDescription="@string/goalOther"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goal2Shoppingimg"
+            app:srcCompat="@drawable/ic_other"
+            app:tint="@color/otherCat" />
+
+        <TextView
+            android:id="@+id/goal2Othertxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/goalOther"
+            android:textColor="#000000"
+            android:translationX="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/goal2Otherimg"
+            app:layout_constraintTop_toBottomOf="@+id/goal2Shoppingtxt" />
+
+        <TextView
+            android:id="@+id/goal2TotalOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:text="$0.00"
+            android:textColor="#070202"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goal2TotalShopping" />
+
+        <ImageView
+            android:id="@+id/goal2Shoppingimg"
+            android:layout_width="63dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/goalShopping"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goal2Transportimg"
+            app:srcCompat="@drawable/ic_shopping"
+            app:tint="@color/shopCat" />
+
+        <TextView
+            android:id="@+id/goal2Shoppingtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/goalShopping"
+            android:textColor="#000000"
+            app:layout_constraintStart_toEndOf="@+id/goal2Shoppingimg"
+            app:layout_constraintTop_toBottomOf="@+id/goal2Transporttxt" />
+
+        <TextView
+            android:id="@+id/goal2TotalShopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:text="$0.00"
+            android:textColor="#070202"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goal2TotalTransport" />
+
+        <TextView
+            android:id="@+id/goal2TotalGroceries"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:text="$0.00"
+            android:textColor="#070202"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goal2TotalEntertainment" />
+
+        <TextView
+            android:id="@+id/goal2TotalEntertainment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="16dp"
+            android:text="$0.00"
+            android:textColor="#070202"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goal2TotalDinning" />
+
+        <TextView
+            android:id="@+id/goal2TotalDinning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:text="$0.00"
+            android:textColor="#070202"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/goal2Diningimg"
+            android:layout_width="63dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/goalDining"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_dinning"
+            app:tint="@color/diningCat" />
+
+        <TextView
+            android:id="@+id/goal2Diningtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/goalDining"
+            android:textColor="#000000"
+            app:layout_constraintStart_toEndOf="@+id/goal2Diningimg"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/goal2Entertainmentimg"
+            android:layout_width="63dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/goalEnternainment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goal2Diningimg"
+            app:srcCompat="@drawable/ic_entretainment"
+            app:tint="@color/entretainCat" />
+
+        <TextView
+            android:id="@+id/trackerIncomeHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="26dp"
+            android:text="@string/goalEnternainment"
+            android:textColor="#000000"
+            app:layout_constraintStart_toEndOf="@+id/goal2Entertainmentimg"
+            app:layout_constraintTop_toBottomOf="@+id/goal2Diningtxt" />
+
+        <TextView
+            android:id="@+id/goal2Groceriestxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/goalGroceries"
+            android:textColor="#000000"
+            app:layout_constraintStart_toEndOf="@+id/goal2Groceriesimg"
+            app:layout_constraintTop_toBottomOf="@+id/trackerIncomeHead" />
+
+        <ImageView
+            android:id="@+id/goal2Groceriesimg"
+            android:layout_width="63dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/goalGroceries"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goal2Entertainmentimg"
+            app:srcCompat="@drawable/ic_groceries"
+            app:tint="@color/groceriesCat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9E9E9E"
+    tools:context=".ExpenseGoal">
+
+    <Button
+        android:id="@+id/goal1BackBtn"
+        android:layout_width="53dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        app:icon="@drawable/btn_backbutton"
+        app:iconGravity="top"
+        app:iconTint="#676767"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/goal1Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="23dp"
+        android:text="@string/goalHeader"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/goal1BackBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/goal1PercentageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="#00FFFFFF"
+        android:text="@string/goalPercentage"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goal1BackBtn" />
+
+    <Button
+        android:id="@+id/goal1ListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:background="#00FFFFFF"
+        android:text="@string/goalList"
+        android:textColor="#676767"
+        app:layout_constraintStart_toEndOf="@+id/goal1PercentageBtn"
+        app:layout_constraintTop_toBottomOf="@+id/goal1Header" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/goalDiningCard"
+        android:layout_width="171dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goal1PercentageBtn">
+
+        <TextView
+            android:id="@+id/trackerExpenseName2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/goalDining"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/goalCircleDining"
+            style="@style/CircularDeterminateProgressBar"
+            android:layout_width="107dp"
+            android:layout_height="106dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:progress="60" />
+
+        <TextView
+            android:id="@+id/goalPercentageDining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="@+id/goalCircleDining"
+            app:layout_constraintEnd_toEndOf="@+id/goalCircleDining"
+            app:layout_constraintStart_toStartOf="@+id/goalCircleDining"
+            app:layout_constraintTop_toTopOf="@+id/goalCircleDining"
+            tools:text="0%" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/goalEntertainmentCard"
+        android:layout_width="171dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="19dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/goalDiningCard"
+        app:layout_constraintTop_toBottomOf="@+id/goal1ListButton">
+
+        <TextView
+            android:id="@+id/trackerExpensePrice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/goalEnternainment"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/goalCircleEntertainment"
+            style="@style/CircularDeterminateProgressBar"
+            android:layout_width="107dp"
+            android:layout_height="106dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:progress="60" />
+
+        <TextView
+            android:id="@+id/goalPercentageEntertainment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="@+id/goalCircleEntertainment"
+            app:layout_constraintEnd_toEndOf="@+id/goalCircleEntertainment"
+            app:layout_constraintStart_toStartOf="@+id/goalCircleEntertainment"
+            app:layout_constraintTop_toTopOf="@+id/goalCircleEntertainment"
+            tools:text="0%" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/goalGroceriesCard"
+        android:layout_width="171dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goalDiningCard">
+
+        <TextView
+            android:id="@+id/trackerExpenseDate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/goalGroceries"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/goalCircleGroceries"
+            style="@style/CircularDeterminateProgressBar"
+            android:layout_width="107dp"
+            android:layout_height="106dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:progress="60" />
+
+        <TextView
+            android:id="@+id/goalPercentageGroceries"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="@+id/goalCircleGroceries"
+            app:layout_constraintEnd_toEndOf="@+id/goalCircleGroceries"
+            app:layout_constraintStart_toStartOf="@+id/goalCircleGroceries"
+            app:layout_constraintTop_toTopOf="@+id/goalCircleGroceries"
+            tools:text="0%" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/goalTransportCard"
+        android:layout_width="171dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="19dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/goalGroceriesCard"
+        app:layout_constraintTop_toBottomOf="@+id/goalEntertainmentCard">
+
+        <TextView
+            android:id="@+id/trackerExpenseName3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/goalTransport"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/goalCircleTransport"
+            style="@style/CircularDeterminateProgressBar"
+            android:layout_width="107dp"
+            android:layout_height="106dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:progress="60" />
+
+        <TextView
+            android:id="@+id/goalPercentageTransport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="@+id/goalCircleTransport"
+            app:layout_constraintEnd_toEndOf="@+id/goalCircleTransport"
+            app:layout_constraintStart_toStartOf="@+id/goalCircleTransport"
+            app:layout_constraintTop_toTopOf="@+id/goalCircleTransport"
+            tools:text="0%" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/goalShoppingCard"
+        android:layout_width="171dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goalGroceriesCard">
+
+        <TextView
+            android:id="@+id/trackerExpensePrice3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/goalShopping"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/goalCircleShopping"
+            style="@style/CircularDeterminateProgressBar"
+            android:layout_width="107dp"
+            android:layout_height="106dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:progress="60" />
+
+        <TextView
+            android:id="@+id/goalPercentageShopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="@+id/goalCircleShopping"
+            app:layout_constraintEnd_toEndOf="@+id/goalCircleShopping"
+            app:layout_constraintStart_toStartOf="@+id/goalCircleShopping"
+            app:layout_constraintTop_toTopOf="@+id/goalCircleShopping"
+            tools:text="0%" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/goalOtherCard"
+        android:layout_width="171dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/goalShoppingCard"
+        app:layout_constraintTop_toBottomOf="@+id/goalTransportCard">
+
+        <TextView
+            android:id="@+id/goalOthertxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:text="@string/goalOther"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/goalCircleOther"
+            style="@style/CircularDeterminateProgressBar"
+            android:layout_width="107dp"
+            android:layout_height="106dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:progress="60" />
+
+        <TextView
+            android:id="@+id/goalPercentageOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="@+id/goalCircleOther"
+            app:layout_constraintEnd_toEndOf="@+id/goalCircleOther"
+            app:layout_constraintStart_toStartOf="@+id/goalCircleOther"
+            app:layout_constraintTop_toTopOf="@+id/goalCircleOther"
+            tools:text="0%" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
