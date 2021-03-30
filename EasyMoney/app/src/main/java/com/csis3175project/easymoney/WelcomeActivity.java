@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class WelcomeActivity extends AppCompatActivity {
-
+    EMDatabase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +16,10 @@ public class WelcomeActivity extends AppCompatActivity {
 
         Button btnLogin = findViewById(R.id.btnGoLoginWelcome);
         Button btnRegister = findViewById(R.id.btnGoSignUpWelcome);
+        database = new EMDatabase(this);
+
+
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
