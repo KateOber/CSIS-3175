@@ -1,4 +1,4 @@
-package com.csis3175project.easymoney.ui.expenseTracker;
+package com.csis3175project.easymoney;
 
 import androidx.appcompat.app.AppCompatActivity;
 

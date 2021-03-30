@@ -15,9 +15,9 @@
         <activity android:name=".ExpenseGoal" />
         <activity android:name=".ExpenseTracker" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".Splash">
-        <activity android:name=".ui.expenseTracker.RecurringBillsCalendar">
-        <activity android:name=".ui.expenseTracker.AddExpense" />
+        <activity android:name=".Splash" />
+        <activity android:name=".RecurringBillsCalendar" />
+        <activity android:name=".AddExpense" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,9 +26,6 @@
         </activity>
         <activity android:name=".Register2Activity" />
         <activity android:name=".RegisterActivity" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
 
         <meta-data
             android:name="com.google.android.actions"

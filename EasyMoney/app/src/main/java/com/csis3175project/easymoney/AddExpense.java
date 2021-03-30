@@ -1,9 +1,4 @@
-package com.csis3175project.easymoney.ui.expenseTracker;
-
-import android.app.Activity;
-
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+package com.csis3175project.easymoney;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -11,35 +6,22 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.csis3175project.easymoney.EMDatabase;
-import com.csis3175project.easymoney.MainActivity;
-import com.csis3175project.easymoney.R;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 //TODO:
 //Setup error messages
@@ -64,12 +46,18 @@ public class AddExpense extends AppCompatActivity {
         databaseHelper = new EMDatabase(this);
 
         Spinner categorySpinner = findViewById(R.id.category);
-        EditText amount_txt = findViewById(R.id.amount);
-        TextInputEditText name_txt = findViewById(R.id.expenseName);
+        TextInputLayout amount_txt = findViewById(R.id.amount);
+        TextInputLayout name_txt = findViewById(R.id.expenseName);
         TextView date_txt = findViewById(R.id.date);
         Button btnAdd = findViewById(R.id.btn_addExpense);
         ImageView btnBack = findViewById(R.id.btnBack);
         CheckBox recurring_checkbox = findViewById(R.id.checkbox_recurExp);
+
+        //footer buttons
+        Button btnProfileFooter = findViewById(R.id.bEProfileFoot);
+        Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
+        Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
+        Button btnReportFooter = findViewById(R.id.reportFoot);
 
         //setup date picker
         date_txt.setOnClickListener(new View.OnClickListener() {
@@ -103,9 +91,9 @@ public class AddExpense extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                name = name_txt.getText().toString();
+               // name = name_txt.getText().toString();
                 category = categorySpinner.toString();
-                amount = Double.parseDouble(amount_txt.getText().toString());
+               // amount = Double.parseDouble(amount_txt.getText().toString());
                 if (recurring_checkbox.isChecked())
                     recurring = 1;
                 else
@@ -118,8 +106,8 @@ public class AddExpense extends AppCompatActivity {
                 if(expenseAdded != 0){
                 Toast.makeText(AddExpense.this,
                         "Expense Added", Toast.LENGTH_SHORT).show();
-                name_txt.setText("");
-                amount_txt.setText("");
+                //name_txt.setText("");
+                //amount_txt.setText("");
                 recurring_checkbox.setChecked(false);
                 categorySpinner.setPrompt("Expense Category");
                 date_txt.setText("");
@@ -131,10 +119,35 @@ public class AddExpense extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddExpense.this, MainActivity.class));
+                startActivity(new Intent(AddExpense.this, ExpenseTracker.class));
             }
         });
 
+        //Footer Buttons
+        btnExpenseTrackerFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddExpense.this, ExpenseTracker.class));
+            }
+        });
+        btnReportFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddExpense.this, MainActivity.class));
+            }
+        });
+        btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddExpense.this, MainActivity.class));
+            }
+        });
+        btnProfileFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddExpense.this, Profile.class));
+            }
+        });
  /*       List<String> categories = new ArrayList<String>();
         categories.add("Entertainment");
         categories.add("Groceries");
