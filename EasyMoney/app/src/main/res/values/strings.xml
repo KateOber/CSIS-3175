@@ -16,4 +16,24 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="txtLoginTitle">Login</string>
+    <!--Kate's Strings Start-->
+    <string name="hint_amount">Amount</string>
+    <string name="hint_desc">Description</string>
+    <string name="checkbox_recurring">Recurring Expense</string>
+    <string name="hint_date_expense">Date of expense</string>
+    <string name="hint_category_expense">Expense Category</string>
+    <string name="hint_expense_name">Expense Name</string>
+    <string name="btn_add_expense">Add Expense</string>
+    <string name="btn_add_recurring_bills">Add Recurring Bills</string>
+    <string name="btn_back">Go to previous screen</string>
+    <string-array name="categories">
+        <item>Entertainment</item>
+        <item>Groceries</item>
+        <item>Transport</item>
+        <item>Shopping</item>
+        <item>Dining</item>
+        <item>Education</item>
+        <item>Other</item>
+    </string-array>
+    <!--Kate's Strings End-->
 </resources>
