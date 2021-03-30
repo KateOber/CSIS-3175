@@ -48,16 +48,17 @@ public class AddExpense extends AppCompatActivity {
         Spinner categorySpinner = findViewById(R.id.category);
         TextInputLayout amount_txt = findViewById(R.id.amount);
         TextInputLayout name_txt = findViewById(R.id.expenseName);
-        TextView date_txt = findViewById(R.id.date);
+        TextView date_txt = findViewById(R.id.datePicker);
         Button btnAdd = findViewById(R.id.btn_addExpense);
         ImageView btnBack = findViewById(R.id.btnBack);
         CheckBox recurring_checkbox = findViewById(R.id.checkbox_recurExp);
 
         //footer buttons
-        Button btnProfileFooter = findViewById(R.id.bEProfileFoot);
+        Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
         Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
         Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
-        Button btnReportFooter = findViewById(R.id.reportFoot);
+        Button btnReportFooter = findViewById(R.id.reportTrackerFoot);
+
 
         //setup date picker
         date_txt.setOnClickListener(new View.OnClickListener() {
@@ -69,9 +70,10 @@ public class AddExpense extends AppCompatActivity {
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        AddExpense.this, android.R.style.Theme_DeviceDefault, onDateSetListener,
+                        AddExpense.this, android.R.style.Theme_DeviceDefault_DayNight, onDateSetListener,
+//Theme_Dark for diferent style
                         year, month, day);
-                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
                 datePickerDialog.show();
             }
         });
@@ -81,9 +83,12 @@ public class AddExpense extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 date = "" + year + '/' + month + '/' + dayOfMonth;
+                date_txt.setText(date.toString());
 
             }
         };
+
+
 
         //button listener
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +115,7 @@ public class AddExpense extends AppCompatActivity {
                 //amount_txt.setText("");
                 recurring_checkbox.setChecked(false);
                 categorySpinner.setPrompt("Expense Category");
-                date_txt.setText("");
+                //date_txt.setText("");
                 }
                 //ELSE DO SOME ERROR STUFF
             }

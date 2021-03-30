@@ -62,6 +62,7 @@
     <string name="btn_add_recurring_bills">Add Recurring Bills</string>
     <string name="btn_back">Go to previous screen</string>
     <string-array name="categories">
+        <item>Category</item>
         <item>Entertainment</item>
         <item>Groceries</item>
         <item>Transport</item>
