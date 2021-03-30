@@ -136,6 +136,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/style_btn_blue"
+        app:backgroundTint="@null"
         android:enabled="true"
         android:text="@string/txt_btn_signUp"
         app:layout_constraintEnd_toEndOf="parent"
