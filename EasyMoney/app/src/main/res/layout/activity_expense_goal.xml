@@ -77,7 +77,7 @@
 
         <ProgressBar
             android:id="@+id/goalCircleDining"
-            style="@style/CircularDeterminateProgressBar"
+            style="@style/CircularProgressBarDining"
             android:layout_width="107dp"
             android:layout_height="106dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -123,7 +123,7 @@
 
         <ProgressBar
             android:id="@+id/goalCircleEntertainment"
-            style="@style/CircularDeterminateProgressBar"
+            style="@style/CircularProgressBarEntertainment"
             android:layout_width="107dp"
             android:layout_height="106dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -167,7 +167,7 @@
 
         <ProgressBar
             android:id="@+id/goalCircleGroceries"
-            style="@style/CircularDeterminateProgressBar"
+            style="@style/CircularProgressBarGroceries"
             android:layout_width="107dp"
             android:layout_height="106dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -213,7 +213,7 @@
 
         <ProgressBar
             android:id="@+id/goalCircleTransport"
-            style="@style/CircularDeterminateProgressBar"
+            style="@style/CircularProgressBarTransport"
             android:layout_width="107dp"
             android:layout_height="106dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -257,7 +257,7 @@
 
         <ProgressBar
             android:id="@+id/goalCircleShopping"
-            style="@style/CircularDeterminateProgressBar"
+            style="@style/CircularProgressBarShopping"
             android:layout_width="107dp"
             android:layout_height="106dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -285,9 +285,7 @@
         android:layout_marginStart="31dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="19dp"
-        android:layout_marginBottom="10dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/goalShoppingCard"
         app:layout_constraintTop_toBottomOf="@+id/goalTransportCard">
@@ -305,7 +303,7 @@
 
         <ProgressBar
             android:id="@+id/goalCircleOther"
-            style="@style/CircularDeterminateProgressBar"
+            style="@style/CircularProgressBarOther"
             android:layout_width="107dp"
             android:layout_height="106dp"
             app:layout_constraintBottom_toBottomOf="parent"

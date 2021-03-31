@@ -51,4 +51,10 @@
     <string name="trackerAddIncome">Add Income</string>
     <string name="trackerAddSavings">Add Savings</string>
     <string name="trackerAddExpense">Add Expense</string>
+    <string name="addDate">Date dd/mm/yyy</string>
+    <string name="addAmmount">Ammount</string>
+    <string name="addName">Name</string>
+    <string name="addExpenseHead">Add Expense</string>
+    <string name="addIncomeHead">Add Income</string>
+    <string name="addSavingsHead">Add Savings</string>
 </resources>
