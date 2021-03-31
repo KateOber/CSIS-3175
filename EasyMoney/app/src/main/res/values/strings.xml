@@ -3,7 +3,7 @@
     <string name="title_activity_splash">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="txt_welcome">Welcome <br /> <br /> The Easiest Way <br /> Manage Your Money </string>
+    <string name="txt_welcome">Welcome \nThe Easiest Way to \nManage Your Money </string>
     <string name="txt_btn_login">LOGIN</string>
     <string name="txt_btn_signUp">SIGN UP</string>
     <string name="title_activity_login">LoginActivity</string>
@@ -30,7 +30,7 @@
     <string name="hint_monthly_saving">Monthly Saving</string>
     <string name="prefix">$</string>
     <string name="btn_sign_up">Sign up</string>
-    <string name="group_name"> Group 4 - CSIS3175 Team project</string>
+    <string name="group_name"> Group 6 - CSIS3175 Team project</string>
     <string name="app_icon_description">App icon image</string>
     <string name="trackerHeader">Expense Tracker</string>
     <string name="goalHeader">Expense Goal</string>
@@ -38,63 +38,17 @@
     <string name="goalList">List</string>
     <string name="profileHeader">Profile</string>
     <string name="editProfileBtn">Edit Profile</string>
-    <string name="goalEntertainment">Entertainment</string>
-    <string name="goalDining">Dining</string>
-    <string name="goalGroceries">Groceries</string>
-    <string name="goalTransport">Transport</string>
-    <string name="goalShopping">Shopping</string>
-    <string name="goalOther">Other</string>
-    <string name="trackerDAHead">Daily Allowance</string>
-    <string name="trackerIncomeHeader">Income</string>
-    <string name="trackerSavingsHead">Savings</string>
-    <string name="trackerExpenseHead">Latest Expenses</string>
-    <string name="trackerAddIncome">Add Income</string>
-    <string name="trackerAddSavings">Add Savings</string>
-    <string name="trackerAddExpense">Add Expense</string>
-    <string name="addDate">Date dd/mm/yyy</string>
-    <string name="addAmount">Amount</string>
-    <string name="addName">Name</string>
-    <string name="addExpenseHead">Add Expense</string>
-    <string name="addIncomeHead">Add Income</string>
-    <string name="addSavingsHead">Add Savings</string>
-    <string name="profileHead">Profile</string>
-    <string name="profileFinanceInfo">Financial Information</string>
-    <string name="profileIncome">Monthly Income</string>
-    <string name="profileSavings">Current Savings</string>
-    <string name="profileBills">Recurring Bills</string>
-    <string name="profileGoal">Expense Goal</string>
-    <string name="profileLogOut">Log Out</string>
-    <!--Kate's Strings Start-->
-    <string name="hint_amount">Amount</string>
-    <string name="hint_desc">Description</string>
-    <string name="checkbox_recurring">Recurring Expense</string>
-    <string name="checkbox_recurringIncome">Recurring Income</string>
-    <string name="txt_recurring_bills">Recurring Bills</string>
-    <string name="hint_date_expense">Date of expense</string>
-    <string name="hint_category_expense">Expense Category</string>
-    <string name="hint_category_income">Income Category</string>
-    <string name="hint_expense_name">Expense Name</string>
-    <string name="btn_add_expense">Add Expense</string>
-    <string name="btn_add_recurring_bills">Add Recurring Bills</string>
-    <string name="btn_back">Go to previous screen</string>
-    <string-array name="categoriesExpense">
-        <item>Category</item>
-        <item>Entertainment</item>
-        <item>Groceries</item>
-        <item>Transport</item>
-        <item>Shopping</item>
-        <item>Dining</item>
-        <item>Other</item>
-    </string-array>
-    <string-array name="categoriesIncome">
-        <item>Category</item>
-        <item>Work</item>
-        <item>Investment</item>
-        <item>Loan</item>
-        <item>Freelance</item>
-        <item>Gift</item>
-        <item>Other</item>
-    </string-array>
-
-    <!--Kate's Strings End-->
+    <string name="txtScrNameBE">Big Expense</string>
+    <string name="txtBEOption1">Option 1</string>
+    <string name="txtBEOption2">Option 2</string>
+    <string name="txtBEOption3">Option 3</string>
+    <string name="txtBEOptionName1">Cut down daily expense to</string>
+    <string name="txtBEOptionName2">Cut down savings to</string>
+    <string name="txtBEOptionName3">Get a loan</string>
+    <string name="txtScrBESub">Set up your expense</string>
+    <string name="bigExHint1">Category of big expense</string>
+    <string name="bigExHint2">Big Expense Period</string>
+    <string name="bigExHint3">Amount of estimated cost</string>
+    <string name="bigEx">Edit Profile</string>
+    <string name="btnBigEx">SET BIG EXPENSE</string>
 </resources>

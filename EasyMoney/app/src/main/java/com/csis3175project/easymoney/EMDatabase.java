@@ -43,7 +43,7 @@ public class EMDatabase {
     }
 
     //INSERT INTO INCOME
-    public long insertINCOMEData(String username,String IName,double amount, String cat, String date, int recurring)
+    public long insertINCOMEData(String username,String IName,double amount, String cat)
     {
         SQLiteDatabase dbb = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -51,14 +51,12 @@ public class EMDatabase {
         contentValues.put(myDbHelper.INAME, IName);
         contentValues.put(myDbHelper.AMOUNT, amount);
         contentValues.put(myDbHelper.CATEGORY, cat);
-        contentValues.put(myDbHelper.RECURRING, recurring);
-
         long id = dbb.insert(myDbHelper.TABLE_INCOME, null , contentValues);
         return id;
     }
 
     //INSERT INTO MISC
-    public long insertMISCData(String username ,double dAllowance, double savings)
+    public long insertMISCData(String username,double dAllowance, double savings)
     {
         SQLiteDatabase dbb = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -376,7 +374,7 @@ public class EMDatabase {
         return ENAME;
     }
 
-    //get Expense ammount (needs the name of specific expense and username)
+    //get Expense ammount (needs the name of specific income and username)
     public double getEAmmount(String name, String username){
         double AMMOUNT = 0;
         Cursor c = getEXPENSEData();
@@ -392,7 +390,7 @@ public class EMDatabase {
         return AMMOUNT;
     }
 
-    //get Expense Monthly Date (needs the name of specific expense and username)
+    //get Expense Monthly Date (needs the name of specific income and username)
     public String getEDate(String name,String username){
         String DATE = "no DATE selected";
         Cursor c = getEXPENSEData();
@@ -408,7 +406,7 @@ public class EMDatabase {
         return DATE;
     }
 
-    //get Expense Category (needs the name of specific expense and username)
+    //get Expense Category (needs the name of specific income and username)
     public String getECategory(String name, String username){
         String CATEGORY = "no Category selected";
         Cursor c = getEXPENSEData();
@@ -424,7 +422,7 @@ public class EMDatabase {
         return CATEGORY;
     }
 
-    //get Expense if recurring (needs the name of specific expense and username) -- recurring == 1 - repeats / recurring == 0 - does not repeat
+    //get Expense if recurring (needs the name of specific income and username) -- recurring == 1 - repeats / recurring == 0 - does not repeat
     public int getERecurring(String name, String username){
         int RECURRING = 0;
         Cursor c = getEXPENSEData();
@@ -440,7 +438,7 @@ public class EMDatabase {
         return RECURRING;
     }
 
-    //get Expense repetition (needs the name of specific expense and username) -- recurring == 0 - does not repeat / else, 1 = 1 month
+    //get Expense repetition (needs the name of specific income and username) -- recurring == 0 - does not repeat / else, 1 = 1 month
     public int getERepeat(String name, String username){
         int REPEAT = 0;
         Cursor c = getEXPENSEData();
@@ -602,70 +600,42 @@ public class EMDatabase {
 
         //USER TABLE
         private static final String TABLE_USER = "USER";   // USER table Name
-        private static final String UID="Uid";     // Column I (Primary Key)
+        private static final String UID="_id";     // Column I (Primary Key)
         private static final String USERNAME = "UserName";    //Column II
         private static final String EMAIL= "Email";    // Column III
         private static final String MyPASSWORD= "Password";    // Column IV
         private static final String ADMINACCESS= "AdminAccess";    // Column V
         private static final String CREATE_USER_TABLE = "CREATE TABLE "+TABLE_USER+
-                " ("+
-                UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                USERNAME+" VARCHAR(50) ,"+
-                EMAIL+" VARCHAR(70) ,"+
-                MyPASSWORD+" VARCHAR(50) ,"+
-                ADMINACCESS+" int);";
+                " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+USERNAME+" VARCHAR(255) ,"+EMAIL+" VARCHAR(255) ,"+MyPASSWORD+" VARCHAR(255) ,"+ ADMINACCESS+" int);";
         private static final String DROP_USER_TABLE ="DROP TABLE IF EXISTS "+TABLE_USER;
 
         //INCOME TABLE
-        private static final String ID = "Id";   // MISC table Name
         private static final String TABLE_INCOME = "INCOME";   // MISC table Name
         private static final String INAME= "IName";    // Column III
         private static final String AMOUNT= "Amount";    // Column IV
         private static final String CATEGORY= "Category";    // Column V
+        private static final String CREATE_INCOME_TABLE = "CREATE TABLE "+TABLE_INCOME+
+                " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+USERNAME+" VARCHAR(255) ,"+INAME+" VARCHAR(255) ,"+AMOUNT+" REAL ,"+ CATEGORY+" VARCHAR(225));";
+        private static final String DROP_INCOME_TABLE ="DROP TABLE IF EXISTS "+TABLE_INCOME;
 
         //MISC TABLE
         private static final String TABLE_MISC = "MISC";   // MISC table Name
         private static final String DAILYA= "DailyAllowance";    // Column III
         private static final String SAVINGS= "Savings";    // Column IV
-        private static final String CREATE_MISC_TABLE = "" +
-                "CREATE TABLE "+TABLE_MISC+
-                " ("+
-                ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                USERNAME+" VARCHAR(50) ,"+
-                DAILYA+" REAL ,"+
-                SAVINGS+" REAL);";
+        private static final String CREATE_MISC_TABLE = "CREATE TABLE "+TABLE_MISC+
+                " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+USERNAME+" VARCHAR(255) ,"+DAILYA+" REAL ,"+ SAVINGS+" REAL);";
         private static final String DROP_MISC_TABLE ="DROP TABLE IF EXISTS "+TABLE_MISC;
 
         //EXPENSES TABLE
         private static final String TABLE_EXPENSE = "EXPENSE";   // EXPENSE table Name
         private static final String ENAME= "ExpenseName";    // Column III
-        private static final String DATE= "Date";    // Column V
+        private static final String DATE= "ExpenseName";    // Column V
         private static final String RECURRING= "Recurring";    // Column VII
         private static final String REPEAT= "Repeat";    // Column VIII
         private static final String CREATE_EXPENSE_TABLE = "CREATE TABLE "+TABLE_EXPENSE+
-                " ("+
-                ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                USERNAME+" VARCHAR(50) ,"+
-                ENAME +" VARCHAR(100) ,"+
-                AMOUNT +" REAL ,"+
-                DATE + " TEXT ,"+
-                CATEGORY + " VARCHAR(14) ,"+
-                RECURRING +" INTEGER ,"+
-                REPEAT +" INTEGER);";
+                " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+USERNAME+" VARCHAR(255) ,"+ ENAME +" VARCHAR(255) ,"+ AMOUNT +" REAL ,"+ DATE +" TEXT ,"+
+                CATEGORY +" VARCHAR(255) ,"+ RECURRING +" INTEGER ,"+ REPEAT +" INTEGER);";
         private static final String DROP_EXPENSE_TABLE ="DROP TABLE IF EXISTS "+TABLE_MISC;
-
-        //INCOME TABLE CREATE/DROP
-        private static final String CREATE_INCOME_TABLE = "CREATE TABLE "+TABLE_INCOME+
-                " ("+
-                ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                USERNAME+" VARCHAR(50) ,"+
-                INAME+" VARCHAR(100) ,"+
-                AMOUNT+" REAL ,"+
-                DATE + " TEXT ,"+
-                CATEGORY+" VARCHAR(14) ,"+
-                RECURRING+" INTEGER);";
-        private static final String DROP_INCOME_TABLE ="DROP TABLE IF EXISTS "+TABLE_INCOME;
-
 
         private Context context;
         public myDbHelper(Context context) {

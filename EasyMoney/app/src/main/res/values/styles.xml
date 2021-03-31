@@ -44,29 +44,4 @@
         <item name="android:textColor">@color/gray4</item>
     </style>
 
-    <style name="CircularProgressBarOther">
-        <item name="android:indeterminateOnly">false</item>
-        <item name="android:progressDrawable">@drawable/circle</item>
-    </style>
-    <style name="CircularProgressBarDining">
-        <item name="android:indeterminateOnly">false</item>
-        <item name="android:progressDrawable">@drawable/circle_dining</item>
-    </style>
-    <style name="CircularProgressBarEntertainment">
-        <item name="android:indeterminateOnly">false</item>
-        <item name="android:progressDrawable">@drawable/circle_entertainment</item>
-    </style>
-    <style name="CircularProgressBarGroceries">
-        <item name="android:indeterminateOnly">false</item>
-        <item name="android:progressDrawable">@drawable/circle_groceries</item>
-    </style>
-    <style name="CircularProgressBarShopping">
-        <item name="android:indeterminateOnly">false</item>
-        <item name="android:progressDrawable">@drawable/circle_shopping</item>
-    </style>
-    <style name="CircularProgressBarTransport">
-        <item name="android:indeterminateOnly">false</item>
-        <item name="android:progressDrawable">@drawable/circle_transport</item>
-    </style>
-
 </resources>
