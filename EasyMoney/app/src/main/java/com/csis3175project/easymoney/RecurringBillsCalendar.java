@@ -18,11 +18,14 @@ import java.util.Locale;
 import com.csis3175project.easymoney.R;
 
 public class RecurringBillsCalendar extends AppCompatActivity {
+    EMDatabase databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recurring_bills_calendar);
+
+        databaseHelper = new EMDatabase(this);
 
         CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView);
         List<Calendar> calendars = new ArrayList<>();

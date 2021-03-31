@@ -186,7 +186,7 @@
         app:iconGravity="top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/reportTrackerFoot"
-        tools:iconTint="#676767" />
+        app:iconTint="#676767" />
 
     <Button
         android:id="@+id/reportTrackerFoot"

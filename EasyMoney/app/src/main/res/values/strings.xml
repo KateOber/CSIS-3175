@@ -55,6 +55,7 @@
     <string name="hint_amount">Amount</string>
     <string name="hint_desc">Description</string>
     <string name="checkbox_recurring">Recurring Expense</string>
+    <string name="txt_recurring_bills">Recurring Bills</string>
     <string name="hint_date_expense">Date of expense</string>
     <string name="hint_category_expense">Expense Category</string>
     <string name="hint_expense_name">Expense Name</string>
