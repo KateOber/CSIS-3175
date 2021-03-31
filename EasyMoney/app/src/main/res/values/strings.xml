@@ -57,6 +57,13 @@
     <string name="addExpenseHead">Add Expense</string>
     <string name="addIncomeHead">Add Income</string>
     <string name="addSavingsHead">Add Savings</string>
+    <string name="profileHead">Profile</string>
+    <string name="profileFinanceInfo">Financial Information</string>
+    <string name="profileIncome">Monthly Income</string>
+    <string name="profileSavings">Current Savings</string>
+    <string name="profileBills">Recurring Bills</string>
+    <string name="profileGoal">Expense Goal</string>
+    <string name="profileLogOut">Log Out</string>
     <!--Kate's Strings Start-->
     <string name="hint_amount">Amount</string>
     <string name="hint_desc">Description</string>
@@ -88,5 +95,6 @@
         <item>Gift</item>
         <item>Other</item>
     </string-array>
+
     <!--Kate's Strings End-->
 </resources>

@@ -11,56 +11,48 @@
         android:id="@+id/userProfileFoot"
         android:layout_width="108dp"
         android:layout_height="64dp"
-        android:layout_marginTop="101dp"
         android:backgroundTint="#FFFFFF"
         app:icon="@drawable/ic_userinactive"
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bEProfileFoot"
-        app:layout_constraintTop_toBottomOf="@+id/profileLogOutcard" />
+        app:layout_constraintStart_toEndOf="@+id/bEProfileFoot" />
 
     <Button
         android:id="@+id/bEProfileFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
-        android:layout_marginTop="101dp"
         android:backgroundTint="#FFFFFF"
         app:icon="@drawable/ic_bigexpenseinactive"
         app:iconGravity="top"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/reportProfileFoot"
-        app:layout_constraintTop_toBottomOf="@+id/profileLogOutcard"
         tools:iconTint="#676767" />
 
     <Button
         android:id="@+id/reportProfileFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
-        android:layout_marginTop="101dp"
         android:backgroundTint="#FFFFFF"
         android:gravity="center"
         app:icon="@drawable/ic_reportincactive"
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/trackerProfileFoot"
-        app:layout_constraintTop_toBottomOf="@+id/profileLogOutcard" />
+        app:layout_constraintStart_toEndOf="@+id/trackerProfileFoot" />
 
     <Button
         android:id="@+id/trackerProfileFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
-        android:layout_marginTop="101dp"
         android:backgroundTint="#FFFFFF"
         app:icon="@drawable/ic_trackerinactive"
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileLogOutcard" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/profileHeader"
@@ -93,9 +85,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="18dp"
-        android:layout_marginEnd="328dp"
-        android:text="Sohee Kim"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileHeader" />
 
@@ -105,39 +94,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="238dp"
-        android:text="bernardoasc@gmail.com"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileNametxt" />
-
-    <Button
-        android:id="@+id/editProfileBtn"
-        android:layout_width="92dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="303dp"
-        android:background="#00FFFFFF"
-        android:outlineProvider="bounds"
-        android:text="@string/editProfileBtn"
-        android:textColor="#676767"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileEmailtxt" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profileFinanceInfocard"
         android:layout_width="382dp"
         android:layout_height="155dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="13dp"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editProfileBtn">
+        app:layout_constraintTop_toBottomOf="@+id/profileEmailtxt">
 
         <TextView
             android:id="@+id/profileFinanceInfotxt"
@@ -146,65 +116,35 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="234dp"
-            android:text="Financial Information"
+            android:text="@string/profileFinanceInfo"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/profileEditIncomebtn"
-            android:layout_width="38dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="25dp"
-            android:background="#00FFFFFF"
-            app:icon="@drawable/ic_iconedit"
-            app:iconGravity="top"
-            app:iconTint="#676767"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/profileMonthOutputtxt"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/profileMonthOutputtxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
             android:layout_marginTop="56dp"
-            android:text="$4,500"
+            android:layout_marginEnd="24dp"
+            android:text="$0.00"
             android:textColor="#000000"
-            app:layout_constraintStart_toEndOf="@+id/profileMonthIncometxt"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/profileSavingOutputtxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="151dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginBottom="35dp"
-            android:text="$4,500"
+            android:text="$0.00"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/profileSavingtxt"
-            app:layout_constraintTop_toBottomOf="@+id/profileMonthOutputtxt" />
-
-        <Button
-            android:id="@+id/profileEditSavingbtn"
-            android:layout_width="38dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="28dp"
-            android:background="#00FFFFFF"
-            app:icon="@drawable/ic_iconedit"
-            app:iconGravity="top"
-            app:iconTint="#676767"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/profileSavingOutputtxt"
-            app:layout_constraintTop_toBottomOf="@+id/profileEditIncomebtn" />
+            app:layout_constraintTop_toBottomOf="@+id/profileMonthOutputtxt" />
 
         <TextView
             android:id="@+id/profileMonthIncometxt"
@@ -212,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginTop="22dp"
-            android:text="Monthly Income"
+            android:text="@string/profileIncome"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profileFinanceInfotxt" />
 
@@ -223,7 +163,7 @@
             android:layout_marginStart="26dp"
             android:layout_marginTop="27dp"
             android:layout_marginBottom="32dp"
-            android:text="Current Savings"
+            android:text="@string/profileSavings"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profileMonthIncometxt" />
@@ -249,7 +189,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="14dp"
-            android:text="Recurring Bills"
+            android:text="@string/profileBills"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -309,7 +249,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="14dp"
-            android:text="Expense Goal"
+            android:text="@string/profileGoal"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -318,32 +258,22 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/profileLogOutcard"
+        android:id="@+id/cardView2"
         android:layout_width="382dp"
         android:layout_height="47dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="11dp"
         android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileExpenseGoalcard">
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="427dp">
 
         <Button
-            android:id="@+id/profileLogOutBtn"
+            android:id="@+id/profileLogOutbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="277dp"
             android:background="#00FFFFFF"
-            android:text="Log out"
-            android:textColor="#020101"
-            android:textSize="12sp"
-            android:translationX="-4dp"
+            android:text="@string/profileLogOut"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:layout_editor_absoluteX="16dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

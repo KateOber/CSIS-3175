@@ -376,7 +376,7 @@ public class EMDatabase {
         return ENAME;
     }
 
-    //get Expense ammount (needs the name of specific income and username)
+    //get Expense ammount (needs the name of specific expense and username)
     public double getEAmmount(String name, String username){
         double AMMOUNT = 0;
         Cursor c = getEXPENSEData();
@@ -392,7 +392,7 @@ public class EMDatabase {
         return AMMOUNT;
     }
 
-    //get Expense Monthly Date (needs the name of specific income and username)
+    //get Expense Monthly Date (needs the name of specific expense and username)
     public String getEDate(String name,String username){
         String DATE = "no DATE selected";
         Cursor c = getEXPENSEData();
@@ -408,7 +408,7 @@ public class EMDatabase {
         return DATE;
     }
 
-    //get Expense Category (needs the name of specific income and username)
+    //get Expense Category (needs the name of specific expense and username)
     public String getECategory(String name, String username){
         String CATEGORY = "no Category selected";
         Cursor c = getEXPENSEData();
@@ -424,7 +424,7 @@ public class EMDatabase {
         return CATEGORY;
     }
 
-    //get Expense if recurring (needs the name of specific income and username) -- recurring == 1 - repeats / recurring == 0 - does not repeat
+    //get Expense if recurring (needs the name of specific expense and username) -- recurring == 1 - repeats / recurring == 0 - does not repeat
     public int getERecurring(String name, String username){
         int RECURRING = 0;
         Cursor c = getEXPENSEData();
@@ -440,7 +440,7 @@ public class EMDatabase {
         return RECURRING;
     }
 
-    //get Expense repetition (needs the name of specific income and username) -- recurring == 0 - does not repeat / else, 1 = 1 month
+    //get Expense repetition (needs the name of specific expense and username) -- recurring == 0 - does not repeat / else, 1 = 1 month
     public int getERepeat(String name, String username){
         int REPEAT = 0;
         Cursor c = getEXPENSEData();
