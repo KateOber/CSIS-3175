@@ -67,7 +67,7 @@ public class AddExpense extends AppCompatActivity {
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        AddExpense.this, android.R.style.Theme_DeviceDefault_DayNight, onDateSetListener,
+                        AddExpense.this, android.R.style.Theme_Black, onDateSetListener,
 //Theme_Dark for diferent style
                         year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
