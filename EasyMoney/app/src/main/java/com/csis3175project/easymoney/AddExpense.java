@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +25,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.Calendar;
 
 //TODO:
-//Setup error messages
 //get logged in user
 //
 public class AddExpense extends AppCompatActivity {
@@ -34,8 +34,6 @@ public class AddExpense extends AppCompatActivity {
     private int recurring;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
 
-/*       " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+USERNAME+" VARCHAR(255) ,"+ ENAME +" VARCHAR(255) ,"+ AMOUNT +" REAL ,"+ DATE +" TEXT ,"+
-    CATEGORY +" VARCHAR(255) ,"+ RECURRING +" INTEGER ,"+ REPEAT +" INTEGER);";*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +44,14 @@ public class AddExpense extends AppCompatActivity {
         databaseHelper = new EMDatabase(this);
 
         Spinner categorySpinner = findViewById(R.id.category);
-        TextInputLayout amount_txt = findViewById(R.id.amount);
-        TextInputLayout name_txt = findViewById(R.id.expenseName);
+        TextInputEditText amount_txt = findViewById(R.id.inputAmount);
+        TextInputEditText name_txt = findViewById(R.id.inputExpenseName);
         TextView date_txt = findViewById(R.id.datePicker);
         Button btnAdd = findViewById(R.id.btn_addExpense);
         ImageView btnBack = findViewById(R.id.btnBack);
         CheckBox recurring_checkbox = findViewById(R.id.checkbox_recurExp);
+        //layout elements
+        ScrollView scrollViewDate = findViewById(R.id.scrollView2);
 
         //footer buttons
         Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
@@ -96,28 +96,57 @@ public class AddExpense extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-               // name = name_txt.getText().toString();
-                category = categorySpinner.toString();
-               // amount = Double.parseDouble(amount_txt.getText().toString());
+                category = categorySpinner.getSelectedItem().toString();
+
                 if (recurring_checkbox.isChecked())
                     recurring = 1;
                 else
                     recurring = 0;
 
-                expenseAdded = databaseHelper.insertEXPENSEData("user",
-                        name, amount, date, category, recurring, 1);
+                if(name_txt.getText().toString().isEmpty())
+                   name_txt.setBackgroundColor(Color.parseColor("#20D81B60"));
+                else
+                    name_txt.setBackgroundColor(Color.parseColor("#E0E0E0"));
+                if(amount_txt.getText().toString().isEmpty())
+                    amount_txt.setBackgroundColor(Color.parseColor("#20D81B60"));
+                else
+                    amount_txt.setBackgroundColor(Color.parseColor("#E0E0E0"));
+                if(date == null)
+                    scrollViewDate.setBackgroundColor(Color.parseColor("#20D81B60"));
+                else
+                    scrollViewDate.setBackgroundColor(Color.parseColor("#E0E0E0"));
+                if(category.equals("Category"))
+                   categorySpinner.setBackgroundColor(Color.parseColor("#20D81B60"));
+                else
+                    categorySpinner.setBackgroundColor(Color.parseColor("#E0E0E0"));
 
-                //if SUCCESSFUL ADD RESET ALL INPUT FIELDS
-                if(expenseAdded != 0){
-                Toast.makeText(AddExpense.this,
-                        "Expense Added", Toast.LENGTH_SHORT).show();
-                //name_txt.setText("");
-                //amount_txt.setText("");
-                recurring_checkbox.setChecked(false);
-                categorySpinner.setPrompt("Expense Category");
-                //date_txt.setText("");
+                if(!name_txt.getText().toString().isEmpty() && !amount_txt.getText().toString().isEmpty() && date != null &&
+                        !category.equals("Category")
+                ) {
+                    date_txt.setText("success");
+                    name = name_txt.getText().toString();
+                    amount = Double.parseDouble(amount_txt.getText().toString());
+
+                    expenseAdded = databaseHelper.insertEXPENSEData("user",
+                            name, amount, date, category, recurring, 1);
+
+                    //if SUCCESSFUL ADD RESET ALL INPUT FIELDS
+                    if (expenseAdded != 0) {
+
+                        name_txt.setText("");
+                        amount_txt.setText("");
+                        recurring_checkbox.setChecked(false);
+                        categorySpinner.setPrompt("Expense Category");
+                        date_txt.setText("Date of expense");
+                        date = null;
+                        categorySpinner.setSelection(0);
+                    }
+                    //ELSE DO SOME ERROR STUFF
+                    else {
+                    Toast.makeText(AddExpense.this,
+                            "Error", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                //ELSE DO SOME ERROR STUFF
             }
 
         });
@@ -153,16 +182,5 @@ public class AddExpense extends AppCompatActivity {
                 startActivity(new Intent(AddExpense.this, Profile.class));
             }
         });
- /*       List<String> categories = new ArrayList<String>();
-        categories.add("Entertainment");
-        categories.add("Groceries");
-        categories.add("Transport");
-        categories.add("Shopping");
-        categories.add("Dining");
-        categories.add("Education");
-        categories.add("Other");
-        }*/
-        // Creating adapter for spinner
-        //ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
     }
 }
