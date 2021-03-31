@@ -629,12 +629,19 @@ public class EMDatabase {
         //EXPENSES TABLE
         private static final String TABLE_EXPENSE = "EXPENSE";   // EXPENSE table Name
         private static final String ENAME= "ExpenseName";    // Column III
-        private static final String DATE= "ExpenseName";    // Column V
+        private static final String DATE= "Date";    // Column V
         private static final String RECURRING= "Recurring";    // Column VII
         private static final String REPEAT= "Repeat";    // Column VIII
         private static final String CREATE_EXPENSE_TABLE = "CREATE TABLE "+TABLE_EXPENSE+
-                " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+USERNAME+" VARCHAR(255) ,"+ ENAME +" VARCHAR(255) ,"+ AMOUNT +" REAL ,"+ DATE +" TEXT ,"+
-                CATEGORY +" VARCHAR(255) ,"+ RECURRING +" INTEGER ,"+ REPEAT +" INTEGER);";
+                " ("+
+                UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                USERNAME+" VARCHAR(255) ,"+
+                ENAME +" VARCHAR(255) ,"+
+                AMOUNT +" REAL ,"+
+                DATE + " TEXT ,"+
+                CATEGORY + " VARCHAR(255) ,"+
+                RECURRING +" INTEGER ,"+
+                REPEAT +" INTEGER);";
         private static final String DROP_EXPENSE_TABLE ="DROP TABLE IF EXISTS "+TABLE_MISC;
 
         private Context context;

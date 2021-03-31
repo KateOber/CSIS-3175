@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddExpense">
+
+    <Button
+        android:id="@+id/addExpenseBackbtn"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="47dp"
+        android:background="#00FFFFFF"
+        app:icon="@drawable/btn_backbutton"
+        app:iconGravity="top"
+        app:iconTint="#676767"
+        app:layout_constraintEnd_toStartOf="@+id/addExpenseHead"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/addExpenseHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="118dp"
+        android:text="@string/addExpenseHead"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addExpenseBackbtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/addExpenseCat"
+        android:layout_width="382dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addExpenseBackbtn" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expenseDate"
+        android:layout_width="380dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/addDate"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addExpenseCat"
+        tools:boxCornerRadiusTopEnd="5dp"
+        tools:boxCornerRadiusTopStart="5dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputExpenseDate"
+            style="@style/txtSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expenseammount"
+        android:layout_width="380dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
+        android:hint="@string/addAmmount"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expenseDate"
+        tools:boxCornerRadiusTopEnd="5dp"
+        tools:boxCornerRadiusTopStart="5dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expenseammountInput"
+            style="@style/txtSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expensename"
+        android:layout_width="380dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="15dp"
+        android:hint="@string/addName"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expenseammount"
+        tools:boxCornerRadiusTopEnd="5dp"
+        tools:boxCornerRadiusTopStart="5dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expensenameInput"
+            style="@style/txtSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/addExpensebtn"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="106dp"
+        android:text="@string/trackerAddExpense"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expensename" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

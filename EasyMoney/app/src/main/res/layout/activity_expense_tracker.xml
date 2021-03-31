@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/trackerAddSavingsbtn"
             android:layout_width="164dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
@@ -28,8 +28,7 @@
             android:layout_marginEnd="9dp"
             android:layout_marginBottom="13dp"
             android:background="#00FFFFFF"
-            android:gravity="center|left"
-            android:text="@string/trackerAddIncome"
+            android:text="@string/trackerAddSavings"
             android:textColor="#676767"
             app:icon="@drawable/ic_iconadd"
             app:iconTint="#676767"
@@ -169,7 +168,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ProgressBar
-            android:id="@+id/progressBar2"
+            android:id="@+id/DASpentProgress"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="346dp"
             android:layout_height="14dp"
@@ -234,10 +233,14 @@
         android:id="@+id/trackerAddExpenseBtn"
         android:layout_width="382dp"
         android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="13dp"
         android:text="@string/trackerAddExpense"
         app:icon="@drawable/ic_iconadd"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="327dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView5" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView7"
