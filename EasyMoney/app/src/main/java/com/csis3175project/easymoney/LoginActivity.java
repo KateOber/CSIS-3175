@@ -31,8 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("key1", inputUserName);
-        editor.commit();
+
 
         ImageView btnBack = findViewById(R.id.btnBack);
         Button btnLogin = findViewById(R.id.btnSignUp);
@@ -53,7 +52,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(ischecked) {
                     Toast.makeText(LoginActivity.this, "Welcome, " + inputUserName, Toast.LENGTH_LONG).show();
-//                    startActivity(new Intent(LoginActivity,this. --put the name of screen--.class)
+                    editor.putString("username", inputUserName);
+                    editor.commit();
+                    startActivity(new Intent(LoginActivity.this, ExpenseTracker.class));
 
                 } else {
                     Toast.makeText(LoginActivity.this, "Please check username or password again", Toast.LENGTH_LONG).show();

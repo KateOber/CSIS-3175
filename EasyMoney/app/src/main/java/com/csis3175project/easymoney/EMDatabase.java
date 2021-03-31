@@ -43,7 +43,7 @@ public class EMDatabase {
     }
 
     //INSERT INTO INCOME
-    public long insertINCOMEData(String username,String IName,double amount, String cat)
+    public long insertINCOMEData(String username,String IName,double amount, String cat, String date, int recurring)
     {
         SQLiteDatabase dbb = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -51,12 +51,14 @@ public class EMDatabase {
         contentValues.put(myDbHelper.INAME, IName);
         contentValues.put(myDbHelper.AMOUNT, amount);
         contentValues.put(myDbHelper.CATEGORY, cat);
+        contentValues.put(myDbHelper.RECURRING, recurring);
+
         long id = dbb.insert(myDbHelper.TABLE_INCOME, null , contentValues);
         return id;
     }
 
     //INSERT INTO MISC
-    public long insertMISCData(String username,double dAllowance, double savings)
+    public long insertMISCData(String username ,double dAllowance, double savings)
     {
         SQLiteDatabase dbb = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -600,30 +602,38 @@ public class EMDatabase {
 
         //USER TABLE
         private static final String TABLE_USER = "USER";   // USER table Name
-        private static final String UID="_id";     // Column I (Primary Key)
+        private static final String UID="Uid";     // Column I (Primary Key)
         private static final String USERNAME = "UserName";    //Column II
         private static final String EMAIL= "Email";    // Column III
         private static final String MyPASSWORD= "Password";    // Column IV
         private static final String ADMINACCESS= "AdminAccess";    // Column V
         private static final String CREATE_USER_TABLE = "CREATE TABLE "+TABLE_USER+
-                " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+USERNAME+" VARCHAR(255) ,"+EMAIL+" VARCHAR(255) ,"+MyPASSWORD+" VARCHAR(255) ,"+ ADMINACCESS+" int);";
+                " ("+
+                UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                USERNAME+" VARCHAR(50) ,"+
+                EMAIL+" VARCHAR(70) ,"+
+                MyPASSWORD+" VARCHAR(50) ,"+
+                ADMINACCESS+" int);";
         private static final String DROP_USER_TABLE ="DROP TABLE IF EXISTS "+TABLE_USER;
 
         //INCOME TABLE
+        private static final String ID = "Id";   // MISC table Name
         private static final String TABLE_INCOME = "INCOME";   // MISC table Name
         private static final String INAME= "IName";    // Column III
         private static final String AMOUNT= "Amount";    // Column IV
         private static final String CATEGORY= "Category";    // Column V
-        private static final String CREATE_INCOME_TABLE = "CREATE TABLE "+TABLE_INCOME+
-                " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+USERNAME+" VARCHAR(255) ,"+INAME+" VARCHAR(255) ,"+AMOUNT+" REAL ,"+ CATEGORY+" VARCHAR(225));";
-        private static final String DROP_INCOME_TABLE ="DROP TABLE IF EXISTS "+TABLE_INCOME;
 
         //MISC TABLE
         private static final String TABLE_MISC = "MISC";   // MISC table Name
         private static final String DAILYA= "DailyAllowance";    // Column III
         private static final String SAVINGS= "Savings";    // Column IV
-        private static final String CREATE_MISC_TABLE = "CREATE TABLE "+TABLE_MISC+
-                " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+USERNAME+" VARCHAR(255) ,"+DAILYA+" REAL ,"+ SAVINGS+" REAL);";
+        private static final String CREATE_MISC_TABLE = "" +
+                "CREATE TABLE "+TABLE_MISC+
+                " ("+
+                ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                USERNAME+" VARCHAR(50) ,"+
+                DAILYA+" REAL ,"+
+                SAVINGS+" REAL);";
         private static final String DROP_MISC_TABLE ="DROP TABLE IF EXISTS "+TABLE_MISC;
 
         //EXPENSES TABLE
@@ -634,15 +644,28 @@ public class EMDatabase {
         private static final String REPEAT= "Repeat";    // Column VIII
         private static final String CREATE_EXPENSE_TABLE = "CREATE TABLE "+TABLE_EXPENSE+
                 " ("+
-                UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                USERNAME+" VARCHAR(255) ,"+
-                ENAME +" VARCHAR(255) ,"+
+                ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                USERNAME+" VARCHAR(50) ,"+
+                ENAME +" VARCHAR(100) ,"+
                 AMOUNT +" REAL ,"+
                 DATE + " TEXT ,"+
-                CATEGORY + " VARCHAR(255) ,"+
+                CATEGORY + " VARCHAR(14) ,"+
                 RECURRING +" INTEGER ,"+
                 REPEAT +" INTEGER);";
         private static final String DROP_EXPENSE_TABLE ="DROP TABLE IF EXISTS "+TABLE_MISC;
+
+        //INCOME TABLE CREATE/DROP
+        private static final String CREATE_INCOME_TABLE = "CREATE TABLE "+TABLE_INCOME+
+                " ("+
+                ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                USERNAME+" VARCHAR(50) ,"+
+                INAME+" VARCHAR(100) ,"+
+                AMOUNT+" REAL ,"+
+                DATE + " TEXT ,"+
+                CATEGORY+" VARCHAR(14) ,"+
+                RECURRING+" INTEGER);";
+        private static final String DROP_INCOME_TABLE ="DROP TABLE IF EXISTS "+TABLE_INCOME;
+
 
         private Context context;
         public myDbHelper(Context context) {

@@ -41,6 +41,12 @@ public class ExpenseTracker extends AppCompatActivity {
         ImageView expenseIcon3 = findViewById(R.id.trackerIcon3);
         ImageView expenseIcon4 = findViewById(R.id.trackerIcon4);
 
+        //footer buttons
+        Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
+        Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
+        Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
+        Button btnReportFooter = findViewById(R.id.reportTrackerFoot);
+
         DAPRogress.setProgress(DAP);
 
 
@@ -75,5 +81,32 @@ public class ExpenseTracker extends AppCompatActivity {
 
             }
         });
+
+        //Footer Buttons
+        btnExpenseTrackerFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ExpenseTracker.this, ExpenseTracker.class));
+            }
+        });
+        btnReportFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ExpenseTracker.this, MainActivity.class));
+            }
+        });
+        btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ExpenseTracker.this, MainActivity.class));
+            }
+        });
+        btnProfileFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ExpenseTracker.this, Profile.class));
+            }
+        });
+
     }
 }

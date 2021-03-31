@@ -30,7 +30,7 @@
     <string name="hint_monthly_saving">Monthly Saving</string>
     <string name="prefix">$</string>
     <string name="btn_sign_up">Sign up</string>
-    <string name="group_name"> Group 6 - CSIS3175 Team project</string>
+    <string name="group_name"> Group 4 - CSIS3175 Team project</string>
     <string name="app_icon_description">App icon image</string>
     <string name="trackerHeader">Expense Tracker</string>
     <string name="goalHeader">Expense Goal</string>
@@ -61,21 +61,31 @@
     <string name="hint_amount">Amount</string>
     <string name="hint_desc">Description</string>
     <string name="checkbox_recurring">Recurring Expense</string>
+    <string name="checkbox_recurringIncome">Recurring Income</string>
     <string name="txt_recurring_bills">Recurring Bills</string>
     <string name="hint_date_expense">Date of expense</string>
     <string name="hint_category_expense">Expense Category</string>
+    <string name="hint_category_income">Income Category</string>
     <string name="hint_expense_name">Expense Name</string>
     <string name="btn_add_expense">Add Expense</string>
     <string name="btn_add_recurring_bills">Add Recurring Bills</string>
     <string name="btn_back">Go to previous screen</string>
-    <string-array name="categories">
+    <string-array name="categoriesExpense">
         <item>Category</item>
         <item>Entertainment</item>
         <item>Groceries</item>
         <item>Transport</item>
         <item>Shopping</item>
         <item>Dining</item>
-        <item>Education</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="categoriesIncome">
+        <item>Category</item>
+        <item>Work</item>
+        <item>Investment</item>
+        <item>Loan</item>
+        <item>Freelance</item>
+        <item>Gift</item>
         <item>Other</item>
     </string-array>
     <!--Kate's Strings End-->

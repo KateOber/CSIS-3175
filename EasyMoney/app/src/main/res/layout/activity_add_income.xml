@@ -41,7 +41,9 @@
         android:layout_marginTop="67dp"
         android:layout_marginEnd="16dp"
         android:background="@android:drawable/btn_dropdown"
+        android:prompt="@string/hint_category_income"
         android:spinnerMode="dropdown"
+        android:entries="@array/categoriesIncome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addIncomeBackbtn" />
@@ -76,7 +78,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="15dp"
-        android:hint="@string/addAmmount"
+        android:hint="@string/addAmount"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,10 +88,12 @@
         tools:boxCornerRadiusTopStart="5dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/IncomeammountInput"
+            android:id="@+id/IncomeAmountInput"
             style="@style/txtSub"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -113,15 +117,77 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <CheckBox
+        android:id="@+id/checkbox_recurInc"
+        android:layout_width="170dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="213dp"
+        android:text="@string/checkbox_recurringIncome"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Incomename" />
+
     <Button
         android:id="@+id/addIncomebtn"
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="16dp"
         android:text="@string/trackerAddIncome"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Incomename" />
+
+    <!--Footer Buttons -->
+    <Button
+        android:id="@+id/userTrackerFoot"
+        android:layout_width="108dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#FFFFFF"
+        app:icon="@drawable/ic_userinactive"
+        app:iconGravity="top"
+        app:iconTint="#676767"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bETrackerFoot" />
+
+    <Button
+        android:id="@+id/bETrackerFoot"
+        android:layout_width="102dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#FFFFFF"
+        app:icon="@drawable/ic_bigexpenseinactive"
+        app:iconGravity="top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reportTrackerFoot"
+        app:iconTint="#676767" />
+
+    <Button
+        android:id="@+id/reportTrackerFoot"
+        android:layout_width="102dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="center"
+        app:icon="@drawable/ic_reportincactive"
+        app:iconGravity="top"
+        app:iconTint="#676767"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/trackerTrackerFoot" />
+
+    <Button
+        android:id="@+id/trackerTrackerFoot"
+        android:layout_width="102dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#FFFFFF"
+        app:icon="@drawable/ic_trackerinactive"
+        app:iconGravity="top"
+        app:iconTint="#676767"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

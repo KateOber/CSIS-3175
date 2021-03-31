@@ -17,33 +17,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/btn_backbutton" />
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/expenseName"
-        android:layout_width="match_parent"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
         android:hint="@string/hint_expense_name"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:selectAllOnFocus="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_addExpense">
+        app:layout_constraintTop_toBottomOf="@+id/txt_addExpense"
+        tools:boxCornerRadiusTopEnd="5dp"
+        tools:boxCornerRadiusTopStart="5dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputExpenseName"
             style="@style/txtSub"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
-
+            android:layout_height="56dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/amount"
-        android:layout_width="match_parent"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/hint_amount"
@@ -59,8 +58,7 @@
             style="@style/txtSub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            />
+            android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -92,80 +90,63 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        />
 
     <CheckBox
         android:id="@+id/checkbox_recurExp"
         android:layout_width="170dp"
         android:layout_height="55dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="213dp"
         android:text="@string/checkbox_recurring"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/category" />
 
-
-    <!-- Footer -->
-
-    <ScrollView
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/scrollView2"
-        android:layout_width="363dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="26dp"
-        android:background="@color/gray5"
-        app:endIconDrawable="@drawable/ic_baseline_date_range_24"
-        app:endIconMode="custom"
+        android:layout_width="368dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/hint_date_expense"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amount">
+        app:layout_constraintTop_toBottomOf="@+id/amount"
+        tools:boxCornerRadiusTopEnd="5dp"
+        tools:boxCornerRadiusTopStart="5dp">
 
-        <TextView
-
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/datePicker"
             style="@style/txtSub"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="24dp"
-            android:hint="@string/hint_date_expense"
-            android:selectAllOnFocus="true"
-            android:textColor="@color/black"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            android:textSize="17sp"
-            app:counterMaxLength="20"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/amount" />
-    </ScrollView>
+
 
     <Spinner
         android:id="@+id/category"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="26dp"
+        android:layout_width="375dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-
-        android:entries="@array/categories"
-        android:background="@color/gray5"
+        android:background="@android:drawable/btn_dropdown"
+        android:entries="@array/categoriesExpense"
         android:prompt="@string/hint_category_expense"
         android:spinnerMode="dialog"
-        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
+    <!--Footer Buttons -->
     <Button
         android:id="@+id/userTrackerFoot"
         android:layout_width="108dp"

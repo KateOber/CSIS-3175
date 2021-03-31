@@ -2,29 +2,26 @@ package com.csis3175project.easymoney;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
-
 import java.util.Calendar;
 
-//TODO:
-//get logged in user
-//
 public class AddExpense extends AppCompatActivity {
     EMDatabase databaseHelper;
     String category, name, date;
@@ -38,18 +35,20 @@ public class AddExpense extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_expense);
 
+        //sharedPreference
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String username = sharedPref.getString("username","");
+
         //initialize dbHelper
         databaseHelper = new EMDatabase(this);
 
         Spinner categorySpinner = findViewById(R.id.category);
         TextInputEditText amount_txt = findViewById(R.id.inputAmount);
         TextInputEditText name_txt = findViewById(R.id.inputExpenseName);
-        TextView date_txt = findViewById(R.id.datePicker);
+        TextInputEditText date_txt = findViewById(R.id.datePicker);
         Button btnAdd = findViewById(R.id.btn_addExpense);
         ImageView btnBack = findViewById(R.id.btnBack);
         CheckBox recurring_checkbox = findViewById(R.id.checkbox_recurExp);
-        //layout elements
-        ScrollView scrollViewDate = findViewById(R.id.scrollView2);
 
         //footer buttons
         Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
@@ -110,9 +109,9 @@ public class AddExpense extends AppCompatActivity {
                 else
                     amount_txt.setBackgroundColor(Color.parseColor("#E0E0E0"));
                 if(date == null)
-                    scrollViewDate.setBackgroundColor(Color.parseColor("#20D81B60"));
+                    date_txt.setBackgroundColor(Color.parseColor("#20D81B60"));
                 else
-                    scrollViewDate.setBackgroundColor(Color.parseColor("#E0E0E0"));
+                    date_txt.setBackgroundColor(Color.parseColor("#E0E0E0"));
                 if(category.equals("Category"))
                    categorySpinner.setBackgroundColor(Color.parseColor("#20D81B60"));
                 else
@@ -121,11 +120,10 @@ public class AddExpense extends AppCompatActivity {
                 if(!name_txt.getText().toString().isEmpty() && !amount_txt.getText().toString().isEmpty() && date != null &&
                         !category.equals("Category")
                 ) {
-                    date_txt.setText("success");
                     name = name_txt.getText().toString();
                     amount = Double.parseDouble(amount_txt.getText().toString());
 
-                    expenseAdded = databaseHelper.insertEXPENSEData("user",
+                    expenseAdded = databaseHelper.insertEXPENSEData(username,
                             name, amount, date, category, recurring, 1);
 
                     //if SUCCESSFUL ADD RESET ALL INPUT FIELDS
@@ -138,6 +136,8 @@ public class AddExpense extends AppCompatActivity {
                         date_txt.setText("Date of expense");
                         date = null;
                         categorySpinner.setSelection(0);
+                        Toast.makeText(AddExpense.this,
+                                "Expense Added", Toast.LENGTH_SHORT).show();
                     }
                     //ELSE DO SOME ERROR STUFF
                     else {

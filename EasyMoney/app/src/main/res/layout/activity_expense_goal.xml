@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
             android:layout_marginTop="7dp"
-            android:text="@string/goalEnternainment"
+            android:text="@string/goalEntertainment"
             android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

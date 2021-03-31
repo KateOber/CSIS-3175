@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="9dp"
             android:layout_marginTop="8dp"
-            android:text="@string/trackerIncomeHeader"
+            android:text="@string/trackerSavingsHead"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,10 +78,9 @@
         android:backgroundTint="#FFFFFF"
         app:icon="@drawable/ic_bigexpenseinactive"
         app:iconGravity="top"
-        app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/reportTrackerFoot"
-        tools:iconTint="#676767" />
+        app:iconTint="#676767" />
 
     <Button
         android:id="@+id/reportTrackerFoot"
