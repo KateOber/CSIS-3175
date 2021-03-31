@@ -27,9 +27,7 @@ public class ExpenseTracker extends AppCompatActivity {
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         String username = sharedPref.getString("username","");
-
-
-
+        
         database = new EMDatabase(this);
         expenses = database.getEXPENSEData();
         income = database.getINCOMEData();
@@ -122,7 +120,7 @@ public class ExpenseTracker extends AppCompatActivity {
         gotoTrackerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ExpenseTracker.this, RecurringBillsCalendar.class));
+                startActivity(new Intent(ExpenseTracker.this, RecurringBills.class));
 
             }
         });
