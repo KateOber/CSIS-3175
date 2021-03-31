@@ -38,7 +38,7 @@
     <string name="goalList">List</string>
     <string name="profileHeader">Profile</string>
     <string name="editProfileBtn">Edit Profile</string>
-    <string name="goalEnternainment">Entertainment</string>
+    <string name="goalEntertainment">Entertainment</string>
     <string name="goalDining">Dining</string>
     <string name="goalGroceries">Groceries</string>
     <string name="goalTransport">Transport</string>
@@ -52,7 +52,7 @@
     <string name="trackerAddSavings">Add Savings</string>
     <string name="trackerAddExpense">Add Expense</string>
     <string name="addDate">Date dd/mm/yyy</string>
-    <string name="addAmmount">Ammount</string>
+    <string name="addAmount">Amount</string>
     <string name="addName">Name</string>
     <string name="addExpenseHead">Add Expense</string>
     <string name="addIncomeHead">Add Income</string>
