@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         Button btnSignUp = findViewById(R.id.btnSignUp);
         TextView btnGoSignIn = findViewById(R.id.btnGoSignIn);
-        ImageView btnBack = findViewById(R.id.btnBack);
+        ImageView btnBack = findViewById(R.id.btnBackBills);
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override

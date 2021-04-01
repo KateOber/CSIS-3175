@@ -32,7 +32,7 @@ public class UpdatePassword extends AppCompatActivity {
 
         TextInputEditText newPassword = findViewById(R.id.inputNewPassword);
         Button btnUpdatePassword = findViewById(R.id.btnSignUp);
-        ImageView btnBack = findViewById(R.id.btnBack);
+        ImageView btnBack = findViewById(R.id.btnBackBills);
 
        btnUpdatePassword.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -49,6 +49,7 @@ public class UpdatePassword extends AppCompatActivity {
                    Toast.makeText(UpdatePassword.this,
                            "Password has been successfully updated", Toast.LENGTH_LONG).show();
                    onBackPressed();
+                   myhelper.updateAACCESS(0, userName);
 
                } else{
                    Toast.makeText(UpdatePassword.this,

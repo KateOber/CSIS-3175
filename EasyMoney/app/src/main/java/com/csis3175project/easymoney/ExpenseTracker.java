@@ -13,13 +13,19 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 public class ExpenseTracker extends AppCompatActivity {
     int DAP;
     EMDatabase database;
     Cursor expenses;
     Cursor income;
-    double savings, EA1, EA2, EA3, EA4;
-    String EC1,EC2,EC3,EC4, ED1, ED2, ED3, ED4;
+    double savings, EA1, EA2, EA3, EA4, todayExpense, DAT, DAF;
+    String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +34,8 @@ public class ExpenseTracker extends AppCompatActivity {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         String username = sharedPref.getString("username","");
 
-
+        todayExpense = 0;
+        DAT = 0;
 
         database = new EMDatabase(this);
         expenses = database.getEXPENSEData();
@@ -59,7 +66,11 @@ public class ExpenseTracker extends AppCompatActivity {
         double DA = database.getDAllowance(username);
         totalDAtxt.setText("$"+DA);
 
+        Date c = Calendar.getInstance().getTime();
 
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String formattedDate = df.format(c);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         TextView expensePrice1 = findViewById(R.id.trackerExpensePrice1);
         TextView expensePrice2 = findViewById(R.id.trackerExpensePrice2);
@@ -71,41 +82,59 @@ public class ExpenseTracker extends AppCompatActivity {
         TextView expenseDate3 = findViewById(R.id.trackerExpenseDate3);
         TextView expenseDate4 = findViewById(R.id.trackerExpenseDate4);
 
-        ImageView expenseIcon1 = findViewById(R.id.trackerIcon1);
-        ImageView expenseIcon2 = findViewById(R.id.trackerIcon2);
-        ImageView expenseIcon3 = findViewById(R.id.trackerIcon3);
-        ImageView expenseIcon4 = findViewById(R.id.trackerIcon4);
-        String expenseCat, expenseDate;
+        TextView expenseName1 = findViewById(R.id.trackerExpenseName1);
+        TextView expenseName2 = findViewById(R.id.trackerExpenseName2);
+        TextView expenseName3 = findViewById(R.id.trackerExpenseName3);
+        TextView expenseName4 = findViewById(R.id.trackerExpenseName4);
+
+        String expenseName, expenseDate;
         double expenseAmmount;
         int i=1;
         if(expenses.getCount()>0){
-            while(expenses.moveToNext()){
-                if(expenses.getString(1).equals(username)){
-                    expenseCat = expenses.getString(5);
-                    expenseDate = expenses.getString(4);
-                    expenseAmmount = expenses.getDouble(3);
-                    if(i==0){
-                        EA1 = expenseAmmount;EC1 = expenseCat;ED1 = expenseDate;
-                        expenseDate1.setText(ED1);expensePrice1.setText("$"+EA1);
-                        if(EC1.equals("Dinning"));
-                        else if(EC1.equals("Entertainment"));
-                        else if(EC1.equals("Groceries"));
-                        else if(EC1.equals("Transport"));
-                        else if(EC1.equals("Shopping"));
-                        else if(EC1.equals("Other"));
+            for (expenses.moveToLast(); !expenses.isBeforeFirst(); expenses.moveToPrevious()) {
+                expenseDate = expenses.getString(4);
+                expenseAmmount = expenses.getDouble(3);
+                expenseName = expenses.getString(2);
+                if (expenses.getString(1).equals(username)) {
+                    try {
+                        Date date = format.parse(expenseDate);
+                        if (formattedDate.equals(date)) {
+                            todayExpense += expenseAmmount;
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
                     }
-                    else if(i==1){
-                        EA2 = expenseAmmount;EC2 = expenseCat;ED2 = expenseDate;
-                        expenseDate2.setText(ED2);expensePrice2.setText("$"+EA2);
+
+                    if (i == 0) {
+                        EA1 = expenseAmmount;
+                        EN1 = expenseName;
+                        ED1 = expenseDate;
+                        expenseDate1.setText(ED1);
+                        expensePrice1.setText("$" + EA1);
+                        expenseName1.setText(expenseName);
+                    } else if (i == 1) {
+                        EA2 = expenseAmmount;
+                        EN2 = expenseName;
+                        ED2 = expenseDate;
+                        expenseDate2.setText(ED2);
+                        expensePrice2.setText("$" + EA2);
+                        expenseName2.setText(expenseName);
+                    } else if (i == 2) {
+                        EA3 = expenseAmmount;
+                        EN3 = expenseName;
+                        ED3 = expenseDate;
+                        expenseDate3.setText(ED3);
+                        expensePrice3.setText("$" + EA3);
+                        expenseName3.setText(expenseName);
+                    } else if (i == 3) {
+                        EA4 = expenseAmmount;
+                        EN4 = expenseName;
+                        ED4 = expenseDate;
+                        expenseDate4.setText(ED4);
+                        expensePrice4.setText("$" + EA4);
+                        expenseName4.setText(expenseName);
                     }
-                    else if(i==2){
-                        EA3 = expenseAmmount;EC3 = expenseCat;ED3 = expenseDate;
-                        expenseDate3.setText(ED3);expensePrice3.setText("$"+EA3);
-                    }
-                    else if(i==3){
-                        EA4 = expenseAmmount;EC4 = expenseCat;ED4 = expenseDate;
-                        expenseDate4.setText(ED4);expensePrice4.setText("$"+EA4);
-                    }
+                    i++;
                 }
             }
         }
@@ -115,8 +144,6 @@ public class ExpenseTracker extends AppCompatActivity {
         Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
         Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
         Button btnReportFooter = findViewById(R.id.reportTrackerFoot);
-
-        DAPRogress.setProgress(DAP);
 
 
         gotoTrackerbtn.setOnClickListener(new View.OnClickListener() {

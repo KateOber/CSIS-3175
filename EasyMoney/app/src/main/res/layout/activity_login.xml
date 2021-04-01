@@ -8,7 +8,7 @@
 
     <!--back button-->
     <ImageView
-        android:id="@+id/btnBack"
+        android:id="@+id/btnBackBills"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -28,7 +28,7 @@
         android:layout_marginTop="36dp"
         android:text="@string/txt_login_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBackBills" />
 
     <!--sub text-->
     <TextView

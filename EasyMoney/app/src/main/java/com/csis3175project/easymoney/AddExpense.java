@@ -16,7 +16,6 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -47,7 +46,7 @@ public class AddExpense extends AppCompatActivity {
         TextInputEditText name_txt = findViewById(R.id.inputExpenseName);
         TextInputEditText date_txt = findViewById(R.id.datePicker);
         Button btnAdd = findViewById(R.id.btn_addExpense);
-        ImageView btnBack = findViewById(R.id.btnBack);
+        ImageView btnBack = findViewById(R.id.btnBackBills);
         CheckBox recurring_checkbox = findViewById(R.id.checkbox_recurExp);
 
         //footer buttons
