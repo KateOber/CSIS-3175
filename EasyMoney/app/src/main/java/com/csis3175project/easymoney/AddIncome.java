@@ -76,7 +76,7 @@ public class AddIncome extends AppCompatActivity {
         onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                date = "" + year + '/' + month + '/' + dayOfMonth;
+                date = "" + year + '/' + ++month + '/' + dayOfMonth;
                 date_txt.setText(date.toString());
 
             }
