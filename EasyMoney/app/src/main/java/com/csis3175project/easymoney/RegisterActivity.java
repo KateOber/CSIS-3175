@@ -71,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (inputUserName != null && inputUserEmail != null && inputUserPassword != null) {
                     myhelper.insertUSERData(inputUserName, inputUserEmail, inputUserPassword, 0);
+                    myhelper.insertMISCData(inputUserName, 0, 0);
                     Toast.makeText(RegisterActivity.this,
                             "Has been successfully registered", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));

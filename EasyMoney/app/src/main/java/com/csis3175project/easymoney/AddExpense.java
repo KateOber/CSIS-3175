@@ -78,7 +78,7 @@ public class AddExpense extends AppCompatActivity {
         onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                date = "" + year + '/' + month + '/' + dayOfMonth;
+                date = "" + year + '/' + ++month + '/' + dayOfMonth;
                 date_txt.setText(date.toString());
 
             }
@@ -150,7 +150,7 @@ public class AddExpense extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                startActivity(new Intent(AddExpense.this, ExpenseTracker.class));
             }
         });
 

@@ -30,16 +30,16 @@ public class RecurringBillsCalendar extends AppCompatActivity {
         Cursor expenses = databaseHelper.getEXPENSEData();
         if(expenses.getCount()>0){
             while(expenses.moveToNext()){
-                if (expenses.getString(1).equals("username")){
-                    Calendar calendar = Calendar.getInstance();
-                    String[] arr = expenses.getString(4).split("/");
-                    int yy;
-                    int mm;
-                    String dd;
-                    calendar.set(Integer.parseInt(arr[0]),Integer.parseInt(arr[1]),Integer.parseInt(arr[2]));
-                    events.add(new EventDay(calendar, R.drawable.day_picker_item_background, Color.parseColor("#228B22")));
-                }
-            }}
+            if (expenses.getString(1).equals("username")){
+                Calendar calendar = Calendar.getInstance();
+                String[] arr = expenses.getString(4).split("/");
+                int yy = Integer.parseInt(arr[0]);
+                int mm = Integer.parseInt(arr[1]);
+                int dd = Integer.parseInt(arr[2]);
+                calendar.set(yy,--mm,dd);
+                events.add(new EventDay(calendar, R.drawable.day_picker_item_background, Color.parseColor("#228B22")));
+            }
+        }}
 
         Button btnAddRecurring = findViewById(R.id.btn_addRecurringBills);
         Button backButton = findViewById(R.id.btnBackBills);

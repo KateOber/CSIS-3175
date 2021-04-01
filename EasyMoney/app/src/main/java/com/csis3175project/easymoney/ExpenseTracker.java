@@ -24,8 +24,8 @@ public class ExpenseTracker extends AppCompatActivity {
     EMDatabase database;
     Cursor expenses;
     Cursor income;
-    double savings, EA1, EA2, EA3, EA4, todayExpense, DAT, DAF;
-    String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4;
+    double savings, EA1, EA2, EA3, EA4, todayExpense, DAT, DAF, netIncome, DAU;
+    String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4, formatIncome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +35,14 @@ public class ExpenseTracker extends AppCompatActivity {
         String username = sharedPref.getString("username","");
 
         todayExpense = 0;
+        netIncome = 0;
         DAT = 0;
 
         database = new EMDatabase(this);
         expenses = database.getEXPENSEData();
         income = database.getINCOMEData();
         savings = database.getSavings(username);
-        
+
         ProgressBar DAPRogress = findViewById(R.id.DASpentProgress);
 
         Button gotoTrackerbtn = findViewById(R.id.calendarTrackerBtn);
@@ -59,18 +60,18 @@ public class ExpenseTracker extends AppCompatActivity {
                 }
             }
         }
-        totalIncometxt.setText("$"+totalIncome);
+        netIncome = totalIncome;
+
         TextView totalSavingstxt = findViewById(R.id.trackerSavingsTotaltxt);
         totalSavingstxt.setText("$"+savings);
         TextView totalDAtxt = findViewById(R.id.DATotaltxt);
         double DA = database.getDAllowance(username);
-        totalDAtxt.setText("$"+DA);
+
 
         Date c = Calendar.getInstance().getTime();
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        SimpleDateFormat df = new SimpleDateFormat("yyyy/M/dd", Locale.getDefault());
         String formattedDate = df.format(c);
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         TextView expensePrice1 = findViewById(R.id.trackerExpensePrice1);
         TextView expensePrice2 = findViewById(R.id.trackerExpensePrice2);
@@ -96,14 +97,11 @@ public class ExpenseTracker extends AppCompatActivity {
                 expenseAmmount = expenses.getDouble(3);
                 expenseName = expenses.getString(2);
                 if (expenses.getString(1).equals(username)) {
-                    try {
-                        Date date = format.parse(expenseDate);
-                        if (formattedDate.equals(date)) {
+                    netIncome -= expenseAmmount;
+                        if (formattedDate.equals(expenseDate)) {
                             todayExpense += expenseAmmount;
+                            System.out.println("total expense"+ todayExpense);
                         }
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
 
                     if (i == 0) {
                         EA1 = expenseAmmount;
@@ -132,13 +130,22 @@ public class ExpenseTracker extends AppCompatActivity {
                         ED4 = expenseDate;
                         expenseDate4.setText(ED4);
                         expensePrice4.setText("$" + EA4);
-                        expenseName4.setText(expenseName);
+                        expenseName4.setText(EN4);
                     }
                     i++;
                 }
             }
         }
+        DAF = DA - todayExpense;
+        DAU = todayExpense/DA*100;
+        DAP = (int) DAU;
+        if(DAP>100)DAP=100;
 
+        DAPRogress.setProgress(DAP);
+
+        formatIncome = String.format("%.2f", netIncome);
+        totalIncometxt.setText("$"+formatIncome);
+        totalDAtxt.setText("$"+DAF);
         //footer buttons
         Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
         Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
