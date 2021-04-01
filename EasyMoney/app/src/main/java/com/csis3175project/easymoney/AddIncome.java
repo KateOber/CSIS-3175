@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.time.Month;
 import java.util.Calendar;
 
 
@@ -147,7 +148,7 @@ public class AddIncome extends AppCompatActivity {
         addIncomeBackbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddIncome.this, ExpenseTracker.class));
+                finish();
 
             }
         });
@@ -161,7 +162,7 @@ public class AddIncome extends AppCompatActivity {
         btnReportFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddIncome.this, MainActivity.class));
+                startActivity(new Intent(AddIncome.this, MonthlyReport.class));
             }
         });
         btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {

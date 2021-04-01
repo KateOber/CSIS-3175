@@ -62,7 +62,7 @@ public class AddSavings extends AppCompatActivity {
         addSavingsBackbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddSavings.this, ExpenseTracker.class));
+                finish();
             }
         });
     }
