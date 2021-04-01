@@ -9,63 +9,70 @@
 
     <Spinner
         android:id="@+id/txtCatExpGroup"
-        android:layout_width="314dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="420dp"
-        android:background="@color/white"
+        android:layout_width="375dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:drawable/btn_dropdown"
         android:entries="@array/categoriesExpense"
         android:prompt="@string/bigExHint1"
         android:spinnerMode="dialog"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSubTitle" />
 
     <Spinner
         android:id="@+id/txtPerExpGroup"
-        android:layout_width="314dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginBottom="356dp"
-        android:background="@color/white"
+        android:layout_width="375dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:drawable/btn_dropdown"
         android:entries="@array/expensePeriod"
         android:prompt="@string/bigExHint2"
         android:spinnerMode="dialog"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCatExpGroup" />
 
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="314dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="292dp"
-        android:autofillHints=""
-        android:background="@color/white"
-        android:ems="10"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextNumberLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
         android:hint="@string/bigExHint3"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:inputType="numberDecimal"
+        android:selectAllOnFocus="true"
+        app:boxBackgroundColor="@color/gray6"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:layout_constraintBottom_toTopOf=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPerExpGroup"
+        app:prefixText="@string/prefix">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:autofillHints=""
         android:ems="10"
-        android:inputType="textPersonName"
         android:text="@string/txtScrNameBE"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,31 +80,20 @@
 
     <TextView
         android:id="@+id/txtSubTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="276dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
         android:autofillHints=""
         android:ems="10"
-        android:inputType="textPersonName"
         android:text="@string/txtScrBESub"
+<<<<<<< HEAD
         android:textSize="20dp"
+=======
+        android:textSize="20sp"
+>>>>>>> 0738263bb0d0d90d4c4e594003035d719e66e632
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
-
-    <TextView
-        android:id="@+id/txtOutput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="178dp"
-        android:layout_marginRight="178dp"
-        android:layout_marginBottom="38dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
 
     <Button
         android:id="@+id/btnBigEx"
@@ -105,11 +101,12 @@
         android:layout_height="52dp"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="46dp"
-        android:layout_marginBottom="111dp"
+        android:layout_marginBottom="208dp"
         android:color="#36D1DC"
         android:text="@string/btnBigEx"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -130,10 +127,10 @@
         android:backgroundTint="#FFFFFF"
         app:icon="@drawable/ic_bigexpenseinactive"
         app:iconGravity="top"
-        app:iconTint="#FFFFFF"
+        app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/reportBexTrackerFoot"
-        tools:iconTint="#676767" />
+        />
 
     <Button
         android:id="@+id/reportBexTrackerFoot"

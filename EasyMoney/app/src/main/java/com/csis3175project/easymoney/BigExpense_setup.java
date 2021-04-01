@@ -25,7 +25,7 @@ public class BigExpense_setup extends AppCompatActivity {
         Spinner groupCat = findViewById(R.id.txtCatExpGroup);
         Spinner groupPeriod = findViewById(R.id.txtPerExpGroup);
         EditText cost = findViewById(R.id.editTextNumber);
-        TextView output = findViewById(R.id.txtOutput);
+       // TextView output = findViewById(R.id.txtOutput);
 
         Button button = findViewById(R.id.btnBigEx);
 
@@ -50,7 +50,7 @@ public class BigExpense_setup extends AppCompatActivity {
                     intent.putExtra("period", selectedPeriod);
                     startActivity(intent);
                 } catch (NumberFormatException ex) {
-                    output.setText("Enter the cost of expense");
+                   // output.setText("Enter the cost of expense");
                 }
             }
         });

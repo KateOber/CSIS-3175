@@ -36,8 +36,8 @@
 
     <com.applandeo.materialcalendarview.CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="403dp"
-        android:layout_height="415dp"
+        android:layout_width="match_parent"
+        android:layout_height="413dp"
         android:layout_marginTop="5dp"
         app:highlightedDaysLabelsColor="#00BCD4"
         app:layout_constraintBottom_toBottomOf="@+id/btn_addRecurringBills"
@@ -45,7 +45,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_recurringBills"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.276" />
 
     <Button
         android:id="@+id/btn_addRecurringBills"
@@ -55,7 +55,7 @@
         android:layout_gravity="start"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="132dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/style_btn_blue"
         android:enabled="true"
         android:text="@string/btn_add_expense"
