@@ -139,7 +139,7 @@ public class ExpenseTracker extends AppCompatActivity {
         }
         Calendar month = Calendar.getInstance();
         int monthMaxDays = month.getActualMaximum(Calendar.DAY_OF_MONTH);
-        if(DA == 0){
+        if(DA <= 0){
             DA = (recurringIncome-recurringExpense) / monthMaxDays;
             database.updateDAllowance(DA, username);
         }

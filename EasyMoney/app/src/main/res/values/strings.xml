@@ -127,6 +127,6 @@
     <string name="txt_update_password_sub">Please update your password</string>
     <string name="prompt_new_password">New Password</string>
     <string name="prompt_old_password">Old Password</string>
-
+    <string name="hint_numOfMonths">Number of months</string>
     <!--Kate's Strings End-->
 </resources>

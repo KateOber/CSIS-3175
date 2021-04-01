@@ -7,7 +7,7 @@
     tools:context=".AddIncome">
 
     <!--back button-->
-    <Button
+    <ImageView
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,7 +83,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/IncomeDate"
         tools:boxCornerRadiusTopEnd="5dp"
-        tools:boxCornerRadiusTopStart="5dp">
+        tools:boxCornerRadiusTopStart="5dp"
+        app:prefixText="@string/prefix">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/IncomeAmountInput"
@@ -144,7 +145,7 @@
 
     <!--Footer Buttons -->
     <Button
-        android:id="@+id/userReportFoot"
+        android:id="@+id/bigExUsTrackerFoot"
         android:layout_width="108dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -152,21 +153,21 @@
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bEReportFoot" />
+        app:layout_constraintStart_toEndOf="@+id/bEBexTrackerFoot" />
 
     <Button
-        android:id="@+id/bEReportFoot"
+        android:id="@+id/bEBexTrackerFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
         app:icon="@drawable/ic_bigexpenseinactive"
         app:iconGravity="top"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/reportReportFoot"
+        app:layout_constraintStart_toEndOf="@+id/reportBexTrackerFoot"
         app:iconTint="#676767" />
 
     <Button
-        android:id="@+id/reportReportFoot"
+        android:id="@+id/reportBexTrackerFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -175,10 +176,10 @@
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/trackerReportFoot" />
+        app:layout_constraintStart_toEndOf="@+id/trackerBigExTrackerFoot" />
 
     <Button
-        android:id="@+id/trackerReportFoot"
+        android:id="@+id/trackerBigExTrackerFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"

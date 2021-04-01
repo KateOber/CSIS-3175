@@ -7,95 +7,110 @@
     android:background="@color/gray6"
     tools:context=".BigExpense_setup">
 
-    <EditText
-        android:id="@+id/editTextNumber2"
-        android:layout_width="314dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="39dp"
-        android:autofillHints=""
-        android:background="@color/white"
-        android:ems="10"
-        android:hint="@string/bigExHint3"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BEPeriod" />
-
     <Spinner
         android:id="@+id/txtCatExpGroup"
-        android:layout_width="314dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="420dp"
-        android:background="@color/white"
+        android:layout_width="375dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:drawable/btn_dropdown"
         android:entries="@array/categoriesExpense"
         android:prompt="@string/bigExHint1"
         android:spinnerMode="dialog"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/BEPeriod"
-        android:layout_width="314dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="39dp"
-        android:autofillHints=""
-        android:background="@color/white"
-        android:ems="10"
-        android:hint="@string/bigExHint2"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCatExpGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtPerExpGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
+        android:hint="@string/hint_numOfMonths"
+        android:inputType="number"
+        android:selectAllOnFocus="true"
+        app:boxBackgroundColor="@color/gray6"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCatExpGroup"
+        >
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/BEPeriod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextNumberLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
+        android:hint="@string/bigExHint3"
+        android:inputType="numberDecimal"
+        android:selectAllOnFocus="true"
+        app:boxBackgroundColor="@color/gray6"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPerExpGroup"
+        app:prefixText="@string/prefix">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNumber2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         android:autofillHints=""
         android:ems="10"
-        android:inputType="textPersonName"
         android:text="@string/txtScrNameBE"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtOutput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="178dp"
-        android:layout_marginRight="178dp"
-        android:layout_marginBottom="38dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/txtSubTitle"
+        android:layout_width="276dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:text="@string/txtScrBESub"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BEPeriod" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
 
     <Button
         android:id="@+id/btnBigEx"
         android:layout_width="320dp"
         android:layout_height="52dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="95dp"
         android:layout_marginEnd="46dp"
-        android:layout_marginBottom="111dp"
+        android:layout_marginBottom="208dp"
         android:color="#36D1DC"
         android:text="@string/btnBigEx"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/bigExUsTrackerFoot"
@@ -117,7 +132,8 @@
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/reportBexTrackerFoot" />
+        app:layout_constraintStart_toEndOf="@+id/reportBexTrackerFoot"
+        />
 
     <Button
         android:id="@+id/reportBexTrackerFoot"
@@ -143,4 +159,3 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

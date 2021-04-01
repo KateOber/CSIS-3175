@@ -29,7 +29,7 @@ public class AddSavings extends AppCompatActivity {
         databaseHelper = new EMDatabase(this);
 
         Button addSavingsbtn = findViewById(R.id.addSavingsbtn);
-        Button addSavingsBackbtn = findViewById(R.id.btnBack);
+        Button addSavingsBackbtn = findViewById(R.id.addSavingsBackbtn);
         TextInputEditText savingsAmount_txt = findViewById(R.id.SavingsammountInput);
 
         addSavingsbtn.setOnClickListener(new View.OnClickListener() {
@@ -39,23 +39,23 @@ public class AddSavings extends AppCompatActivity {
                 if(savingsAmount_txt.getText().toString().isEmpty())
                     savingsAmount_txt.setBackgroundColor(Color.parseColor("#20D81B60"));
                 else
-                    {
-                        savingsAmount_txt.setBackgroundColor(Color.parseColor("#E0E0E0"));
-                        double amount = Double.parseDouble(savingsAmount_txt.getText().toString());
-                        double currentSavings = databaseHelper.getSavings(username);
-                        boolean savingsUpdated = databaseHelper.updateSavings(currentSavings+amount, username);
+                {
+                    savingsAmount_txt.setBackgroundColor(Color.parseColor("#E0E0E0"));
+                    double amount = Double.parseDouble(savingsAmount_txt.getText().toString());
+                    double currentSavings = databaseHelper.getSavings(username);
+                    boolean savingsUpdated = databaseHelper.updateSavings(currentSavings+amount, username);
 
-                        if(savingsUpdated)
+                    if(savingsUpdated)
+                        Message.message(AddSavings.this, "Saving Added");
+                    else{
+                        long createMisc = databaseHelper.insertMISCData(username,0,amount);
+                        if(createMisc > 0)
                             Message.message(AddSavings.this, "Saving Added");
-                        else{
-                            long createMisc = databaseHelper.insertMISCData(username,0,amount);
-                            if(createMisc > 0)
-                                Message.message(AddSavings.this, "Saving Added");
-                            else
-                                Message.message(AddSavings.this, "Error");
-                        }
-
+                        else
+                            Message.message(AddSavings.this, "Error");
                     }
+
+                }
             }
         });
 

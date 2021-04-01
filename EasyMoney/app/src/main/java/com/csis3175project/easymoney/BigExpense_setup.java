@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -27,7 +28,6 @@ public class BigExpense_setup extends AppCompatActivity {
         Spinner groupCat = findViewById(R.id.txtCatExpGroup);
         EditText groupPeriod = findViewById(R.id.BEPeriod);
         EditText cost = findViewById(R.id.editTextNumber2);
-        TextView output = findViewById(R.id.txtOutput);
 
         Button button = findViewById(R.id.btnBigEx);
 
@@ -44,16 +44,38 @@ public class BigExpense_setup extends AppCompatActivity {
             public void onClick(View v) {
 
                 try {
-                    costOfExpense = Double.parseDouble(cost.getText().toString());
-                    expensePeriod = Integer.parseInt(groupPeriod.getText().toString());
+
                     categoriesExpense = groupCat.getSelectedItem().toString();
-                    editor.putString("cost", Double.toString(costOfExpense));
-                    editor.putInt("period", expensePeriod);
-                    editor.putString("cat", categoriesExpense);
-                    editor.commit();
-                    startActivity(new Intent(BigExpense_setup.this, BigExpenses_main.class));
+
+                    if(categoriesExpense.equals("Category"))
+                        groupCat.setBackgroundColor(Color.parseColor("#20D81B60"));
+                    else
+                        groupCat.setBackgroundColor(Color.parseColor("#E0E0E0"));
+                    if(cost.getText().toString().isEmpty())
+                        cost.setBackgroundColor(Color.parseColor("#20D81B60"));
+                    else
+                        cost.setBackgroundColor(Color.parseColor("#E0E0E0"));
+                    if(groupPeriod.getText().toString().isEmpty())
+                        groupPeriod.setBackgroundColor(Color.parseColor("#20D81B60"));
+                    else
+                        groupPeriod.setBackgroundColor(Color.parseColor("#E0E0E0"));
+
+                    if(!cost.getText().toString().isEmpty() && !groupPeriod.getText().toString().isEmpty()  &&
+                            !categoriesExpense.equals("Category")) {
+                        costOfExpense = Double.parseDouble(cost.getText().toString());
+                        expensePeriod = Integer.parseInt(groupPeriod.getText().toString());
+
+
+                        editor.putString("cost", Double.toString(costOfExpense));
+                        editor.putInt("period", expensePeriod);
+                        editor.putString("cat", categoriesExpense);
+                        editor.commit();
+                        startActivity(new Intent(BigExpense_setup.this, BigExpenses_main.class));
+                    }
+                    else
+                        Message.message(BigExpense_setup.this, "Error");
                 } catch (NumberFormatException ex) {
-                    output.setText("Enter the cost of expense");
+                    Message.message(BigExpense_setup.this, "Error");
                 }
             }
         });
