@@ -68,9 +68,8 @@ public class ExpenseTracker extends AppCompatActivity {
 
         Date c = Calendar.getInstance().getTime();
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        SimpleDateFormat df = new SimpleDateFormat("yyyy/M/dd", Locale.getDefault());
         String formattedDate = df.format(c);
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         TextView expensePrice1 = findViewById(R.id.trackerExpensePrice1);
         TextView expensePrice2 = findViewById(R.id.trackerExpensePrice2);
@@ -96,14 +95,10 @@ public class ExpenseTracker extends AppCompatActivity {
                 expenseAmmount = expenses.getDouble(3);
                 expenseName = expenses.getString(2);
                 if (expenses.getString(1).equals(username)) {
-                    try {
-                        Date date = format.parse(expenseDate);
-                        if (formattedDate.equals(date)) {
+                        if (formattedDate.equals(expenseDate)) {
                             todayExpense += expenseAmmount;
+                            System.out.println("total expense"+ todayExpense);
                         }
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
 
                     if (i == 0) {
                         EA1 = expenseAmmount;
