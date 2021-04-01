@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
         String username = "";
         //example:
         String email = database.getEmail(username);
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        SharedPreferences.Editor editor = preferences.edit();
-//        editor.putString("key1", username);
-//        editor.putString("key2", email);
-//        editor.commit();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("key1", username);
+        editor.putString("key2", email);
+        editor.commit();
     }
 }

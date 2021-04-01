@@ -39,20 +39,20 @@ public class AddSavings extends AppCompatActivity {
                 if(savingsAmount_txt.getText().toString().isEmpty())
                     savingsAmount_txt.setBackgroundColor(Color.parseColor("#20D81B60"));
                 else
-                    {
-                        savingsAmount_txt.setBackgroundColor(Color.parseColor("#E0E0E0"));
-                        double amount = Double.parseDouble(savingsAmount_txt.getText().toString());
-                        double currentSavings = databaseHelper.getSavings(username);
-                        boolean savingsUpdated = databaseHelper.updateSavings(currentSavings+amount, username);
+                {
+                    savingsAmount_txt.setBackgroundColor(Color.parseColor("#E0E0E0"));
+                    double amount = Double.parseDouble(savingsAmount_txt.getText().toString());
+                    double currentSavings = databaseHelper.getSavings(username);
+                    boolean savingsUpdated = databaseHelper.updateSavings(currentSavings+amount, username);
 
-                        if(savingsUpdated)
+                    if(savingsUpdated)
                         Toast.makeText(AddSavings.this,
                                 "Saving Added", Toast.LENGTH_SHORT).show();
 
-                        else
-                            Toast.makeText(AddSavings.this,
-                            "Error", Toast.LENGTH_SHORT).show();
-                    }
+                    else
+                        Toast.makeText(AddSavings.this,
+                                "Error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

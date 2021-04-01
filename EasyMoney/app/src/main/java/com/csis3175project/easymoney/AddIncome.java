@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
@@ -36,14 +35,14 @@ public class AddIncome extends AppCompatActivity {
         setContentView(R.layout.activity_add_income);
 
         //sharedPreference
-       SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-       String username = sharedPref.getString("username","");
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String username = sharedPref.getString("username","");
 
         //initialize dbHelper
         databaseHelper = new EMDatabase(this);
 
         Button addIncomebtn = findViewById(R.id.addIncomebtn);
-        ImageView addIncomeBackbtn = findViewById(R.id.btnBack);
+        Button addIncomeBackbtn = findViewById(R.id.addIncomeBackbtn);
         TextInputEditText date_txt = findViewById(R.id.inputIncomeDate);
         TextInputEditText amount_txt = findViewById(R.id.IncomeAmountInput);
         TextInputEditText name_txt = findViewById(R.id.IncomenameInput);
@@ -115,7 +114,7 @@ public class AddIncome extends AppCompatActivity {
                 if(!name_txt.getText().toString().isEmpty() && !amount_txt.getText().toString().isEmpty() && date != null &&
                         !category.equals("Category")
                 ) {
-                   // date = date_txt.getText().toString();
+                    // date = date_txt.getText().toString();
                     name = name_txt.getText().toString();
                     amount = Double.parseDouble(amount_txt.getText().toString());
 
