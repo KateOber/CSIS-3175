@@ -2,22 +2,20 @@ package com.csis3175project.easymoney;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
-
+import android.view.View;
+import android.widget.Button;
 
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
-import com.csis3175project.easymoney.R;
 
 public class RecurringBillsCalendar extends AppCompatActivity {
     EMDatabase databaseHelper;
@@ -43,7 +41,8 @@ public class RecurringBillsCalendar extends AppCompatActivity {
             }
         }}
 
-
+        Button btnAddRecurring = findViewById(R.id.btn_addRecurringBills);
+        Button backButton = findViewById(R.id.btnBackBills);
         CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView);
         List<Calendar> calendars = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
@@ -55,8 +54,22 @@ public class RecurringBillsCalendar extends AppCompatActivity {
 
         calendarView.setHighlightedDays(calendars);
 
-
-
         calendarView.setEvents(events);
+
+        btnAddRecurring.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RecurringBillsCalendar.this, AddExpense.class));
+
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
+            }
+        });
     }
 }
