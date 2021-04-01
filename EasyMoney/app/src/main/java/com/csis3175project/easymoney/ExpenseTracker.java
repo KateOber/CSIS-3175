@@ -48,7 +48,7 @@ public class ExpenseTracker extends AppCompatActivity {
         Button addExpensebtn = findViewById(R.id.trackerAddExpenseBtn);
         Button addSavingsbtn = findViewById(R.id.trackerAddSavingsbtn);
 
-        TextView totalIncometxt = findViewById(R.id.trackerSavingsTotaltxt);
+        TextView totalIncometxt = findViewById(R.id.trackerExpenseTotaltxt);
         double totalIncome=0;
 
         if(income.getCount()>0){

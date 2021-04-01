@@ -221,7 +221,7 @@
             app:iconTint="@color/gray3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trackerSavingsTotaltxt" />
+            app:layout_constraintTop_toBottomOf="@+id/trackerExpenseTotaltxt" />
 
         <TextView
             android:id="@+id/trackerIncomeHead"
@@ -235,7 +235,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/trackerSavingsTotaltxt"
+            android:id="@+id/trackerExpenseTotaltxt"
             style="@style/txtMainpageBigNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

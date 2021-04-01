@@ -2,12 +2,17 @@ package com.csis3175project.easymoney;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,8 +23,8 @@ public class MonthlyReport extends AppCompatActivity {
     EMDatabase database;
     Cursor expenses;
     Cursor income;
-    double savings, EA1, EA2, EA3, EA4, todayExpense, netIncome;
-    String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4, formatIncome;
+    double savings, EA1, EA2, EA3, EA4, todayExpense, netIncome, netData;
+    String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4, formatIncome, formatExpense, formatnetExpense;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,10 +84,8 @@ public class MonthlyReport extends AppCompatActivity {
                 expenseName = expenses.getString(2);
                 if (expenses.getString(1).equals(username)) {
                     netIncome -= expenseAmmount;
-                    if (formattedDate.equals(expenseDate)) {
-                        todayExpense += expenseAmmount;
-                        System.out.println("total expense"+ todayExpense);
-                    }
+                    todayExpense += expenseAmmount;
+
 
                     if (i == 0) {
                         EA1 = expenseAmmount;
@@ -118,12 +121,52 @@ public class MonthlyReport extends AppCompatActivity {
             }
         }
 
+        TextView totalExpensetxt = findViewById(R.id.trackerExpenseTotaltxt);
+        formatExpense = String.format("%.2f", todayExpense);
+        totalExpensetxt.setText("$"+formatExpense);
         formatIncome = String.format("%.2f", netIncome);
         totalIncometxt.setText("$"+formatIncome);
 
+        netData = netIncome - todayExpense;
+        formatnetExpense = String.format("%.2f", netData);
+        TextView NetData = findViewById(R.id.txtEnteredExp);
+        TextView positiveNegativetxt = findViewById(R.id.txtEntBExpPeriod);
+        if(netData < 0){
+            NetData.setTextColor(Color.parseColor("#DC0000"));
+            positiveNegativetxt.setText("Was Negative. removed expenses from Income.");
+            database.updateSavings(savings+=netData, username);
+        }
+        else positiveNegativetxt.setText("Was positive! You saved money!");
+        NetData.setText("$"+formatnetExpense);
+
         Button btnProfileFooter = findViewById(R.id.userReportFoot);
-        Button btnExpenseTrackerFooter = findViewById(R.id.trackerReportFoot);
+        Button btnExpenseTrackerFooter = findViewById(R.id.reportReportFoot);
         Button btnBigExpenseFooter = findViewById(R.id.bEReportFoot);
         Button btnReportFooter = findViewById(R.id.trackerReportFoot);
+        //Footer Buttons
+        btnExpenseTrackerFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MonthlyReport.this, ExpenseTracker.class));
+            }
+        });
+        btnReportFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MonthlyReport.this, MonthlyReport.class));
+            }
+        });
+        btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MonthlyReport.this, MainActivity.class));
+            }
+        });
+        btnProfileFooter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MonthlyReport.this, Profile.class));
+            }
+        });
     }
 }

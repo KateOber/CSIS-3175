@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MonthlyReport"
-    android:background="#9E9E9E">
+    android:background="@color/gray6"
+    tools:context=".MonthlyReport">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/repoCardView3"
-        android:layout_width="105dp"
-        android:layout_height="87dp"
+        android:layout_width="125dp"
+        android:layout_height="107dp"
         android:layout_marginTop="43dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="14dp"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEntBExpCat">
@@ -34,7 +34,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="28dp"
             android:text="$0.00"
             android:textColor="#000000"
             android:textSize="28sp"
@@ -44,11 +43,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/repoCardView2"
-        android:layout_width="105dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="125dp"
+        android:layout_height="107dp"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="3dp"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/repoCardView3"
         app:layout_constraintStart_toEndOf="@+id/repoCardView1"
@@ -70,7 +69,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
-            android:layout_marginEnd="28dp"
             android:text="$0.00"
             android:textColor="#000000"
             android:textSize="28sp"
@@ -96,10 +94,9 @@
         android:backgroundTint="#FFFFFF"
         app:icon="@drawable/ic_bigexpenseinactive"
         app:iconGravity="top"
-        app:iconTint="#FFFFFF"
+        app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/reportReportFoot"
-        tools:iconTint="#676767" />
+        app:layout_constraintStart_toEndOf="@+id/reportReportFoot" />
 
     <Button
         android:id="@+id/reportReportFoot"
@@ -142,9 +139,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="146dp"
         android:layout_marginTop="10dp"
-        android:text="TextView"
-        android:textSize="30sp"
         android:textColor="#000000"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reportHeader" />
@@ -163,22 +159,21 @@
         android:id="@+id/txtEntBExpPeriod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="174dp"
+        android:layout_marginStart="114dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEntBExpCat" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/repoCardView1"
-        android:layout_width="105dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="125dp"
+        android:layout_height="107dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="43dp"
         android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEntBExpPeriod"
+        app:layout_constraintTop_toBottomOf="@+id/txtEntBExpCat"
         tools:ignore="DuplicateIds">
 
 
@@ -193,11 +188,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/trackerSavingsTotaltxt"
+            android:id="@+id/trackerExpenseTotaltxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="28dp"
             android:text="$0.00"
             android:textColor="#000000"
             android:textSize="28sp"
@@ -210,14 +204,14 @@
         android:layout_width="381dp"
         android:layout_height="256dp"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="38dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="4dp"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/userReportFoot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trackerAddExpenseBtn">
+        app:layout_constraintTop_toBottomOf="@+id/repoCardView3">
 
         <TextView
             android:id="@+id/reportExpenseDate2"
@@ -232,8 +226,8 @@
             android:id="@+id/reportExpenseName1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ReportExpenseHead" />
 
@@ -241,7 +235,7 @@
             android:id="@+id/reportExpensePrice1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="35dp"
             android:layout_marginEnd="190dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -250,7 +244,7 @@
             android:id="@+id/reportExpenseDate1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="35dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -259,7 +253,7 @@
             android:id="@+id/reportExpenseName2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="26dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/reportExpenseName1" />
@@ -268,7 +262,7 @@
             android:id="@+id/reportExpenseName3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="26dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/reportExpenseName2" />
@@ -313,7 +307,7 @@
             android:id="@+id/reportExpenseName4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="26dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/reportExpenseName3" />
