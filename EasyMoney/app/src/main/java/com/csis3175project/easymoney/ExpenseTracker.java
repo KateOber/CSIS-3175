@@ -22,7 +22,7 @@ public class ExpenseTracker extends AppCompatActivity {
     EMDatabase database;
     Cursor expenses;
     Cursor income;
-    double savings, EA1, EA2, EA3, EA4, todayExpense, DAT, DAF, netIncome, DAU;
+    double savings, EA1, EA2, EA3, EA4, todayExpense, DAT, DAF, netIncome, DAU, recurringExpense, recurringIncome;
     String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4, formatIncome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,7 @@ public class ExpenseTracker extends AppCompatActivity {
         if(income.getCount()>0){
             while(income.moveToNext()){
                 if(income.getString(1).equals(username)){
+                    if(income.getInt(5) == 1) recurringIncome+=income.getDouble(3);
                     totalIncome += income.getDouble(3);
                 }
             }
@@ -95,6 +96,7 @@ public class ExpenseTracker extends AppCompatActivity {
                 expenseAmmount = expenses.getDouble(3);
                 expenseName = expenses.getString(2);
                 if (expenses.getString(1).equals(username)) {
+                    if(expenses.getInt(6)==0) recurringExpense += expenseAmmount;
                     netIncome -= expenseAmmount;
                         if (formattedDate.equals(expenseDate)) {
                             todayExpense += expenseAmmount;
@@ -133,6 +135,12 @@ public class ExpenseTracker extends AppCompatActivity {
                     i++;
                 }
             }
+        }
+        Calendar month = Calendar.getInstance();
+        int monthMaxDays = month.getActualMaximum(Calendar.DAY_OF_MONTH);
+        if(DA == 0){
+            DA = (recurringIncome-recurringExpense) / monthMaxDays;
+            database.updateDAllowance(DA, username);
         }
         DAF = DA - todayExpense;
         DAU = todayExpense/DA*100;
