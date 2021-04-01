@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile"
-    android:background="#9E9E9E">
+    android:background="@color/gray6"
+    tools:context=".Profile">
 
     <Button
         android:id="@+id/userProfileFoot"
