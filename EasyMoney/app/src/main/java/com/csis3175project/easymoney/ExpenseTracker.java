@@ -87,9 +87,7 @@ public class ExpenseTracker extends AppCompatActivity {
 
         Date c = Calendar.getInstance().getTime();
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        String formattedDate = df.format(c);
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+ 
 
         String expenseName, expenseDate;
         double expenseAmmount;
@@ -101,14 +99,6 @@ public class ExpenseTracker extends AppCompatActivity {
                 expenseName = expenses.getString(2);
                 if (expenses.getString(1).equals(username)) {
                     netIncome -= expenseAmmount;
-                    try {
-                        Date date = format.parse(expenseDate);
-                        if (formattedDate.equals(date)) {
-                            todayExpense += expenseAmmount;
-                        }
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
 
                     if (i == 0) {
                         EA1 = expenseAmmount;
