@@ -95,6 +95,10 @@
         <item>Gift</item>
         <item>Other</item>
     </string-array>
+    <string name="txt_update_password_title">Update password</string>
+    <string name="txt_update_password_sub">Please update your password</string>
+    <string name="prompt_new_password">New Password</string>
+    <string name="prompt_old_password">Old Password</string>
 
     <!--Kate's Strings End-->
 </resources>

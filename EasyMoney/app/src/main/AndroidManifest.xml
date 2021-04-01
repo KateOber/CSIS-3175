@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EasyMoney">
-        <activity android:name=".AddIncome"></activity>
+        <activity android:name=".UpdatePassword"></activity>
+        <activity android:name=".AddIncome" />
         <activity android:name=".AddSavings" />
         <activity android:name=".AddExpense" />
         <activity android:name=".RecurringBills" />
@@ -19,9 +20,10 @@
         <activity android:name=".ExpenseTracker" />
         <activity android:name=".Splash" />
         <activity android:name=".RecurringBillsCalendar" />
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

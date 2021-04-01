@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         ImageView btnBack = findViewById(R.id.btnBack);
-        Button btnLogin = findViewById(R.id.btnSignUp);
+        Button btnLogin = findViewById(R.id.btnLogin);
 
         TextView btnSignUp = findViewById(R.id.btnGoSignUpWelcome);
 
@@ -51,7 +51,13 @@ public class LoginActivity extends AppCompatActivity {
                 boolean ischecked =
                         myhelper.checkLogin(inputUserName, inputUserPassword);
 
+
                 if(ischecked) {
+
+                    if(myhelper.getAdmin(inputUserName) == 1){
+                        startActivity(new Intent(LoginActivity.this,UpdatePassword.class));
+                    }
+
                     Toast.makeText(LoginActivity.this, "Welcome, " + inputUserName, Toast.LENGTH_LONG).show();
                     editor.putString("username", inputUserName);
                     editor.commit();
