@@ -41,8 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myhelper.insertUSERData("username", "username@gmail.com", "password", 1);
-                myhelper.insertEXPENSEData("username", "DQ", 19.99, "3/31/2021", "Dining", 0, 0);
                 inputUserName = userName.getText().toString();
                 inputUserPassword = password.getText().toString();
 
