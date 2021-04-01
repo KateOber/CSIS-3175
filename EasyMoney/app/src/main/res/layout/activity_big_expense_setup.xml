@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BigExpense_setup"
+    android:background="#9E9E9E">
+
+    <Spinner
+        android:id="@+id/txtCatExpGroup"
+        android:layout_width="314dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="420dp"
+        android:entries="@array/categoriesExpense"
+        android:prompt="@string/bigExHint1"
+        android:spinnerMode="dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle"
+        android:background="@color/white" />
+
+    <Spinner
+        android:id="@+id/txtPerExpGroup"
+        android:layout_width="314dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="356dp"
+        android:entries="@array/expensePeriod"
+        android:prompt="@string/bigExHint2"
+        android:spinnerMode="dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCatExpGroup"
+        android:background="@color/white" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="314dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="292dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/bigExHint3"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white" />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/txtScrNameBE"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/txtSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/txtScrBESub"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="320dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="111dp"
+        android:color="#36D1DC"
+        android:text="@string/btnBigEx"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/userTrackerFoot"
+        android:layout_width="108dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#FFFFFF"
+        app:icon="@drawable/ic_userinactive"
+        app:iconGravity="top"
+        app:iconTint="#676767"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bETrackerFoot" />
+
+    <Button
+        android:id="@+id/bETrackerFoot"
+        android:layout_width="102dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#FFFFFF"
+        app:icon="@drawable/ic_bigexpenseinactive"
+        app:iconGravity="top"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reportTrackerFoot"
+        tools:iconTint="#676767" />
+
+    <Button
+        android:id="@+id/reportTrackerFoot"
+        android:layout_width="102dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="center"
+        app:icon="@drawable/ic_reportincactive"
+        app:iconGravity="top"
+        app:iconTint="#676767"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/trackerTrackerFoot" />
+
+    <Button
+        android:id="@+id/trackerTrackerFoot"
+        android:layout_width="102dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#FFFFFF"
+        app:icon="@drawable/ic_trackerinactive"
+        app:iconGravity="top"
+        app:iconTint="#676767"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
