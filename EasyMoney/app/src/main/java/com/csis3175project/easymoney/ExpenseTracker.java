@@ -70,7 +70,7 @@ public class ExpenseTracker extends AppCompatActivity {
 
         Date c = Calendar.getInstance().getTime();
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy/M/dd", Locale.getDefault());
+        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
         String formattedDate = df.format(c);
 
         TextView expensePrice1 = findViewById(R.id.reportExpensePrice1);

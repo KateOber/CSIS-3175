@@ -19,7 +19,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class AddExpense extends AppCompatActivity {
     EMDatabase databaseHelper;
@@ -121,9 +125,19 @@ public class AddExpense extends AppCompatActivity {
                 ) {
                     name = name_txt.getText().toString();
                     amount = Double.parseDouble(amount_txt.getText().toString());
+                    SimpleDateFormat FirstFormat = new SimpleDateFormat("yyyy/M/d", Locale.getDefault());
+                    try {
+                        Date formatting = FirstFormat.parse(date);
+                        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+                        String formattedDate = df.format(formatting);
+                        expenseAdded = databaseHelper.insertEXPENSEData(username,
+                                name, amount, formattedDate, category, recurring, 1);
+                    } catch (ParseException e) {
+                        expenseAdded = databaseHelper.insertEXPENSEData(username,
+                                name, amount, date, category, recurring, 1);
+                        e.printStackTrace();
+                    }
 
-                    expenseAdded = databaseHelper.insertEXPENSEData(username,
-                            name, amount, date, category, recurring, 1);
 
                     //if SUCCESSFUL ADD RESET ALL INPUT FIELDS
                     if (expenseAdded != 0) {
