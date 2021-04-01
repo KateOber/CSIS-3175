@@ -51,10 +51,10 @@ public class AddIncome extends AppCompatActivity {
         CheckBox recurring_checkbox = findViewById(R.id.checkbox_recurInc);
 
         //footer buttons
-        Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
-        Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
-        Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
-        Button btnReportFooter = findViewById(R.id.reportTrackerFoot);
+        Button btnProfileFooter = findViewById(R.id.bigExUsTrackerFoot);
+        Button btnExpenseTrackerFooter = findViewById(R.id.trackerBigExTrackerFoot);
+        Button btnBigExpenseFooter = findViewById(R.id.bEBexTrackerFoot);
+        Button btnReportFooter = findViewById(R.id.reportBexTrackerFoot);
 
         //setup date picker
         date_txt.setOnClickListener(new View.OnClickListener() {
@@ -167,7 +167,7 @@ public class AddIncome extends AppCompatActivity {
         btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddIncome.this, MainActivity.class));
+                startActivity(new Intent(AddIncome.this, BigExpense_setup.class));
             }
         });
         btnProfileFooter.setOnClickListener(new View.OnClickListener() {

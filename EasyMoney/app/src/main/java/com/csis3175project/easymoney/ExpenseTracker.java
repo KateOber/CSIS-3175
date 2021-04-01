@@ -9,11 +9,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -147,10 +145,10 @@ public class ExpenseTracker extends AppCompatActivity {
         totalIncometxt.setText("$"+formatIncome);
         totalDAtxt.setText("$"+DAF);
         //footer buttons
-        Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
-        Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
-        Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
-        Button btnReportFooter = findViewById(R.id.reportTrackerFoot);
+        Button btnProfileFooter = findViewById(R.id.bigExUsTrackerFoot);
+        Button btnExpenseTrackerFooter = findViewById(R.id.trackerBigExTrackerFoot);
+        Button btnBigExpenseFooter = findViewById(R.id.bEBexTrackerFoot);
+        Button btnReportFooter = findViewById(R.id.reportBexTrackerFoot);
 
 
         gotoTrackerbtn.setOnClickListener(new View.OnClickListener() {
@@ -201,7 +199,7 @@ public class ExpenseTracker extends AppCompatActivity {
         btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ExpenseTracker.this, MainActivity.class));
+                startActivity(new Intent(ExpenseTracker.this, BigExpense_setup.class));
             }
         });
         btnProfileFooter.setOnClickListener(new View.OnClickListener() {

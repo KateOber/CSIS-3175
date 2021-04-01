@@ -17,6 +17,8 @@
         <activity android:name=".Profile" />
         <activity android:name=".expenseGoal2" />
         <activity android:name=".ExpenseGoal" />
+        <activity android:name=".BigExpense_setup" />
+        <activity android:name=".BigExpenses_main" />
         <activity android:name=".ExpenseTracker" />
         <activity android:name=".Splash" />
         <activity android:name=".RecurringBillsCalendar" />

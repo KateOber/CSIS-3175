@@ -144,7 +144,7 @@
 
     <!--Footer Buttons -->
     <Button
-        android:id="@+id/userTrackerFoot"
+        android:id="@+id/bigExUsTrackerFoot"
         android:layout_width="108dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -152,21 +152,21 @@
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bETrackerFoot" />
+        app:layout_constraintStart_toEndOf="@+id/bEBexTrackerFoot" />
 
     <Button
-        android:id="@+id/bETrackerFoot"
+        android:id="@+id/bEBexTrackerFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
         app:icon="@drawable/ic_bigexpenseinactive"
         app:iconGravity="top"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/reportTrackerFoot"
+        app:layout_constraintStart_toEndOf="@+id/reportBexTrackerFoot"
         app:iconTint="#676767" />
 
     <Button
-        android:id="@+id/reportTrackerFoot"
+        android:id="@+id/reportBexTrackerFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -175,10 +175,10 @@
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/trackerTrackerFoot" />
+        app:layout_constraintStart_toEndOf="@+id/trackerBigExTrackerFoot" />
 
     <Button
-        android:id="@+id/trackerTrackerFoot"
+        android:id="@+id/trackerBigExTrackerFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"

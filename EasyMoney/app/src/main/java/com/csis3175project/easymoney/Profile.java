@@ -79,7 +79,7 @@ public class Profile extends AppCompatActivity {
         btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile.this, MainActivity.class));
+                startActivity(new Intent(Profile.this, BigExpense_setup.class));
             }
         });
         btnProfileFooter.setOnClickListener(new View.OnClickListener() {
