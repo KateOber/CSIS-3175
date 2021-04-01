@@ -87,7 +87,7 @@ public class ExpenseTracker extends AppCompatActivity {
         TextView expenseName2 = findViewById(R.id.trackerExpenseName2);
         TextView expenseName3 = findViewById(R.id.reportExpenseName3);
         TextView expenseName4 = findViewById(R.id.reportExpenseName4);
-
+        recurringExpense = 0;
         String expenseName, expenseDate;
         double expenseAmmount;
         int i=1;
@@ -97,7 +97,7 @@ public class ExpenseTracker extends AppCompatActivity {
                 expenseAmmount = expenses.getDouble(3);
                 expenseName = expenses.getString(2);
                 if (expenses.getString(1).equals(username)) {
-                    if(expenses.getInt(6)==0) recurringExpense += expenseAmmount;
+                    if(expenses.getInt(6)==1) recurringExpense += expenseAmmount;
                     netIncome -= expenseAmmount;
                         if (formattedDate.equals(expenseDate)) {
                             todayExpense += expenseAmmount;
