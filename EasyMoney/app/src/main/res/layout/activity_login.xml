@@ -117,22 +117,20 @@
         app:layout_constraintTop_toBottomOf="@+id/userPassword" />
 
     <!--don't have an account? -->
-
-    <!--button sign up-->
     <TextView
         android:id="@+id/txtSignIn"
         style="@style/txtSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="85dp"
         android:layout_marginTop="92dp"
         android:layout_marginBottom="72dp"
         android:text="@string/txt_register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignUp"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
+    <!--button sign up-->
     <TextView
         android:id="@+id/btnGoSignUpWelcome"
         style="@style/txtSub.bold"
@@ -145,7 +143,6 @@
         android:text="@string/btn_sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toEndOf="@+id/txtSignIn"
         app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 

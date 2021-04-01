@@ -16,7 +16,6 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -47,7 +46,7 @@ public class AddExpense extends AppCompatActivity {
         TextInputEditText name_txt = findViewById(R.id.inputExpenseName);
         TextInputEditText date_txt = findViewById(R.id.datePicker);
         Button btnAdd = findViewById(R.id.btn_addExpense);
-        ImageView btnBack = findViewById(R.id.btnBack);
+        ImageView btnBack = findViewById(R.id.btnBackBills);
         CheckBox recurring_checkbox = findViewById(R.id.checkbox_recurExp);
 
         //footer buttons
@@ -67,7 +66,7 @@ public class AddExpense extends AppCompatActivity {
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        AddExpense.this, android.R.style.Theme_DeviceDefault_DayNight, onDateSetListener,
+                        AddExpense.this, android.R.style.Theme_Black, onDateSetListener,
 //Theme_Dark for diferent style
                         year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
@@ -101,7 +100,7 @@ public class AddExpense extends AppCompatActivity {
                     recurring = 0;
 
                 if(name_txt.getText().toString().isEmpty())
-                    name_txt.setBackgroundColor(Color.parseColor("#20D81B60"));
+                   name_txt.setBackgroundColor(Color.parseColor("#20D81B60"));
                 else
                     name_txt.setBackgroundColor(Color.parseColor("#E0E0E0"));
                 if(amount_txt.getText().toString().isEmpty())
@@ -113,7 +112,7 @@ public class AddExpense extends AppCompatActivity {
                 else
                     date_txt.setBackgroundColor(Color.parseColor("#E0E0E0"));
                 if(category.equals("Category"))
-                    categorySpinner.setBackgroundColor(Color.parseColor("#20D81B60"));
+                   categorySpinner.setBackgroundColor(Color.parseColor("#20D81B60"));
                 else
                     categorySpinner.setBackgroundColor(Color.parseColor("#E0E0E0"));
 
@@ -141,8 +140,8 @@ public class AddExpense extends AppCompatActivity {
                     }
                     //ELSE DO SOME ERROR STUFF
                     else {
-                        Toast.makeText(AddExpense.this,
-                                "Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddExpense.this,
+                            "Error", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -151,7 +150,7 @@ public class AddExpense extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddExpense.this, ExpenseTracker.class));
+                onBackPressed();
             }
         });
 

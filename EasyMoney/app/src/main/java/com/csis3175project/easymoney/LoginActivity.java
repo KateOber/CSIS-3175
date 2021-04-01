@@ -3,7 +3,9 @@ package com.csis3175project.easymoney;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -27,27 +29,40 @@ public class LoginActivity extends AppCompatActivity {
         TextInputEditText password = findViewById(R.id.inputPassword);
         TextInputEditText userName = findViewById(R.id.inputUserName);
 
-        ImageView btnBack = findViewById(R.id.btnBack);
-        Button btnLogin = findViewById(R.id.btnSignUp);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+
+
+        ImageView btnBack = findViewById(R.id.btnBackBills);
+        Button btnLogin = findViewById(R.id.btnLogin);
 
         TextView btnSignUp = findViewById(R.id.btnGoSignUpWelcome);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 inputUserName = userName.getText().toString();
                 inputUserPassword = password.getText().toString();
 
-                System.out.println(inputUserName + " : " + inputUserPassword);
-
+                System.out.println(inputUserName + " : " + inputUserPassword);//test
 
                 boolean ischecked =
                         myhelper.checkLogin(inputUserName, inputUserPassword);
 
+
                 if(ischecked) {
-                    Toast.makeText(LoginActivity.this, "Welcome," + inputUserName, Toast.LENGTH_LONG).show();
-//                    startActivity(new Intent(LoginActivity,this. --put the name of screen--.class)
+
+                    if(myhelper.getAdmin(inputUserName) == 1){
+                        startActivity(new Intent(LoginActivity.this,UpdatePassword.class));
+                    }
+                    else{
+                        Toast.makeText(LoginActivity.this, "Welcome, " + inputUserName, Toast.LENGTH_LONG).show();
+                        editor.putString("username", inputUserName);
+                        editor.commit();
+                        startActivity(new Intent(LoginActivity.this, ExpenseTracker.class));
+                    }
+
+
 
                 } else {
                     Toast.makeText(LoginActivity.this, "Please check username or password again", Toast.LENGTH_LONG).show();

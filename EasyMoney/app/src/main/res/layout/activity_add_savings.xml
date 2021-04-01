@@ -6,6 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".AddSavings">
 
+<<<<<<< HEAD
+=======
+    <Button
+        android:id="@+id/addSavingsBackbtn"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        app:icon="@drawable/btn_backbutton"
+        app:iconGravity="top"
+        app:iconTint="#676767"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/addSavingsHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="127dp"
+        android:text="@string/addSavingsHead"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addSavingsBackbtn"
+        app:layout_constraintTop_toTopOf="parent" />
+>>>>>>> parent of 100111f (Merge branch 'main' of https://github.com/Koberpunk/CSIS-3175 into main)
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/Savingsammount"
@@ -31,6 +60,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+<<<<<<< HEAD
     <!--back button-->
     <ImageView
         android:id="@+id/btnBack"
@@ -60,16 +90,26 @@
 
 
 
+=======
+>>>>>>> parent of 100111f (Merge branch 'main' of https://github.com/Koberpunk/CSIS-3175 into main)
     <!--Footer Buttons -->
 
     <Button
         android:id="@+id/addSavingsbtn"
+<<<<<<< HEAD
         style="@style/btnTextStyle1"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
+=======
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+>>>>>>> parent of 100111f (Merge branch 'main' of https://github.com/Koberpunk/CSIS-3175 into main)
         android:layout_marginBottom="106dp"
         android:text="@string/trackerAddSavings"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -124,4 +164,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 100111f (Merge branch 'main' of https://github.com/Koberpunk/CSIS-3175 into main)
 </androidx.constraintlayout.widget.ConstraintLayout>

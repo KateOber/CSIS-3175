@@ -22,9 +22,10 @@
         app:srcCompat="@drawable/appicon2" />
 
     <!--welcome text -->
+    <!--login Button-->
     <TextView
         android:id="@+id/txtWelcome"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
@@ -40,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-    <!--login Button-->
+
     <Button
         android:id="@+id/btnGoLoginWelcome"
         style="@style/btnTextStyle2"
@@ -51,8 +52,9 @@
         android:layout_marginEnd="20dp"
         android:background="@drawable/style_btn_white"
         android:text="@string/txt_btn_login"
-        android:textColor="@color/gray6"
+        android:textColor="@color/primaryBlue"
         android:textSize="20sp"
+        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtWelcome" />
@@ -66,6 +68,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/style_btn_stoke"
+        app:backgroundTint="@null"
         android:text="@string/txt_btn_signUp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
