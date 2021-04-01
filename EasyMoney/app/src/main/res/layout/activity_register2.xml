@@ -7,7 +7,7 @@
     tools:context=".Register2Activity">
 
     <ImageView
-        android:id="@+id/btnBack"
+        android:id="@+id/btnBackBills"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -19,7 +19,7 @@
 
 
     <TextView
-        android:id="@+id/txtLoginTitle"
+        android:id="@+id/txtUpdatePTitle"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,11 +27,11 @@
         android:layout_marginTop="35dp"
         android:text="@string/txt_register_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBackBills" />
 
 
     <TextView
-        android:id="@+id/txtLoginSubTitle"
+        android:id="@+id/txtIUpdatePSubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLoginTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtUpdatePTitle"
         app:layout_constraintVertical_bias="0.007" />
 
     <com.google.android.material.textfield.TextInputLayout

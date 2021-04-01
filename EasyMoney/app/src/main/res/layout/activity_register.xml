@@ -10,7 +10,7 @@
 
     <!--title text-->
     <ImageView
-        android:id="@+id/btnBack"
+        android:id="@+id/btnBackBills"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/btn_backbutton" />
 
     <TextView
-        android:id="@+id/txtLoginTitle"
+        android:id="@+id/txtUpdatePTitle"
         style="@style/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,11 +29,11 @@
         android:layout_marginTop="35dp"
         android:text="@string/txt_register_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBackBills" />
 
     <!--sub text-->
     <TextView
-        android:id="@+id/txtLoginSubTitle"
+        android:id="@+id/txtIUpdatePSubTitle"
         style="@style/txtSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/txt_register_subInfo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLoginTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUpdatePTitle" />
 
     <!--user name -->
     <com.google.android.material.textfield.TextInputLayout
@@ -56,7 +56,7 @@
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLoginSubTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtIUpdatePSubTitle"
         tools:boxCornerRadiusTopEnd="5dp"
         tools:boxCornerRadiusTopStart="5dp"
         app:counterEnabled="true"
