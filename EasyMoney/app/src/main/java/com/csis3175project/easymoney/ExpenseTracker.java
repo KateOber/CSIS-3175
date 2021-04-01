@@ -23,7 +23,7 @@ public class ExpenseTracker extends AppCompatActivity {
     Cursor expenses;
     Cursor income;
     double savings, EA1, EA2, EA3, EA4, todayExpense, DAT, DAF, netIncome, DAU, recurringExpense, recurringIncome;
-    String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4, formatIncome;
+    String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4, formatIncome, formatSavings, formatDA;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +62,7 @@ public class ExpenseTracker extends AppCompatActivity {
         netIncome = totalIncome;
 
         TextView totalSavingstxt = findViewById(R.id.trackerIncomeTotaltxt);
+        formatSavings = String.format("%.2f", savings);
         totalSavingstxt.setText("$"+savings);
         TextView totalDAtxt = findViewById(R.id.DATotaltxt);
         double DA = database.getDAllowance(username);
@@ -151,6 +152,7 @@ public class ExpenseTracker extends AppCompatActivity {
 
         formatIncome = String.format("%.2f", netIncome);
         totalIncometxt.setText("$"+formatIncome);
+        formatDA = String.format("%.2f", DAF);
         totalDAtxt.setText("$"+DAF);
         //footer buttons
         Button btnProfileFooter = findViewById(R.id.userReportFoot);

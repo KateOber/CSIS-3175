@@ -147,19 +147,19 @@ public class MonthlyReport extends AppCompatActivity {
         btnExpenseTrackerFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MonthlyReport.this, ExpenseTracker.class));
+                startActivity(new Intent(MonthlyReport.this, MonthlyReport.class));
             }
         });
         btnReportFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MonthlyReport.this, MonthlyReport.class));
+                startActivity(new Intent(MonthlyReport.this, ExpenseTracker.class));
             }
         });
         btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MonthlyReport.this, MainActivity.class));
+                startActivity(new Intent(MonthlyReport.this, BigExpense_setup.class));
             }
         });
         btnProfileFooter.setOnClickListener(new View.OnClickListener() {

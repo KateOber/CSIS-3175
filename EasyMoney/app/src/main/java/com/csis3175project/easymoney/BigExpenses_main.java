@@ -2,6 +2,7 @@ package com.csis3175project.easymoney;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,7 +24,8 @@ public class BigExpenses_main extends AppCompatActivity {
         String username = sharedPref.getString("username","");
         String category = sharedPref.getString("cat", "");
         int period = sharedPref.getInt("Period", 0);
-        double amount = sharedPref.getFloat("cost", 0);
+        String stringAmount = sharedPref.getString("cost", "");
+        double amount = Double.parseDouble(stringAmount);
         String formatPerMonth;
         final double[] perMonth = {0};
         database = new EMDatabase(this);
@@ -34,9 +36,9 @@ public class BigExpenses_main extends AppCompatActivity {
         TextView periodtxt = findViewById(R.id.txtEntBExpPeriod);
         TextView cattxt = findViewById(R.id.txtEntBExpCat);
 
-        CardView option1Card = findViewById(R.id.option1BigExp);
-        CardView option2Card = findViewById(R.id.option2BigExp);
-        CardView option3Card = findViewById(R.id.option3BigExp);
+        ConstraintLayout option1Card = findViewById(R.id.option1BigExp);
+        ConstraintLayout option2Card = findViewById(R.id.option2BigExp);
+        ConstraintLayout option3Card = findViewById(R.id.option3BigExp);
 
         totaltxt.setText("$"+amount);
         periodtxt.setText("During "+period+" months");
