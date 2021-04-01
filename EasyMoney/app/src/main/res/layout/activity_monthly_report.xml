@@ -4,38 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExpenseTracker"
+    tools:context=".MonthlyReport"
     android:background="#9E9E9E">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/repoCardView3"
+        android:layout_width="105dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="44dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEntBExpCat">
+
+
+        <TextView
+            android:id="@+id/trackerIncomeHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/reportTotSav"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/trackerIncomeTotaltxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="28dp"
+            android:text="$0.00"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trackerIncomeHead" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/repoCardView2"
-        android:layout_width="181dp"
-        android:layout_height="135dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="105dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="6dp"
         android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/repoCardView3"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintEnd_toStartOf="@+id/repoCardView3"
+        app:layout_constraintStart_toEndOf="@+id/repoCardView1"
+        app:layout_constraintTop_toBottomOf="@+id/txtEntBExpPeriod">
 
-        <Button
-            android:id="@+id/trackerAddSavingsbtn"
-            android:layout_width="164dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="9dp"
-            android:layout_marginBottom="13dp"
-            android:background="#00FFFFFF"
-            android:text="@string/trackerAddSavings"
-            android:textColor="#676767"
-            app:icon="@drawable/ic_iconadd"
-            app:iconTint="#676767"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trackerSavingsTotaltxt" />
 
         <TextView
             android:id="@+id/trackerSavingsHead"
@@ -43,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="9dp"
             android:layout_marginTop="8dp"
-            android:text="@string/trackerIncomeHeader"
+            android:text="@string/reportTotInc"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,99 +130,57 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="@string/trackerHeader"
+        android:text="@string/reportHeader"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/calendarTrackerBtn"
-        android:layout_width="52dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#00FFFFFF"
-        app:icon="@drawable/ic_btncalendar"
-        app:iconTint="#676767"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:iconGravity="top" />
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cardView"
-        android:layout_width="384dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="14dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/txtEnteredExp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reportHeader">
+        app:layout_constraintTop_toBottomOf="@+id/reportHeader" />
 
-        <TextView
-            android:id="@+id/trackerDAHead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="13dp"
-            android:text="@string/trackerDAHead"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_conversion_absoluteHeight="19dp"
-            tools:layout_conversion_absoluteWidth="58dp" />
+    <TextView
+        android:id="@+id/txtEntBExpCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/reportSubHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEnteredExp" />
 
-        <TextView
-            android:id="@+id/DATotaltxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="25dp"
-            android:text="$0.00"
-            android:textColor="#000000"
-            android:textSize="36sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/txtEntBExpPeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEntBExpCat" />
 
-        <ProgressBar
-            android:id="@+id/DASpentProgress"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="346dp"
-            android:layout_height="14dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="9dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DATotaltxt" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/repoCardView3"
-        android:layout_width="181dp"
-        android:layout_height="135dp"
-        android:layout_marginStart="18dp"
+        android:id="@+id/repoCardView1"
+        android:layout_width="105dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
         android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/txtEntBExpPeriod"
+        tools:ignore="DuplicateIds">
 
-        <Button
-            android:id="@+id/trackerAddIncomeBtn"
-            android:layout_width="179dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="13dp"
-            android:background="#00FFFFFF"
-            android:text="@string/trackerAddIncome"
-            android:textColor="#676767"
-            app:icon="@drawable/ic_iconadd"
-            app:iconTint="#676767"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trackerIncomeTotaltxt" />
 
         <TextView
             android:id="@+id/trackerIncomeHead"
@@ -212,7 +188,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="9dp"
             android:layout_marginTop="8dp"
-            android:text="@string/trackerIncomeHeader"
+            android:text="@string/reportTotExp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -228,19 +204,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/trackerIncomeHead" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/trackerAddExpenseBtn"
-        android:layout_width="382dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="13dp"
-        android:text="@string/trackerAddExpense"
-        app:icon="@drawable/ic_iconadd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repoCardView2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView7"
@@ -419,5 +382,4 @@
             app:srcCompat="@drawable/ic_other" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

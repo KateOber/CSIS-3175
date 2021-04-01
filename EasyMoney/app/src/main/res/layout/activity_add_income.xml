@@ -6,53 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".AddIncome">
 
-    <!--back button-->
-    <ImageView
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/description_back"
+    <Button
+        android:id="@+id/addIncomeBackbtn"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        app:icon="@drawable/btn_backbutton"
+        app:iconGravity="top"
+        app:iconTint="#676767"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/btn_backbutton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/addIncomeHead"
-        style="@style/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="131dp"
         android:text="@string/addIncomeHead"
         android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addIncomeBackbtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/addIncomeCat"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="78dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="382dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="16dp"
         android:background="@android:drawable/btn_dropdown"
-        android:entries="@array/categoriesIncome"
         android:prompt="@string/hint_category_income"
         android:spinnerMode="dropdown"
+        android:entries="@array/categoriesIncome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addIncomeHead" />
+        app:layout_constraintTop_toBottomOf="@+id/addIncomeBackbtn" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/IncomeDate"
-        android:layout_width="0dp"
+        android:layout_width="380dp"
         android:layout_height="56dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
         android:hint="@string/addDate"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
@@ -71,11 +73,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/Incomeammount"
-        android:layout_width="0dp"
+        android:layout_width="380dp"
         android:layout_height="56dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
         android:hint="@string/addAmount"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
@@ -90,20 +92,19 @@
             style="@style/txtSub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/Incomename"
-        android:layout_width="0dp"
+        android:layout_width="380dp"
         android:layout_height="56dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
         android:hint="@string/addName"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Incomeammount"
         tools:boxCornerRadiusTopEnd="5dp"
@@ -118,24 +119,25 @@
 
     <CheckBox
         android:id="@+id/checkbox_recurInc"
-        style="@style/txtSub"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="170dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="213dp"
         android:text="@string/checkbox_recurringIncome"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Incomename" />
 
     <Button
         android:id="@+id/addIncomebtn"
-        style="@style/btnTextStyle1"
-        android:layout_width="0dp"
+        android:layout_width="380dp"
         android:layout_height="60dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/trackerAddIncome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

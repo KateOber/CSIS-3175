@@ -30,7 +30,6 @@ public class RecurringBillsCalendar extends AppCompatActivity {
         Cursor expenses = databaseHelper.getEXPENSEData();
         if(expenses.getCount()>0){
             while(expenses.moveToNext()){
-<<<<<<< HEAD
                 if (expenses.getString(1).equals("username")){
                     Calendar calendar = Calendar.getInstance();
                     String[] arr = expenses.getString(4).split("/");
@@ -41,18 +40,6 @@ public class RecurringBillsCalendar extends AppCompatActivity {
                     events.add(new EventDay(calendar, R.drawable.day_picker_item_background, Color.parseColor("#228B22")));
                 }
             }}
-=======
-            if (expenses.getString(1).equals("username")){
-                Calendar calendar = Calendar.getInstance();
-                String[] arr = expenses.getString(4).split("/");
-                int yy;
-                int mm;
-                String dd;
-                calendar.set(Integer.parseInt(arr[0]),Integer.parseInt(arr[1]),Integer.parseInt(arr[2]));
-                events.add(new EventDay(calendar, R.drawable.day_picker_item_background, Color.parseColor("#228B22")));
-            }
-        }}
->>>>>>> parent of 100111f (Merge branch 'main' of https://github.com/Koberpunk/CSIS-3175 into main)
 
         Button btnAddRecurring = findViewById(R.id.btn_addRecurringBills);
         Button backButton = findViewById(R.id.btnBackBills);

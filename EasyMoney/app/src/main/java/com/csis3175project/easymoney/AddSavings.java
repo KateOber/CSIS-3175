@@ -9,10 +9,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
-<<<<<<< HEAD
 import android.widget.ImageView;
-=======
->>>>>>> parent of 100111f (Merge branch 'main' of https://github.com/Koberpunk/CSIS-3175 into main)
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -33,11 +30,7 @@ public class AddSavings extends AppCompatActivity {
         databaseHelper = new EMDatabase(this);
 
         Button addSavingsbtn = findViewById(R.id.addSavingsbtn);
-<<<<<<< HEAD
         ImageView addSavingsBackbtn = findViewById(R.id.btnBack);
-=======
-        Button addSavingsBackbtn = findViewById(R.id.addSavingsBackbtn);
->>>>>>> parent of 100111f (Merge branch 'main' of https://github.com/Koberpunk/CSIS-3175 into main)
         TextInputEditText savingsAmount_txt = findViewById(R.id.SavingsammountInput);
 
         addSavingsbtn.setOnClickListener(new View.OnClickListener() {
@@ -67,17 +60,9 @@ public class AddSavings extends AppCompatActivity {
         addSavingsBackbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
                 onBackPressed();
             }
         });
     }
 }
 
-=======
-                startActivity(new Intent(AddSavings.this, ExpenseTracker.class));
-            }
-        });
-    }
-}
->>>>>>> parent of 100111f (Merge branch 'main' of https://github.com/Koberpunk/CSIS-3175 into main)
