@@ -24,8 +24,8 @@ public class ExpenseTracker extends AppCompatActivity {
     EMDatabase database;
     Cursor expenses;
     Cursor income;
-    double savings, EA1, EA2, EA3, EA4, todayExpense, DAT, DAF;
-    String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4;
+    double savings, EA1, EA2, EA3, EA4, todayExpense, DAT, DAF, netIncome;
+    String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4, formatIncome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +35,7 @@ public class ExpenseTracker extends AppCompatActivity {
         String username = sharedPref.getString("username","");
 
         todayExpense = 0;
+        netIncome = 0;
         DAT = 0;
 
         database = new EMDatabase(this);
@@ -59,12 +60,13 @@ public class ExpenseTracker extends AppCompatActivity {
                 }
             }
         }
-        totalIncometxt.setText("$"+totalIncome);
+        netIncome = totalIncome;
+
         TextView totalSavingstxt = findViewById(R.id.trackerSavingsTotaltxt);
         totalSavingstxt.setText("$"+savings);
         TextView totalDAtxt = findViewById(R.id.DATotaltxt);
         double DA = database.getDAllowance(username);
-        totalDAtxt.setText("$"+DA);
+
 
         Date c = Calendar.getInstance().getTime();
 
@@ -95,6 +97,7 @@ public class ExpenseTracker extends AppCompatActivity {
                 expenseAmmount = expenses.getDouble(3);
                 expenseName = expenses.getString(2);
                 if (expenses.getString(1).equals(username)) {
+                    netIncome -= expenseAmmount;
                         if (formattedDate.equals(expenseDate)) {
                             todayExpense += expenseAmmount;
                             System.out.println("total expense"+ todayExpense);
@@ -127,13 +130,17 @@ public class ExpenseTracker extends AppCompatActivity {
                         ED4 = expenseDate;
                         expenseDate4.setText(ED4);
                         expensePrice4.setText("$" + EA4);
-                        expenseName4.setText(expenseName);
+                        expenseName4.setText(EN4);
                     }
                     i++;
                 }
             }
         }
+        DAF = DA - todayExpense;
 
+        formatIncome = String.format("%.2f", netIncome);
+        totalIncometxt.setText("$"+formatIncome);
+        totalDAtxt.setText("$"+DAF);
         //footer buttons
         Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
         Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
