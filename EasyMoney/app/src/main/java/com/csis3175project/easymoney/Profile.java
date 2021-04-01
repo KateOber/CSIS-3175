@@ -99,7 +99,7 @@ public class Profile extends AppCompatActivity {
         gotoBills.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile.this, RecurringBills.class));
+                startActivity(new Intent(Profile.this, RecurringBillsCalendar.class));
             }
         });
         gotoGoals.setOnClickListener(new View.OnClickListener() {
