@@ -150,7 +150,7 @@ public class AddExpense extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddExpense.this, ExpenseTracker.class));
+                finish();
             }
         });
 
@@ -164,13 +164,13 @@ public class AddExpense extends AppCompatActivity {
         btnReportFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddExpense.this, MainActivity.class));
+                startActivity(new Intent(AddExpense.this, MonthlyReport.class));
             }
         });
         btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddExpense.this, MainActivity.class));
+                startActivity(new Intent(AddExpense.this, BigExpense_setup.class));
             }
         });
         btnProfileFooter.setOnClickListener(new View.OnClickListener() {

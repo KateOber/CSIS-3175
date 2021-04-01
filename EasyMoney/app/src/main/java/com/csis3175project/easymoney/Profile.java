@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.time.Month;
+
 public class Profile extends AppCompatActivity {
     EMDatabase databaseHelper;
     String email;
@@ -73,13 +75,13 @@ public class Profile extends AppCompatActivity {
         btnReportFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile.this, MainActivity.class));
+                startActivity(new Intent(Profile.this, MonthlyReport.class));
             }
         });
         btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile.this, MainActivity.class));
+                startActivity(new Intent(Profile.this, BigExpense_setup.class));
             }
         });
         btnProfileFooter.setOnClickListener(new View.OnClickListener() {
