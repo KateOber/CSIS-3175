@@ -53,10 +53,10 @@ public class Profile extends AppCompatActivity {
         currentSavings.setText("$"+savings);
 
         //footer buttons
-        Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
-        Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
-        Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
-        Button btnReportFooter = findViewById(R.id.reportTrackerFoot);
+        Button btnProfileFooter = findViewById(R.id.userProfileFoot);
+        Button btnExpenseTrackerFooter = findViewById(R.id.trackerProfileFoot);
+        Button btnBigExpenseFooter = findViewById(R.id.bEProfileFoot);
+        Button btnReportFooter = findViewById(R.id.reportProfileFoot);
 
         email = databaseHelper.getEmail(username);
 
