@@ -4,100 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BigExpense_setup"
-    android:background="#9E9E9E">
+    android:background="@color/gray6"
+    tools:context=".BigExpense_setup">
+
+    <EditText
+        android:id="@+id/editTextNumber2"
+        android:layout_width="314dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="39dp"
+        android:autofillHints=""
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="@string/bigExHint3"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BEPeriod" />
 
     <Spinner
         android:id="@+id/txtCatExpGroup"
         android:layout_width="314dp"
         android:layout_height="42dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="64dp"
         android:layout_marginBottom="420dp"
+        android:background="@color/white"
         android:entries="@array/categoriesExpense"
         android:prompt="@string/bigExHint1"
         android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle"
-        android:background="@color/white" />
-
-    <Spinner
-        android:id="@+id/txtPerExpGroup"
-        android:layout_width="314dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginBottom="356dp"
-        android:entries="@array/expensePeriod"
-        android:prompt="@string/bigExHint2"
-        android:spinnerMode="dialog"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCatExpGroup"
-        android:background="@color/white" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/BEPeriod"
         android:layout_width="314dp"
         android:layout_height="42dp"
         android:layout_marginStart="2dp"
-        android:layout_marginBottom="292dp"
+        android:layout_marginTop="39dp"
         android:autofillHints=""
+        android:background="@color/white"
         android:ems="10"
-        android:hint="@string/bigExHint3"
+        android:hint="@string/bigExHint2"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/white" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCatExpGroup" />
 
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/txtScrNameBE"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
-
-    <TextView
-        android:id="@+id/txtSubTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
         android:autofillHints=""
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/txtScrBESub"
-        android:textSize="10dp"
+        android:text="@string/txtScrNameBE"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtOutput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="178dp"
+        android:layout_marginRight="178dp"
+        android:layout_marginBottom="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BEPeriod" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnBigEx"
         android:layout_width="320dp"
         android:layout_height="52dp"
         android:layout_marginStart="45dp"
+        android:layout_marginTop="95dp"
         android:layout_marginEnd="46dp"
         android:layout_marginBottom="111dp"
         android:color="#36D1DC"
         android:text="@string/btnBigEx"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
+
     <Button
-        android:id="@+id/userReportFoot"
+        android:id="@+id/bigExUsTrackerFoot"
         android:layout_width="108dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -105,22 +106,21 @@
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bEReportFoot" />
+        app:layout_constraintStart_toEndOf="@+id/bEBexTrackerFoot" />
 
     <Button
-        android:id="@+id/bEReportFoot"
+        android:id="@+id/bEBexTrackerFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
         app:icon="@drawable/ic_bigexpenseinactive"
         app:iconGravity="top"
-        app:iconTint="#FFFFFF"
+        app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/reportReportFoot"
-        tools:iconTint="#676767" />
+        app:layout_constraintStart_toEndOf="@+id/reportBexTrackerFoot" />
 
     <Button
-        android:id="@+id/reportReportFoot"
+        android:id="@+id/reportBexTrackerFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -129,10 +129,10 @@
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/trackerReportFoot" />
+        app:layout_constraintStart_toEndOf="@+id/trackerBigExTrackerFoot" />
 
     <Button
-        android:id="@+id/trackerReportFoot"
+        android:id="@+id/trackerBigExTrackerFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"

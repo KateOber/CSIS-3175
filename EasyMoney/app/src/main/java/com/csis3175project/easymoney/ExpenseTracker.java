@@ -207,7 +207,7 @@ public class ExpenseTracker extends AppCompatActivity {
         btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ExpenseTracker.this, MainActivity.class));
+                startActivity(new Intent(ExpenseTracker.this, BigExpense_setup.class));
             }
         });
         btnProfileFooter.setOnClickListener(new View.OnClickListener() {
