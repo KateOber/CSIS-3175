@@ -12,7 +12,7 @@
         android:id="@+id/repoCardView3"
         android:layout_width="105dp"
         android:layout_height="87dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="43dp"
         android:layout_marginEnd="44dp"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/trackerIncomeTotaltxt"
+            android:id="@+id/trackerSavingsTotaltxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/trackerSavingsTotaltxt"
+            android:id="@+id/trackerIncomeTotaltxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
@@ -79,7 +79,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/userTrackerFoot"
+        android:id="@+id/userReportFoot"
         android:layout_width="108dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -87,10 +87,10 @@
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bETrackerFoot" />
+        app:layout_constraintStart_toEndOf="@+id/bEReportFoot" />
 
     <Button
-        android:id="@+id/bETrackerFoot"
+        android:id="@+id/bEReportFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -98,11 +98,11 @@
         app:iconGravity="top"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/reportTrackerFoot"
+        app:layout_constraintStart_toEndOf="@+id/reportReportFoot"
         tools:iconTint="#676767" />
 
     <Button
-        android:id="@+id/reportTrackerFoot"
+        android:id="@+id/reportReportFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -111,10 +111,10 @@
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/trackerTrackerFoot" />
+        app:layout_constraintStart_toEndOf="@+id/trackerReportFoot" />
 
     <Button
-        android:id="@+id/trackerTrackerFoot"
+        android:id="@+id/trackerReportFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -193,7 +193,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/trackerIncomeTotaltxt"
+            android:id="@+id/trackerSavingsTotaltxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -207,161 +207,128 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView7"
-        android:layout_width="385dp"
-        android:layout_height="209dp"
+        android:layout_width="381dp"
+        android:layout_height="256dp"
         android:layout_marginStart="14dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="4dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/userTrackerFoot"
+        app:layout_constraintBottom_toTopOf="@+id/userReportFoot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/trackerAddExpenseBtn">
 
-        <ImageView
-            android:id="@+id/trackerIcon4"
-            android:layout_width="37dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trackerIcon3" />
-
-        <ImageView
-            android:id="@+id/trackerIcon3"
-            android:layout_width="37dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trackerIcon2" />
-
-        <ImageView
-            android:id="@+id/trackerIcon2"
-            android:layout_width="37dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trackerIcon1" />
-
         <TextView
-            android:id="@+id/trackerExpenseDate2"
+            android:id="@+id/reportExpenseDate2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trackerExpenseDate1" />
+            app:layout_constraintTop_toBottomOf="@+id/reportExpenseDate1" />
 
         <TextView
-            android:id="@+id/trackerExpenseName1"
+            android:id="@+id/reportExpenseName1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            app:layout_constraintStart_toEndOf="@+id/trackerIcon1"
-            app:layout_constraintTop_toBottomOf="@+id/trackerExpenseHead" />
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ReportExpenseHead" />
 
         <TextView
-            android:id="@+id/trackerExpensePrice1"
+            android:id="@+id/reportExpensePrice1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="39dp"
-            android:layout_marginEnd="43dp"
-            android:text="N/A"
-            app:layout_constraintEnd_toStartOf="@+id/trackerExpenseDate1"
-            app:layout_constraintStart_toEndOf="@+id/trackerExpenseName1"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/trackerExpenseDate1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="39dp"
-            android:layout_marginEnd="16dp"
-            android:text="N/A"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="190dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtOptionId2"
+            android:id="@+id/reportExpenseDate1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/reportExpenseName2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="26dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportExpenseName1" />
+
+        <TextView
+            android:id="@+id/reportExpenseName3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="26dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportExpenseName2" />
+
+        <TextView
+            android:id="@+id/reportExpensePrice3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
-            app:layout_constraintStart_toEndOf="@+id/trackerIcon2"
-            app:layout_constraintTop_toBottomOf="@+id/trackerExpenseName1" />
-
-        <TextView
-            android:id="@+id/trackerExpenseName3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            app:layout_constraintStart_toEndOf="@+id/trackerIcon3"
-            app:layout_constraintTop_toBottomOf="@+id/txtOptionId2" />
-
-        <TextView
-            android:id="@+id/trackerExpensePrice3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="43dp"
-            app:layout_constraintEnd_toStartOf="@+id/trackerExpenseDate3"
-            app:layout_constraintStart_toEndOf="@+id/trackerExpenseName3"
-            app:layout_constraintTop_toBottomOf="@+id/trackerExpensePrice2" />
-
-        <TextView
-            android:id="@+id/trackerExpenseDate3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="190dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trackerExpenseDate2" />
+            app:layout_constraintTop_toBottomOf="@+id/reportExpensePrice2" />
 
         <TextView
-            android:id="@+id/trackerExpenseDate4"
+            android:id="@+id/reportExpenseDate3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trackerExpenseDate3" />
-
-        <TextView
-            android:id="@+id/trackerExpensePrice4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="43dp"
-            app:layout_constraintEnd_toStartOf="@+id/trackerExpenseDate4"
-            app:layout_constraintStart_toEndOf="@+id/trackerExpenseName4"
-            app:layout_constraintTop_toBottomOf="@+id/trackerExpensePrice3" />
-
-        <TextView
-            android:id="@+id/trackerExpenseName4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            app:layout_constraintStart_toEndOf="@+id/trackerIcon4"
-            app:layout_constraintTop_toBottomOf="@+id/trackerExpenseName3" />
-
-        <TextView
-            android:id="@+id/trackerExpensePrice2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
             android:layout_marginTop="26dp"
-            android:layout_marginEnd="43dp"
-            app:layout_constraintEnd_toStartOf="@+id/trackerExpenseDate2"
-            app:layout_constraintStart_toEndOf="@+id/txtOptionId2"
-            app:layout_constraintTop_toBottomOf="@+id/trackerExpensePrice1" />
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportExpenseDate2" />
 
         <TextView
-            android:id="@+id/trackerExpenseHead"
+            android:id="@+id/reportExpenseDate4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportExpenseDate3" />
+
+        <TextView
+            android:id="@+id/reportExpensePrice4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="190dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportExpensePrice3" />
+
+        <TextView
+            android:id="@+id/reportExpenseName4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="26dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportExpenseName3" />
+
+        <TextView
+            android:id="@+id/reportExpensePrice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="190dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportExpensePrice1" />
+
+        <TextView
+            android:id="@+id/ReportExpenseHead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -371,15 +338,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/trackerIcon1"
-            android:layout_width="37dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trackerExpenseHead"
-            app:srcCompat="@drawable/ic_other" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

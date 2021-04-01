@@ -112,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/goal1ListButton">
 
         <TextView
-            android:id="@+id/trackerExpensePrice2"
+            android:id="@+id/reportExpensePrice2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
@@ -156,7 +156,7 @@
         app:layout_constraintTop_toBottomOf="@+id/goalDiningCard">
 
         <TextView
-            android:id="@+id/trackerExpenseDate2"
+            android:id="@+id/reportExpenseDate2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
@@ -202,7 +202,7 @@
         app:layout_constraintTop_toBottomOf="@+id/goalEntertainmentCard">
 
         <TextView
-            android:id="@+id/trackerExpenseName3"
+            android:id="@+id/reportExpenseName3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
@@ -246,7 +246,7 @@
         app:layout_constraintTop_toBottomOf="@+id/goalGroceriesCard">
 
         <TextView
-            android:id="@+id/trackerExpensePrice3"
+            android:id="@+id/reportExpensePrice3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"

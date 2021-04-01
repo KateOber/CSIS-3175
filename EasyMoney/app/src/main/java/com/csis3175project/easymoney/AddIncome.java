@@ -42,7 +42,7 @@ public class AddIncome extends AppCompatActivity {
         databaseHelper = new EMDatabase(this);
 
         Button addIncomebtn = findViewById(R.id.addIncomebtn);
-        Button addIncomeBackbtn = findViewById(R.id.addIncomeBackbtn);
+        Button addIncomeBackbtn = findViewById(R.id.btnBack);
         TextInputEditText date_txt = findViewById(R.id.inputIncomeDate);
         TextInputEditText amount_txt = findViewById(R.id.IncomeAmountInput);
         TextInputEditText name_txt = findViewById(R.id.IncomenameInput);
@@ -50,10 +50,10 @@ public class AddIncome extends AppCompatActivity {
         CheckBox recurring_checkbox = findViewById(R.id.checkbox_recurInc);
 
         //footer buttons
-        Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
-        Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
-        Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
-        Button btnReportFooter = findViewById(R.id.reportTrackerFoot);
+        Button btnProfileFooter = findViewById(R.id.userReportFoot);
+        Button btnExpenseTrackerFooter = findViewById(R.id.trackerReportFoot);
+        Button btnBigExpenseFooter = findViewById(R.id.bEReportFoot);
+        Button btnReportFooter = findViewById(R.id.reportReportFoot);
 
         //setup date picker
         date_txt.setOnClickListener(new View.OnClickListener() {

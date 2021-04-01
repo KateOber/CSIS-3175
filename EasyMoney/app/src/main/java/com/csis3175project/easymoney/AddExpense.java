@@ -50,10 +50,10 @@ public class AddExpense extends AppCompatActivity {
         CheckBox recurring_checkbox = findViewById(R.id.checkbox_recurExp);
 
         //footer buttons
-        Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
-        Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
-        Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
-        Button btnReportFooter = findViewById(R.id.reportTrackerFoot);
+        Button btnProfileFooter = findViewById(R.id.userReportFoot);
+        Button btnExpenseTrackerFooter = findViewById(R.id.trackerReportFoot);
+        Button btnBigExpenseFooter = findViewById(R.id.bEReportFoot);
+        Button btnReportFooter = findViewById(R.id.reportReportFoot);
 
 
         //setup date picker

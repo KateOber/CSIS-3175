@@ -15,6 +15,7 @@
         <activity android:name=".AddSavings" />
         <activity android:name=".AddExpense" />
         <activity android:name=".RecurringBills" />
+        <activity android:name=".MonthlyReport" />
         <activity android:name=".Profile" />
         <activity android:name=".expenseGoal2" />
         <activity android:name=".ExpenseGoal" />

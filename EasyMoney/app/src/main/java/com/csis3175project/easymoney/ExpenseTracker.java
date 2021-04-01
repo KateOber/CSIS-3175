@@ -9,11 +9,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -50,7 +48,7 @@ public class ExpenseTracker extends AppCompatActivity {
         Button addExpensebtn = findViewById(R.id.trackerAddExpenseBtn);
         Button addSavingsbtn = findViewById(R.id.trackerAddSavingsbtn);
 
-        TextView totalIncometxt = findViewById(R.id.trackerIncomeTotaltxt);
+        TextView totalIncometxt = findViewById(R.id.trackerSavingsTotaltxt);
         double totalIncome=0;
 
         if(income.getCount()>0){
@@ -62,7 +60,7 @@ public class ExpenseTracker extends AppCompatActivity {
         }
         netIncome = totalIncome;
 
-        TextView totalSavingstxt = findViewById(R.id.trackerSavingsTotaltxt);
+        TextView totalSavingstxt = findViewById(R.id.trackerIncomeTotaltxt);
         totalSavingstxt.setText("$"+savings);
         TextView totalDAtxt = findViewById(R.id.DATotaltxt);
         double DA = database.getDAllowance(username);
@@ -73,20 +71,20 @@ public class ExpenseTracker extends AppCompatActivity {
         SimpleDateFormat df = new SimpleDateFormat("yyyy/M/dd", Locale.getDefault());
         String formattedDate = df.format(c);
 
-        TextView expensePrice1 = findViewById(R.id.trackerExpensePrice1);
-        TextView expensePrice2 = findViewById(R.id.trackerExpensePrice2);
-        TextView expensePrice3 = findViewById(R.id.trackerExpensePrice3);
-        TextView expensePrice4 = findViewById(R.id.trackerExpensePrice4);
+        TextView expensePrice1 = findViewById(R.id.reportExpensePrice1);
+        TextView expensePrice2 = findViewById(R.id.reportExpensePrice2);
+        TextView expensePrice3 = findViewById(R.id.reportExpensePrice3);
+        TextView expensePrice4 = findViewById(R.id.reportExpensePrice4);
 
-        TextView expenseDate1 = findViewById(R.id.trackerExpenseDate1);
-        TextView expenseDate2 = findViewById(R.id.trackerExpenseDate2);
-        TextView expenseDate3 = findViewById(R.id.trackerExpenseDate3);
-        TextView expenseDate4 = findViewById(R.id.trackerExpenseDate4);
+        TextView expenseDate1 = findViewById(R.id.reportExpenseDate1);
+        TextView expenseDate2 = findViewById(R.id.reportExpenseDate2);
+        TextView expenseDate3 = findViewById(R.id.reportExpenseDate3);
+        TextView expenseDate4 = findViewById(R.id.reportExpenseDate4);
 
-        TextView expenseName1 = findViewById(R.id.trackerExpenseName1);
+        TextView expenseName1 = findViewById(R.id.reportExpenseName1);
         TextView expenseName2 = findViewById(R.id.trackerExpenseName2);
-        TextView expenseName3 = findViewById(R.id.trackerExpenseName3);
-        TextView expenseName4 = findViewById(R.id.trackerExpenseName4);
+        TextView expenseName3 = findViewById(R.id.reportExpenseName3);
+        TextView expenseName4 = findViewById(R.id.reportExpenseName4);
 
         String expenseName, expenseDate;
         double expenseAmmount;
@@ -147,10 +145,10 @@ public class ExpenseTracker extends AppCompatActivity {
         totalIncometxt.setText("$"+formatIncome);
         totalDAtxt.setText("$"+DAF);
         //footer buttons
-        Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
-        Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
-        Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
-        Button btnReportFooter = findViewById(R.id.reportTrackerFoot);
+        Button btnProfileFooter = findViewById(R.id.userReportFoot);
+        Button btnExpenseTrackerFooter = findViewById(R.id.trackerReportFoot);
+        Button btnBigExpenseFooter = findViewById(R.id.bEReportFoot);
+        Button btnReportFooter = findViewById(R.id.reportReportFoot);
 
 
         gotoTrackerbtn.setOnClickListener(new View.OnClickListener() {
@@ -195,7 +193,7 @@ public class ExpenseTracker extends AppCompatActivity {
         btnReportFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ExpenseTracker.this, MainActivity.class));
+                startActivity(new Intent(ExpenseTracker.this, MonthlyReport.class));
             }
         });
         btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {

@@ -122,7 +122,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtEntBExpPeriod">
 
         <TextView
-            android:id="@+id/txtOptionId2"
+            android:id="@+id/reportExpenseName2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
@@ -142,10 +142,10 @@
             android:text="@string/txtBEOptionName2"
             android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtOptionId2" />
+            app:layout_constraintTop_toBottomOf="@+id/reportExpenseName2" />
 
         <TextView
-            android:id="@+id/trackerExpenseName4"
+            android:id="@+id/reportExpenseName4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
@@ -191,7 +191,7 @@
             tools:ignore="DuplicateIds" />
 
         <TextView
-            android:id="@+id/trackerExpenseName3"
+            android:id="@+id/reportExpenseName3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
@@ -212,7 +212,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/trackerExpenseName3" />
+            app:layout_constraintTop_toBottomOf="@+id/reportExpenseName3" />
 
         <CheckBox
             android:id="@+id/checkBox3"
@@ -226,7 +226,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/userTrackerFoot"
+        android:id="@+id/userReportFoot"
         android:layout_width="108dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -234,10 +234,10 @@
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bETrackerFoot" />
+        app:layout_constraintStart_toEndOf="@+id/bEReportFoot" />
 
     <Button
-        android:id="@+id/bETrackerFoot"
+        android:id="@+id/bEReportFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -245,11 +245,11 @@
         app:iconGravity="top"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/reportTrackerFoot"
+        app:layout_constraintStart_toEndOf="@+id/reportReportFoot"
         tools:iconTint="#676767" />
 
     <Button
-        android:id="@+id/reportTrackerFoot"
+        android:id="@+id/reportReportFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
@@ -258,10 +258,10 @@
         app:iconGravity="top"
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/trackerTrackerFoot" />
+        app:layout_constraintStart_toEndOf="@+id/trackerReportFoot" />
 
     <Button
-        android:id="@+id/trackerTrackerFoot"
+        android:id="@+id/trackerReportFoot"
         android:layout_width="102dp"
         android:layout_height="64dp"
         android:backgroundTint="#FFFFFF"
