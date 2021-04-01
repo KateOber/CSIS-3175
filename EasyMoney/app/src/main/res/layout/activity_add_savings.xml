@@ -6,32 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".AddSavings">
 
-    <Button
-        android:id="@+id/addSavingsBackbtn"
-        android:layout_width="55dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="#00FFFFFF"
-        app:icon="@drawable/btn_backbutton"
-        app:iconGravity="top"
-        app:iconTint="#676767"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/addSavingsHead"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="127dp"
-        android:text="@string/addSavingsHead"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addSavingsBackbtn"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/Savingsammount"
@@ -57,15 +31,45 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+    <!--back button-->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/description_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_backbutton" />
+
+
+    <TextView
+        android:id="@+id/addSavingsHead"
+        style="@style/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/addSavingsHead"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
     <!--Footer Buttons -->
 
     <Button
         android:id="@+id/addSavingsbtn"
-        android:layout_width="380dp"
+        style="@style/btnTextStyle1"
+        android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="106dp"
         android:text="@string/trackerAddSavings"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -119,6 +123,5 @@
         app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
