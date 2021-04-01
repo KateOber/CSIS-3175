@@ -3,7 +3,9 @@ package com.csis3175project.easymoney;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,19 +37,21 @@ public class BigExpense_setup extends AppCompatActivity {
         Button btnExpenseTrackerFooter = findViewById(R.id.trackerBigExTrackerFoot);
         Button btnBigExpenseFooter = findViewById(R.id.bEBexTrackerFoot);
         Button btnReportFooter = findViewById(R.id.reportBexTrackerFoot);
-
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPref.edit();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 try {
                     costOfExpense = Double.parseDouble(cost.getText().toString());
                     expensePeriod = Integer.parseInt(groupPeriod.getText().toString());
                     categoriesExpense = groupCat.getSelectedItem().toString();
-                    Intent intent = new Intent( BigExpense_setup.this,BigExpenses_main.class);
-                    intent.putExtra("cost", costOfExpense);
-                    intent.putExtra("Period",expensePeriod);
-                    intent.putExtra("cat",categoriesExpense);
-                    startActivity(intent);
+                    editor.putString("cost", Double.toString(costOfExpense));
+                    editor.putInt("period", expensePeriod);
+                    editor.putString("cat", categoriesExpense);
+                    editor.commit();
+                    startActivity(new Intent(BigExpense_setup.this, BigExpenses_main.class));
                 } catch (NumberFormatException ex) {
                     output.setText("Enter the cost of expense");
                 }
@@ -64,7 +68,7 @@ public class BigExpense_setup extends AppCompatActivity {
         btnReportFooter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BigExpense_setup.this, MainActivity.class));
+                startActivity(new Intent(BigExpense_setup.this, MonthlyReport.class));
             }
         });
         btnBigExpenseFooter.setOnClickListener(new View.OnClickListener() {

@@ -68,9 +68,9 @@
     <string name="txtBEOption1">Option 1</string>
     <string name="txtBEOption2">Option 2</string>
     <string name="txtBEOption3">Option 3</string>
-    <string name="txtBEOptionName1">Cut down daily expense to</string>
-    <string name="txtBEOptionName2">Cut down savings to</string>
-    <string name="txtBEOptionName3">Get a loan</string>
+    <string name="txtBEOptionName1">Cut down expense by</string>
+    <string name="txtBEOptionName2">Cut down savings by</string>
+    <string name="txtBEOptionName3">Get a loan for</string>
     <string name="txtScrBESub">Set up your expense</string>
     <string name="bigExHint1">Category of big expense</string>
     <string name="bigExHint2">Big Expense Period</string>

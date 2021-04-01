@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -30,7 +29,7 @@ public class AddSavings extends AppCompatActivity {
         databaseHelper = new EMDatabase(this);
 
         Button addSavingsbtn = findViewById(R.id.addSavingsbtn);
-        ImageView addSavingsBackbtn = findViewById(R.id.btnBack);
+        Button addSavingsBackbtn = findViewById(R.id.btnBack);
         TextInputEditText savingsAmount_txt = findViewById(R.id.SavingsammountInput);
 
         addSavingsbtn.setOnClickListener(new View.OnClickListener() {
@@ -47,12 +46,15 @@ public class AddSavings extends AppCompatActivity {
                         boolean savingsUpdated = databaseHelper.updateSavings(currentSavings+amount, username);
 
                         if(savingsUpdated)
-                        Toast.makeText(AddSavings.this,
-                                "Saving Added", Toast.LENGTH_SHORT).show();
+                            Message.message(AddSavings.this, "Saving Added");
+                        else{
+                            long createMisc = databaseHelper.insertMISCData(username,0,amount);
+                            if(createMisc > 0)
+                                Message.message(AddSavings.this, "Saving Added");
+                            else
+                                Message.message(AddSavings.this, "Error");
+                        }
 
-                        else
-                            Toast.makeText(AddSavings.this,
-                            "Error", Toast.LENGTH_SHORT).show();
                     }
             }
         });
@@ -60,9 +62,8 @@ public class AddSavings extends AppCompatActivity {
         addSavingsBackbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                startActivity(new Intent(AddSavings.this, ExpenseTracker.class));
             }
         });
     }
 }
-

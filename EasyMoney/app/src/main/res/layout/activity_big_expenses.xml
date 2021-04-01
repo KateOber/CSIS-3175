@@ -27,9 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="146dp"
         android:layout_marginTop="10dp"
-        android:text="TextView"
-        android:textSize="30sp"
         android:textColor="#000000"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
@@ -40,7 +39,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEnteredExp" />
 
@@ -50,7 +48,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEntBExpCat" />
 
@@ -93,7 +90,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
             android:layout_marginTop="7dp"
-            android:text="CAD"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -145,12 +141,11 @@
             app:layout_constraintTop_toBottomOf="@+id/txtOptionId2" />
 
         <TextView
-            android:id="@+id/trackerExpenseName4"
+            android:id="@+id/txtAmount2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
             android:layout_marginTop="7dp"
-            android:text="CAD"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -172,7 +167,7 @@
         android:id="@+id/option3BigExp"
         android:layout_width="375dp"
         android:layout_height="120dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="296dp"
         android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
@@ -202,12 +197,11 @@
             app:layout_constraintTop_toBottomOf="@+id/txtOptionId3" />
 
         <TextView
-            android:id="@+id/txtOptionName3"
+            android:id="@+id/txtAmount3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
             android:layout_marginTop="7dp"
-            android:text="CAD"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -243,10 +237,9 @@
         android:backgroundTint="#FFFFFF"
         app:icon="@drawable/ic_bigexpenseinactive"
         app:iconGravity="top"
-        app:iconTint="#FFFFFF"
+        app:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/reportBexTrackerFoot"
-        tools:iconTint="#676767" />
+        app:layout_constraintStart_toEndOf="@+id/reportBexTrackerFoot" />
 
     <Button
         android:id="@+id/reportBexTrackerFoot"
