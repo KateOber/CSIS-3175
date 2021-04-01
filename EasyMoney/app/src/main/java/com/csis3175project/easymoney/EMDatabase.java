@@ -530,7 +530,7 @@ public class EMDatabase {
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(myDbHelper.DAILYA,savings);
+        contentValues.put(myDbHelper.SAVINGS,savings);
         String[] whereArgs= {username};
         int count =db.update(myDbHelper.TABLE_MISC,contentValues, myDbHelper.USERNAME+" = ?",whereArgs );
         if(count>0)

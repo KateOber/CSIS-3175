@@ -24,8 +24,8 @@ public class ExpenseTracker extends AppCompatActivity {
     EMDatabase database;
     Cursor expenses;
     Cursor income;
-    double savings, EA1, EA2, EA3, EA4, todayExpense, DAT, DAF;
-    String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4;
+    double savings, EA1, EA2, EA3, EA4, todayExpense, DAT, DAF, netIncome;
+    String EN1,EN2,EN3,EN4, ED1, ED2, ED3, ED4, formatIncome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +35,7 @@ public class ExpenseTracker extends AppCompatActivity {
         String username = sharedPref.getString("username","");
 
         todayExpense = 0;
+        netIncome = 0;
         DAT = 0;
 
         database = new EMDatabase(this);
@@ -59,18 +60,15 @@ public class ExpenseTracker extends AppCompatActivity {
                 }
             }
         }
-        totalIncometxt.setText("$"+totalIncome);
+        netIncome = totalIncome;
+
         TextView totalSavingstxt = findViewById(R.id.trackerSavingsTotaltxt);
         totalSavingstxt.setText("$"+savings);
         TextView totalDAtxt = findViewById(R.id.DATotaltxt);
         double DA = database.getDAllowance(username);
         totalDAtxt.setText("$"+DA);
 
-        Date c = Calendar.getInstance().getTime();
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        String formattedDate = df.format(c);
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         TextView expensePrice1 = findViewById(R.id.trackerExpensePrice1);
         TextView expensePrice2 = findViewById(R.id.trackerExpensePrice2);
@@ -87,6 +85,12 @@ public class ExpenseTracker extends AppCompatActivity {
         TextView expenseName3 = findViewById(R.id.trackerExpenseName3);
         TextView expenseName4 = findViewById(R.id.trackerExpenseName4);
 
+        Date c = Calendar.getInstance().getTime();
+
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String formattedDate = df.format(c);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
         String expenseName, expenseDate;
         double expenseAmmount;
         int i=1;
@@ -96,6 +100,7 @@ public class ExpenseTracker extends AppCompatActivity {
                 expenseAmmount = expenses.getDouble(3);
                 expenseName = expenses.getString(2);
                 if (expenses.getString(1).equals(username)) {
+                    netIncome -= expenseAmmount;
                     try {
                         Date date = format.parse(expenseDate);
                         if (formattedDate.equals(date)) {
@@ -144,8 +149,8 @@ public class ExpenseTracker extends AppCompatActivity {
         Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
         Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
         Button btnReportFooter = findViewById(R.id.reportTrackerFoot);
-
-
+        formatIncome = String.format("%.2f", netIncome);
+        totalIncometxt.setText("$"+formatIncome);
         gotoTrackerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
