@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
 
 
-        ImageView btnBack = findViewById(R.id.btnBack);
+        ImageView btnBack = findViewById(R.id.btnBackBills);
         Button btnLogin = findViewById(R.id.btnLogin);
 
         TextView btnSignUp = findViewById(R.id.btnGoSignUpWelcome);
@@ -55,11 +55,14 @@ public class LoginActivity extends AppCompatActivity {
                     if(myhelper.getAdmin(inputUserName) == 1){
                         startActivity(new Intent(LoginActivity.this,UpdatePassword.class));
                     }
+                    else{
+                        Toast.makeText(LoginActivity.this, "Welcome, " + inputUserName, Toast.LENGTH_LONG).show();
+                        editor.putString("username", inputUserName);
+                        editor.commit();
+                        startActivity(new Intent(LoginActivity.this, ExpenseTracker.class));
+                    }
 
-                    Toast.makeText(LoginActivity.this, "Welcome, " + inputUserName, Toast.LENGTH_LONG).show();
-                    editor.putString("username", inputUserName);
-                    editor.commit();
-                    startActivity(new Intent(LoginActivity.this, ExpenseTracker.class));
+
 
                 } else {
                     Toast.makeText(LoginActivity.this, "Please check username or password again", Toast.LENGTH_LONG).show();
