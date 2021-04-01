@@ -58,11 +58,13 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (inputUserEmail.equals("")) {
                     dialog = builder.setMessage("Please Enter user name").setPositiveButton("OK", null).create();
+                    dialog.show();
                         userEmail.requestFocus();
                         return;
                 }
                 if (inputUserPassword.equals("")) {
                     dialog = builder.setMessage("Please Enter password").setPositiveButton("OK", null).create();
+                    dialog.show();
                         userPassword.requestFocus();
                         return;
                 }

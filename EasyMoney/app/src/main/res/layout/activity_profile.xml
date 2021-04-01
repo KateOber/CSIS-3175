@@ -26,10 +26,9 @@
         android:backgroundTint="#FFFFFF"
         app:icon="@drawable/ic_bigexpenseinactive"
         app:iconGravity="top"
-        tools:iconTint="#676767"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/reportProfileFoot"
-        />
+        tools:iconTint="#676767" />
 
     <Button
         android:id="@+id/reportProfileFoot"
@@ -73,6 +72,7 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="#00FFFFFF"
         android:outlineProvider="none"
+        android:visibility="invisible"
         app:icon="@drawable/ic_help"
         app:iconTint="#676767"
         app:layout_constraintEnd_toEndOf="parent"
