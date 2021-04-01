@@ -46,12 +46,15 @@ public class AddSavings extends AppCompatActivity {
                         boolean savingsUpdated = databaseHelper.updateSavings(currentSavings+amount, username);
 
                         if(savingsUpdated)
-                        Toast.makeText(AddSavings.this,
-                                "Saving Added", Toast.LENGTH_SHORT).show();
+                            Message.message(AddSavings.this, "Saving Added");
+                        else{
+                            long createMisc = databaseHelper.insertMISCData(username,0,amount);
+                            if(createMisc > 0)
+                                Message.message(AddSavings.this, "Saving Added");
+                            else
+                                Message.message(AddSavings.this, "Error");
+                        }
 
-                        else
-                            Toast.makeText(AddSavings.this,
-                            "Error", Toast.LENGTH_SHORT).show();
                     }
             }
         });
