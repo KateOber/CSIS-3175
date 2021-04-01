@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -17,7 +18,8 @@ public class Profile extends AppCompatActivity {
     EMDatabase databaseHelper;
     String email;
     StringBuilder name;
-    Double income,savings;
+    Cursor income;
+    Double savings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,27 +30,34 @@ public class Profile extends AppCompatActivity {
 
         //initialize dbHelper
         databaseHelper = new EMDatabase(this);
+        savings = databaseHelper.getSavings(username);
+        income = databaseHelper.getINCOMEData();
+        double totalIncome=0;
+        if(income.getCount()>0){
+            while(income.moveToNext()){
+                if(income.getString(1).equals(username)){
+                    totalIncome += income.getDouble(3);
+                }
+            }
+        }
 
-        ConstraintLayout logoutCart = findViewById(R.id.profileLogOutcard);
-        Button logoutBtn =  findViewById(R.id.profileLogOutBtn);
-        Button editMontlyIncome = findViewById(R.id.profileEditIncomebtn);
-        Button editCurrSavings = findViewById(R.id.profileEditSavingbtn);
-        ConstraintLayout editExpenseGoal = findViewById(R.id.profileExpenseGoalcard);
-        ConstraintLayout editRecurringBills = findViewById(R.id.profileRecBillcard);
-        Button editProfile = findViewById(R.id.editProfileBtn);
+        Button logoutBtn =  findViewById(R.id.profileLogOutbtn);
+        Button gotoBills = findViewById(R.id.profileGoRecurringBtn);
+        Button gotoGoals = findViewById(R.id.profileGoGoalBtn);
 
         TextView name_txt = findViewById(R.id.profileNametxt);
         TextView email_txt = findViewById(R.id.profileEmailtxt);
         TextView monthlyIncome = findViewById(R.id.profileMonthOutputtxt);
+        monthlyIncome.setText("$"+totalIncome);
         TextView currentSavings = findViewById(R.id.profileSavingOutputtxt);
+        currentSavings.setText("$"+savings);
 
         //footer buttons
-        Button btnProfileFooter = findViewById(R.id.userTrackerFoot);
-        Button btnExpenseTrackerFooter = findViewById(R.id.trackerTrackerFoot);
-        Button btnBigExpenseFooter = findViewById(R.id.bETrackerFoot);
-        Button btnReportFooter = findViewById(R.id.reportTrackerFoot);
+        Button btnProfileFooter = findViewById(R.id.userProfileFoot);
+        Button btnExpenseTrackerFooter = findViewById(R.id.trackerProfileFoot);
+        Button btnBigExpenseFooter = findViewById(R.id.bEProfileFoot);
+        Button btnReportFooter = findViewById(R.id.reportProfileFoot);
 
-        name = databaseHelper.getEName(username);
         email = databaseHelper.getEmail(username);
 
         name_txt.setText(username);
@@ -77,6 +86,26 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Profile.this, Profile.class));
+            }
+        });
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+        gotoBills.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile.this, RecurringBills.class));
+            }
+        });
+        gotoGoals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile.this, ExpenseGoal.class));
             }
         });
     }
