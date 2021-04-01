@@ -1,0 +1,69 @@
+@@ -1,68 +0,0 @@
+    <?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecurringBillsCalendar">
+
+
+    <Button
+        android:id="@+id/btnBackBills"
+        android:layout_width="89dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/btn_back"
+        app:icon="@drawable/btn_backbutton"
+        app:iconTint="#676767"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_recurringBills"
+        android:layout_width="203dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="116dp"
+        android:text="@string/txt_recurring_bills"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.applandeo.materialcalendarview.CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="403dp"
+        android:layout_height="415dp"
+        android:layout_marginTop="5dp"
+        app:highlightedDaysLabelsColor="#00BCD4"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_addRecurringBills"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_recurringBills"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_addRecurringBills"
+        style="@style/btnTextStyle1"
+        android:layout_width="354dp"
+        android:layout_height="43dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="132dp"
+        android:background="@drawable/style_btn_blue"
+        android:enabled="true"
+        android:text="@string/btn_add_expense"
+        app:icon="@drawable/ic_iconadd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
