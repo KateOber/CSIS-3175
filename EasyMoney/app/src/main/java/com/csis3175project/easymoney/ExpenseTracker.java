@@ -54,7 +54,7 @@ public class ExpenseTracker extends AppCompatActivity {
         if(income.getCount()>0){
             while(income.moveToNext()){
                 if(income.getString(1).equals(username)){
-                    if(income.getInt(5) == 1) recurringIncome+=income.getDouble(3);
+                    if(income.getInt(6) == 1) recurringIncome+=income.getDouble(3);
                     totalIncome += income.getDouble(3);
                 }
             }
@@ -139,10 +139,8 @@ public class ExpenseTracker extends AppCompatActivity {
         }
         Calendar month = Calendar.getInstance();
         int monthMaxDays = month.getActualMaximum(Calendar.DAY_OF_MONTH);
-        if(DA <= 0){
-            DA = (recurringIncome-recurringExpense) / monthMaxDays;
-            database.updateDAllowance(DA, username);
-        }
+        DA = (recurringIncome - recurringExpense) / monthMaxDays;
+        database.updateDAllowance(DA, username);
         DAF = DA - todayExpense;
         DAU = todayExpense/DA*100;
         DAP = (int) DAU;
@@ -153,7 +151,7 @@ public class ExpenseTracker extends AppCompatActivity {
         formatIncome = String.format("%.2f", netIncome);
         totalIncometxt.setText("$"+formatIncome);
         formatDA = String.format("%.2f", DAF);
-        totalDAtxt.setText("$"+DAF);
+        totalDAtxt.setText("$"+formatDA);
         //footer buttons
         Button btnProfileFooter = findViewById(R.id.userReportFoot);
         Button btnExpenseTrackerFooter = findViewById(R.id.trackerReportFoot);

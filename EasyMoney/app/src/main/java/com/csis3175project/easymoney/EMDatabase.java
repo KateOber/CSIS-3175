@@ -50,6 +50,7 @@ public class EMDatabase {
         contentValues.put(myDbHelper.USERNAME, username);
         contentValues.put(myDbHelper.INAME, IName);
         contentValues.put(myDbHelper.AMOUNT, amount);
+        contentValues.put(myDbHelper.DATE, date);
         contentValues.put(myDbHelper.CATEGORY, cat);
         contentValues.put(myDbHelper.RECURRING, recurring);
 
