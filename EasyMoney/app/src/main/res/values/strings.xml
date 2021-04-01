@@ -74,7 +74,7 @@
     <string name="txtScrBESub">Set up your expense</string>
     <string name="bigExHint1">Category of big expense</string>
     <string name="bigExHint2">Big Expense Period</string>
-    <string name="bigExHint3">Amount of estimated cost</string>
+    <string name="bigExHint3">Cost of your purchase</string>
     <string name="bigEx">Edit Profile</string>
     <string name="btnBigEx">SET BIG EXPENSE</string>
     <string-array name="expensePeriod">

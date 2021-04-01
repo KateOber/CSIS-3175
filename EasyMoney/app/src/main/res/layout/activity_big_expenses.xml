@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BigExpenses_main"
-    android:background="#9E9E9E">
+    android:background="@color/gray6"
+    tools:context=".BigExpenses_main">
 
     <TextView
         android:id="@+id/txtTitle"
@@ -28,8 +28,8 @@
         android:layout_marginStart="146dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
-        android:textSize="30sp"
         android:textColor="#000000"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
@@ -41,6 +41,7 @@
         android:layout_marginStart="176dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEnteredExp" />
 
@@ -51,6 +52,7 @@
         android:layout_marginStart="176dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEntBExpCat" />
 
@@ -88,7 +90,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtOptionId1" />
 
         <TextView
-            android:id="@+id/txtAmount1"
+            android:id="@+id/txtAmountDaily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
@@ -145,7 +147,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtOptionId2" />
 
         <TextView
-            android:id="@+id/trackerExpenseName4"
+            android:id="@+id/txtCutSavings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
@@ -202,7 +204,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtOptionId3" />
 
         <TextView
-            android:id="@+id/txtOptionName3"
+            android:id="@+id/txtGetLoanAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"

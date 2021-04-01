@@ -84,7 +84,7 @@ public class ExpenseTracker extends AppCompatActivity {
         TextView expenseName1 = findViewById(R.id.trackerExpenseName1);
         TextView expenseName2 = findViewById(R.id.trackerExpenseName2);
         TextView expenseName3 = findViewById(R.id.trackerExpenseName3);
-        TextView expenseName4 = findViewById(R.id.trackerExpenseName4);
+        TextView expenseName4 = findViewById(R.id.txtCutSavings);
 
         String expenseName, expenseDate;
         double expenseAmmount;

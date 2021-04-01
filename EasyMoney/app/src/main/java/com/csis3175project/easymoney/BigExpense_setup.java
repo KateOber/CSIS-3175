@@ -41,8 +41,13 @@ public class BigExpense_setup extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     costOfExpense = Integer.parseInt(cost.getText().toString());
+                    String selectedCat = groupCat.getSelectedItem().toString();
+                    String selectedPeriod = groupPeriod.getSelectedItem().toString();
+
                     Intent intent = new Intent( BigExpense_setup.this,BigExpenses_main.class);
                     intent.putExtra("cost", costOfExpense);
+                    intent.putExtra("category", selectedCat);
+                    intent.putExtra("period", selectedPeriod);
                     startActivity(intent);
                 } catch (NumberFormatException ex) {
                     output.setText("Enter the cost of expense");
