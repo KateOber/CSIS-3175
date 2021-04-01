@@ -23,7 +23,7 @@ public class BigExpenses_main extends AppCompatActivity {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         String username = sharedPref.getString("username","");
         String category = sharedPref.getString("cat", "");
-        int period = sharedPref.getInt("Period", 0);
+        int period = sharedPref.getInt("period", 0);
         String stringAmount = sharedPref.getString("cost", "");
         double amount = Double.parseDouble(stringAmount);
         String formatPerMonth;

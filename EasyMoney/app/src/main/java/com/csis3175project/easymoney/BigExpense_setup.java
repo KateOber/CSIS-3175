@@ -25,8 +25,8 @@ public class BigExpense_setup extends AppCompatActivity {
         setContentView(R.layout.activity_big_expense_setup);
 
         Spinner groupCat = findViewById(R.id.txtCatExpGroup);
-        TextView groupPeriod = findViewById(R.id.BEPeriod);
-        EditText cost = findViewById(R.id.BEPeriod);
+        EditText groupPeriod = findViewById(R.id.BEPeriod);
+        EditText cost = findViewById(R.id.editTextNumber2);
         TextView output = findViewById(R.id.txtOutput);
 
         Button button = findViewById(R.id.btnBigEx);
