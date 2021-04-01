@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
@@ -42,7 +43,7 @@ public class AddIncome extends AppCompatActivity {
         databaseHelper = new EMDatabase(this);
 
         Button addIncomebtn = findViewById(R.id.addIncomebtn);
-        Button addIncomeBackbtn = findViewById(R.id.addIncomeBackbtn);
+        ImageView addIncomeBackbtn = findViewById(R.id.btnBack);
         TextInputEditText date_txt = findViewById(R.id.inputIncomeDate);
         TextInputEditText amount_txt = findViewById(R.id.IncomeAmountInput);
         TextInputEditText name_txt = findViewById(R.id.IncomenameInput);
